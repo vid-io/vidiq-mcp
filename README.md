@@ -74,17 +74,41 @@ right workflow. Shared rules cover evidence quality and current tool costs; disc
 production, and job-recovery guidance loads when relevant to the request. The capabilities and
 prices shown in your connected client apply.
 
-Marketplace listings are distributed separately. For local preview, clone or download this
-repository and follow your client's local-plugin flow. Install from a clean clone or archive, and
-keep ignored files, local credentials, and other local-only files out of the package.
+For local preview, clone or download this repository and follow your client's local-plugin flow.
+Install from a clean clone or archive, and keep ignored files, local credentials, and other
+local-only files out of the package.
 
 | Client | Local preview |
 | --- | --- |
 | [Claude Code](https://code.claude.com/docs/en/plugins) | `claude --plugin-dir /absolute/path/to/vidiq-mcp` (current session) |
-| [Cursor](https://prod.cursor.com/docs/reference/plugins) | `mkdir -p ~/.cursor/plugins/local`<br>`ln -s /absolute/path/to/vidiq-mcp ~/.cursor/plugins/local/vidiq` |
+| [Cursor](https://cursor.com/docs/plugins#test-plugins-locally) | Put the release files in `~/.cursor/plugins/local/vidiq`, then reload Cursor. Expand the Cursor steps below. |
 | [GitHub Copilot CLI](https://docs.github.com/en/copilot/reference/copilot-cli-reference/cli-plugin-reference) | `copilot plugin marketplace add /absolute/path/to/vidiq-mcp`<br>`copilot plugin install vidiq@vidiq-plugins` |
 | [Gemini CLI](https://geminicli.com/docs/extensions/reference/) | `gemini extensions link /absolute/path/to/vidiq-mcp` |
 | [Codex](https://developers.openai.com/plugins/build/plugins#install-a-local-plugin-manually) | Put the checkout at `<marketplace-root>/plugins/vidiq`, add the marketplace, then install `vidiq@vidiq-local`. Expand the Codex steps below. |
+
+On Cursor Teams and Enterprise, you can also
+[import this repository into a private team marketplace](https://cursor.com/docs/plugins#add-a-team-marketplace).
+
+<details>
+<summary>Cursor local installation steps</summary>
+
+1. Download this repository with **Code → Download ZIP** and extract it.
+2. Create `~/.cursor/plugins/local` if needed, then place the extracted folder there as `vidiq`.
+   Keep the entire folder, including hidden files: `.cursor-plugin/plugin.json` and `.mcp.json`
+   must be directly inside `~/.cursor/plugins/local/vidiq`.
+3. Restart Cursor or run **Developer: Reload Window** from the Command Palette.
+4. Open **Customize** and confirm that vidIQ's skills, lifecycle rule, and MCP server appear.
+   Authorize the MCP connection when prompted.
+
+Use a real directory: Cursor skips symlinks pointing outside `~/.cursor/plugins/local`.
+If `vidiq` already exists there, remove only the symlink or move the existing directory aside first.
+
+For Teams and Enterprise, your administrator must enable **Allow Local Plugin Imports** under
+**Dashboard → Settings → Security & Identity → Marketplace and Plugins**. Enterprise disables
+this by default. An installed marketplace plugin with the same name takes precedence over a
+local copy.
+
+</details>
 
 <details>
 <summary>Codex local installation steps</summary>
