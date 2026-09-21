@@ -1,0 +1,53 @@
+# vidIQ MCP
+
+> Official vidIQ MCP plugin. Bring live YouTube, Instagram, and available TikTok intelligence,
+> channel analytics, and ready-to-use creator workflows into your AI assistant.
+
+The service endpoint is https://mcp.vidiq.com/mcp and uses browser-based vidIQ authorization in
+compatible clients. This repository contains public plugin manifests, connection metadata, and
+workflow guidance for the hosted service.
+
+## Get started
+
+- [Product](https://vidiq.com/mcp/): Official vidIQ MCP product page
+- [Setup and usage guide](https://support.vidiq.com/en/articles/15082430-vidiq-mcp): Connection, credits, and troubleshooting
+- [ChatGPT app](https://chatgpt.com/plugins/plugin_asdk_app_69dd11f3e50c8191b1ca48d03cf7e2ad): Official vidIQ app listing
+- [Claude.ai connection](README.md#claudeai): Custom connector setup
+- [Support](https://support.vidiq.com/): Account and hosted-service support
+
+## Distribution files
+
+- [README](README.md): Product overview, connection, installation surfaces, workflows, and support
+- [MCP configuration](.mcp.json): Canonical remote connection
+- [Claude manifest](.claude-plugin/plugin.json): Claude Code plugin
+- [Codex manifest](.codex-plugin/plugin.json): Codex plugin
+- [Cursor manifest](.cursor-plugin/plugin.json): Cursor plugin
+- [Copilot manifest](.github/plugin/plugin.json): GitHub Copilot plugin
+- [Copilot marketplace](.github/plugin/marketplace.json): Local and repository marketplace entry
+- [Gemini manifest](gemini-extension.json): Gemini CLI extension
+- [MCP Registry metadata](server.json): Official Registry descriptor
+- [Specialist agent](agents/vidiq-mcp.agent.md): Workflow routing and safety lifecycle
+- [Cursor lifecycle rule](rules/vidiq-lifecycle.mdc): Persistent tool-use guidance
+- [Contributing](CONTRIBUTING.md): Public contribution scope and safeguards
+- [Security policy](SECURITY.md): Security reporting route and scope
+- [Code of Conduct](CODE_OF_CONDUCT.md): Community participation standards
+- [Licensing](README.md#license): Apache 2.0, with the Contributor Covenant adaptation under CC BY 4.0
+- [Release validator](scripts/validate-distribution.py): Public boundary, manifests, skills, links, licenses, and secret-pattern checks
+
+## Workflow skills
+
+- [Get Started](skills/vidiq-get-started/SKILL.md)
+- [Status & Troubleshooting](skills/vidiq-status/SKILL.md)
+- [Next Video Planner](skills/vidiq-next-video-planner/SKILL.md)
+- [Video Ideas](skills/vidiq-video-ideas/SKILL.md)
+- [Channel Review](skills/vidiq-channel-review/SKILL.md)
+- [New Upload Review](skills/vidiq-new-upload-review/SKILL.md)
+- [Retention Analysis](skills/vidiq-retention-analysis/SKILL.md)
+- [Comment Insights](skills/vidiq-comment-insights/SKILL.md)
+- [Packaging Comparison](skills/vidiq-packaging-comparison/SKILL.md)
+- [Packaging Studio](skills/vidiq-packaging-studio/SKILL.md)
+- [Trend Radar](skills/vidiq-trend-radar/SKILL.md)
+- [Competitor Watchlist](skills/vidiq-competitor-watchlist/SKILL.md)
+- [Shorts Inspiration](skills/vidiq-shorts-inspiration/SKILL.md)
+
+The connected tool list, schemas, availability, and displayed costs are authoritative.

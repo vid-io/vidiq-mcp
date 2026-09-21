@@ -1,0 +1,89 @@
+name: Validate public plugin
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
+        with:
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1 # v6.3.0
+        with:
+          python-version: "3.12"
+
+      - name: Set up Node.js
+        uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          node-version: "22"
+
+      - name: Install validation dependencies
+        run: python3 -m pip install --disable-pip-version-check --requirement requirements-dev.txt
+
+      - name: Validate distribution invariants
+        run: python3 scripts/validate-distribution.py
+
+      - name: Scan for committed secrets
+        run: detect-secrets scan --no-verify | jq --exit-status '.results | length == 0'
+
+      - name: Install Gitleaks
+        run: |
+          archive="${RUNNER_TEMP}/gitleaks_8.30.1_linux_x64.tar.gz"
+          curl --fail --silent --show-error --location \
+            https://github.com/gitleaks/gitleaks/releases/download/v8.30.1/gitleaks_8.30.1_linux_x64.tar.gz \
+            --output "${archive}"
+          echo "551f6fc83ea457d62a0d98237cbad105af8d557003051f41f3e7ca7b3f2470eb  ${archive}" \
+            | sha256sum --check --strict
+          tar --extract --gzip --file "${archive}" --directory "${RUNNER_TEMP}" gitleaks
+
+      - name: Scan current files and Git history with Gitleaks
+        run: |
+          "${RUNNER_TEMP}/gitleaks" dir . --redact=100 --no-banner
+          "${RUNNER_TEMP}/gitleaks" git . --redact=100 --no-banner
+
+      - name: Validate Markdown
+        run: npx --yes markdownlint-cli2@0.23.1 "**/*.md"
+
+      - name: Fetch official distribution schemas
+        run: |
+          curl --fail --silent --show-error --location \
+            https://raw.githubusercontent.com/cursor/plugins/3fe2823ce17c1656c222d4b7c59d3f82fbf20143/schemas/plugin.schema.json \
+            --output "${RUNNER_TEMP}/cursor-plugin.schema.json"
+          curl --fail --silent --show-error --location \
+            https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json \
+            --output "${RUNNER_TEMP}/mcp-server.schema.json"
+          curl --fail --silent --show-error --location \
+            https://raw.githubusercontent.com/google-gemini/gemini-cli/acae7124bdd849e554eaa5e090199a0cf08cd782/schemas/settings.schema.json \
+            --output "${RUNNER_TEMP}/gemini-settings.schema.json"
+
+      - name: Validate the Cursor manifest
+        run: >-
+          python3 scripts/validate-json-schema.py
+          "${RUNNER_TEMP}/cursor-plugin.schema.json"
+          .cursor-plugin/plugin.json
+
+      - name: Validate the MCP Registry metadata
+        run: >-
+          python3 scripts/validate-json-schema.py
+          "${RUNNER_TEMP}/mcp-server.schema.json"
+          server.json
+
+      - name: Validate the Gemini MCP settings
+        run: |
+          jq '{mcpServers}' gemini-extension.json > "${RUNNER_TEMP}/gemini-settings.json"
+          python3 scripts/validate-json-schema.py \
+            "${RUNNER_TEMP}/gemini-settings.schema.json" \
+            "${RUNNER_TEMP}/gemini-settings.json"

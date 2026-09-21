@@ -1,0 +1,17 @@
+---
+description: Apply shared operating rules and select relevant workflows for vidIQ MCP requests.
+alwaysApply: true
+---
+
+# vidIQ MCP lifecycle
+
+Apply this rule only to vidIQ requests and calls. Do not start vidIQ onboarding, account checks,
+research, or approvals for unrelated work.
+
+For a vidIQ workflow, read [Live surface notes](../references/live-surface-notes.md), including
+when analyzing supplied evidence. Select the relevant available `vidiq-*` skill and load only
+its needed references.
+
+For connection help, ambiguous routing, or a tool without a dedicated skill, follow the
+[agent guide](../AGENTS.md). Before asynchronous work, read
+[Job lifecycle](../references/job-lifecycle.md).

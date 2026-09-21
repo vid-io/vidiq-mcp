@@ -1,0 +1,12 @@
+interface:
+  display_name: "vidIQ Status & Troubleshooting"
+  short_description: "Check connection, credits, channels, and jobs"
+  default_prompt: "Use $vidiq-status to check my vidIQ MCP connection and active jobs."
+
+dependencies:
+  tools:
+    - type: "mcp"
+      value: "vidiq"
+      description: "Hosted creator intelligence and job status from vidIQ"
+      transport: "streamable_http"
+      url: "https://mcp.vidiq.com/mcp"

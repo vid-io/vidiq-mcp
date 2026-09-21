@@ -1,0 +1,34 @@
+{
+  "name": "vidiq-plugins",
+  "owner": {
+    "name": "vidIQ"
+  },
+  "metadata": {
+    "description": "Official vidIQ creator workflow plugins",
+    "version": "0.1.0"
+  },
+  "plugins": [
+    {
+      "name": "vidiq",
+      "description": "Use live vidIQ creator intelligence and guided, credit-aware workflows for stronger video decisions.",
+      "version": "0.1.0",
+      "source": ".",
+      "author": {
+        "name": "vidIQ",
+        "url": "https://vidiq.com/"
+      },
+      "homepage": "https://vidiq.com/mcp/",
+      "repository": "https://github.com/vid-io/vidiq-mcp",
+      "license": "Apache-2.0",
+      "keywords": [
+        "vidiq",
+        "mcp",
+        "youtube",
+        "instagram",
+        "tiktok",
+        "creator"
+      ],
+      "category": "Creativity"
+    }
+  ]
+}

@@ -1,0 +1,68 @@
+---
+name: vidiq-next-video-planner
+description: Research and rank a small shortlist of original next-video opportunities for an authorized YouTube channel with the connected vidIQ MCP. Use when a creator asks what to make next, wants to combine recent channel fit with competitor and outlier whitespace, keyword demand, and trend timing, or needs an evidence-based content brief without generating assets or changing state.
+---
+
+# vidIQ Next Video Planner
+
+Read [Live surface notes](references/live-surface-notes.md) before starting this workflow,
+including analysis that uses only supplied evidence.
+
+Turn channel fit, competitor opportunities, search demand, and timing into a bounded next-video
+decision. Keep this workflow read-only: no generation, packaging scoring, refinement, or mutations.
+
+## Scope and channel fit
+
+1. Use the supplied audience, format, language/market, horizon, constraints, and goal. Ask one
+   compact question only for information that changes tool inputs or ranking.
+2. Agree on a capped evidence plan, starting with one call per relevant lane. Expand only when a
+   missing fact can change the decision.
+3. Resolve the intended authorized channel with `vidiq_user_channels`. For recent channel fit,
+   use `vidiq_channel_videos` with `popular: false` and matching `videoFormat: long`, `short`,
+   or `live`.
+4. Request `vidiq_channel_analytics` with explicit dates, `dimensions: ["video"]`, and
+   `filters: "video==ID1,ID2"` for those IDs in batches of at most 150. Set `maxResults` to cover
+   the batch within live limits and join by video ID. Missing rows are unknown; a mixed-format
+   top-N report cannot define recent same-format fit. Compare sensible publication ages and
+   label the upload set a sample. If private analytics are declined, disclose that missing lane.
+
+## Research useful evidence lanes
+
+Read [Discovery evidence](references/discovery-evidence.md) when discovering or evaluating
+candidate opportunities, including supplied examples.
+
+- **Competitors:** use `vidiq_list_competitors` when useful. Exclude self, known siblings, and
+  unrelated channels from the analysis cohort; disclose uncertain ownership/fit and leave the
+  saved list unchanged. Otherwise use `vidiq_similar_channels` with canonical `channelId` and
+  optional `size`/`sort`. Manual `niche` mode has separate filters, no `subNiches` field, and
+  ranking preferences that require checking returned fit.
+- **Outliers:** gate the format/language combination before `vidiq_outliers`. Shorts are restricted
+  to English; outliers and trending have no live-only lane. For non-English outliers, `all` narrows
+  to long-form and discovery is capped at six months. Pass supported `contentType` and `language`;
+  never silently substitute English or another format. Cluster premises, audience needs, and
+  payoffs. Treat absent matches as a sampling limit, not proof of an unclaimed opportunity.
+- **Search demand:** use `vidiq_keyword_research` with `mode: "research"`, seed `keyword`, and
+  optional supported `country`. For momentum, `rising` uses `period` and `language`; discover
+  `availableTopics` before supplying a `topic`. It has no arbitrary `keyword`/`country`
+  filter. Keep measured demand/growth separate from scores or ranking; missing, stale, or
+  nonpositive baselines cannot establish relative growth.
+- **Timing:** `vidiq_trending_videos` measures absolute velocity in the confirmed format and
+  market. `vidiq_video_stats` on a finalist can test acceleration/decay; choose required
+  `granularity: hourly`, `daily`, or `monthly` to match its age/window. Normalize epoch-second
+  outlier dates and ISO timestamps before age comparisons. Do not equate velocity with
+  channel-relative outlier performance.
+
+Apply the shared relevance/independence rule to every discovery lane. For cross-niche mechanisms,
+match viewer motivation and use semantic `requireAllTitleTerms: false`; strict matching is
+supporting evidence only on tools declaring that field. Inspect actual images or mark visual
+findings provisional.
+
+## Decide and deliver
+
+Compare up to three supported opportunities, or the requested count, on channel fit, competitive
+opportunity, demand, timing, originality, and feasibility. Use ordinal judgments, not a sum of
+incompatible metrics. Prefer corroborating evidence types and state what could change the choice.
+
+Return the shortlist, strongest supported brief, evidence scope and dates, confidence, and
+contradictory evidence. Adapt the promise with original framing, examples, and expression.
+If evidence cannot support a choice, state the gap rather than forcing a winner.

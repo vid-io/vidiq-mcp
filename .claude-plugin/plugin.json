@@ -1,0 +1,25 @@
+{
+  "name": "vidiq",
+  "version": "0.1.0",
+  "description": "Use live vidIQ creator intelligence to research YouTube and short-form video, analyze performance, and make stronger content decisions.",
+  "author": {
+    "name": "vidIQ"
+  },
+  "homepage": "https://vidiq.com/mcp/",
+  "repository": "https://github.com/vid-io/vidiq-mcp",
+  "license": "Apache-2.0",
+  "keywords": [
+    "vidiq",
+    "mcp",
+    "youtube",
+    "instagram",
+    "tiktok",
+    "creator",
+    "analytics",
+    "content-strategy",
+    "thumbnails",
+    "shorts"
+  ],
+  "skills": "./skills/",
+  "mcpServers": "./.mcp.json"
+}

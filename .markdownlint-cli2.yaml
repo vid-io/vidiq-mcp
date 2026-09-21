@@ -1,0 +1,9 @@
+config:
+  MD013: false
+  MD033: false
+
+ignores:
+  - ".context/**"
+  - ".venv/**"
+  - "venv/**"
+  - "node_modules/**"

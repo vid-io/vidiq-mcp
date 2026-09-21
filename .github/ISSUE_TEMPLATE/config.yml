@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: vidIQ Support
+    url: https://support.vidiq.com/
+    about: Get private help with accounts, authorization, channels, plans, billing, or credits.
+  - name: Official MCP guide
+    url: https://support.vidiq.com/en/articles/15082430-vidiq-mcp
+    about: Check official connection, credit-model, and troubleshooting guidance.

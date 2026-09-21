@@ -1,0 +1,48 @@
+{
+  "name": "vidiq",
+  "version": "0.1.0",
+  "description": "Use live vidIQ creator intelligence to research YouTube and short-form video, analyze performance, and make stronger content decisions.",
+  "author": {
+    "name": "vidIQ",
+    "url": "https://vidiq.com/"
+  },
+  "homepage": "https://vidiq.com/mcp/",
+  "repository": "https://github.com/vid-io/vidiq-mcp",
+  "license": "Apache-2.0",
+  "keywords": [
+    "vidiq",
+    "mcp",
+    "youtube",
+    "instagram",
+    "tiktok",
+    "creator",
+    "analytics",
+    "content-strategy",
+    "thumbnails",
+    "shorts"
+  ],
+  "skills": "./skills/",
+  "mcpServers": "./.mcp.json",
+  "interface": {
+    "displayName": "vidIQ",
+    "shortDescription": "Creator intelligence for better video decisions",
+    "longDescription": "vidIQ MCP connects your assistant to live creator intelligence for YouTube and short-form video. Research topics and competitors, inspect authorized channel analytics, evaluate titles and thumbnails, and use guided workflows for planning, channel health, launches, retention, trends, and packaging. Available tools can also update an owned YouTube video's title, description, tags, visibility, or scheduled publish time with directly authorized owner access and current YouTube verification. Creative generation, vidIQ data updates, and YouTube changes require explicit approval of the exact action and live credit cost.",
+    "developerName": "vidIQ",
+    "category": "Creativity",
+    "capabilities": [
+      "Read",
+      "Write"
+    ],
+    "websiteURL": "https://vidiq.com/mcp/",
+    "privacyPolicyURL": "https://vidiq.com/privacy/",
+    "termsOfServiceURL": "https://vidiq.com/terms/",
+    "defaultPrompt": [
+      "Help me get started with vidIQ and choose a useful first workflow.",
+      "Find the strongest content opportunities for my channel this week.",
+      "Check whether my latest upload needs action or more time."
+    ],
+    "brandColor": "#2574F5",
+    "composerIcon": "./assets/vidiq-icon-mark.svg",
+    "logo": "./assets/vidiq-icon-mark.svg"
+  }
+}

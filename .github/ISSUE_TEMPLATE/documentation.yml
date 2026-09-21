@@ -1,0 +1,84 @@
+name: Plugin compatibility or documentation
+description: Report a problem with the public plugin package, a client setup flow, or documentation.
+title: "[Plugin]: "
+labels:
+  - documentation
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Use this form for this repository's manifests, workflow skills, rules, and documentation.
+        For account, authorization, billing, credit, or hosted-tool problems, contact [vidIQ Support](https://support.vidiq.com/) instead.
+  - type: dropdown
+    id: report_type
+    attributes:
+      label: Report type
+      options:
+        - Client compatibility or installation
+        - Documentation correction
+        - Manifest, rule, or workflow skill
+        - Other repository content
+    validations:
+      required: true
+  - type: input
+    id: client
+    attributes:
+      label: Client and version
+      description: Include the client name and version, or write "Not applicable" for documentation-only reports.
+      placeholder: Claude Code 1.x, Cursor 1.x, Gemini CLI 0.x, or Not applicable
+    validations:
+      required: true
+  - type: dropdown
+    id: install_method
+    attributes:
+      label: Connection or installation method
+      options:
+        - Official ChatGPT app
+        - Claude.ai custom connector
+        - Marketplace plugin
+        - Local plugin or extension
+        - Server-only MCP connection
+        - Not applicable
+        - Other
+    validations:
+      required: true
+  - type: input
+    id: page
+    attributes:
+      label: Related file or link
+      description: Point to the manifest, skill, rule, documentation section, or public source when possible.
+      placeholder: README.md, a skill path, or a public URL
+    validations:
+      required: false
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Steps to reproduce
+      description: Provide the smallest repeatable sequence. For a documentation correction, explain how you found the mismatch.
+      placeholder: |
+        1. Install or connect using...
+        2. Open or run...
+        3. Observe...
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected result
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual result
+    validations:
+      required: true
+  - type: checkboxes
+    id: safety
+    attributes:
+      label: Safety confirmation
+      options:
+        - label: This report contains no credentials, private account data, private analytics, job URLs, or other sensitive information.
+          required: true
+        - label: This is a plugin-package or documentation report, not an account, billing, credit, authorization, or hosted-service support request.
+          required: true
