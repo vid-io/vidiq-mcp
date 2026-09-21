@@ -1,0 +1,15 @@
+{
+  "name": "vidiq-plugins",
+  "owner": {
+    "name": "vidIQ"
+  },
+  "metadata": {
+    "description": "Official vidIQ creator workflow plugins"
+  },
+  "plugins": [
+    {
+      "name": "vidiq",
+      "source": "./"
+    }
+  ]
+}
