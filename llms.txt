@@ -20,6 +20,7 @@ workflow guidance for the hosted service.
 - [README](README.md): Product overview, connection, installation surfaces, workflows, and support
 - [MCP configuration](.mcp.json): Canonical remote connection
 - [Claude manifest](.claude-plugin/plugin.json): Claude Code plugin
+- [Claude marketplace](.claude-plugin/marketplace.json): Claude Code marketplace entry
 - [Codex manifest](.codex-plugin/plugin.json): Codex plugin
 - [Cursor manifest](.cursor-plugin/plugin.json): Cursor plugin
 - [Copilot manifest](.github/plugin/plugin.json): GitHub Copilot plugin

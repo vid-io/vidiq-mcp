@@ -74,6 +74,22 @@ right workflow. Shared rules cover evidence quality and current tool costs; disc
 production, and job-recovery guidance loads when relevant to the request. The capabilities and
 prices shown in your connected client apply.
 
+#### Claude Code
+
+Run these commands in your terminal:
+
+```bash
+claude plugin marketplace add vid-io/vidiq-mcp
+claude plugin install vidiq@vidiq-plugins
+```
+
+This installs the plugin for your user account across projects. Restart Claude Code, then run
+`/mcp` and authenticate the vidIQ server when prompted. See the
+[Claude Code plugin guide](https://code.claude.com/docs/en/discover-plugins) for installation
+scopes and updates.
+
+#### Local preview
+
 For local preview, clone or download this repository and follow your client's local-plugin flow.
 Install from a clean clone or archive, and keep ignored files, local credentials, and other
 local-only files out of the package.

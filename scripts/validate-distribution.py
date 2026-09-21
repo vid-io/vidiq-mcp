@@ -38,6 +38,7 @@ PATH_FIELDS = {
     "copilot": ("skills", "agents", "mcpServers"),
 }
 ALLOWED_FILES = {
+    ".claude-plugin/marketplace.json",
     ".claude-plugin/plugin.json",
     ".codex-plugin/plugin.json",
     ".cursor-plugin/plugin.json",
@@ -238,6 +239,26 @@ def validate_manifests() -> dict[str, dict[str, Any]]:
     else:
         check_component_path("cursor", "logo", cursor_logo)
     return manifests
+
+
+def validate_claude_marketplace(manifests: dict[str, dict[str, Any]]) -> None:
+    marketplace = load_json(ROOT / ".claude-plugin" / "marketplace.json")
+    if marketplace.get("name") != "vidiq-plugins":
+        fail("Claude marketplace name must be 'vidiq-plugins'")
+    owner = marketplace.get("owner", {})
+    if not isinstance(owner, dict) or owner.get("name") != "vidIQ":
+        fail("Claude marketplace owner must identify vidIQ")
+    plugins = marketplace.get("plugins", [])
+    if not isinstance(plugins, list) or len(plugins) != 1 or not isinstance(plugins[0], dict):
+        fail("Claude marketplace must contain exactly one plugin entry")
+        return
+    plugin = plugins[0]
+    if plugin.get("name") != manifests["claude"].get("name"):
+        fail("Claude marketplace entry must identify the vidiq plugin")
+    if plugin.get("source") != "./":
+        fail("Claude marketplace must load the plugin from this repository root using './'")
+    if "version" in plugin and plugin["version"] != manifests["claude"].get("version"):
+        fail("Claude marketplace and plugin manifest versions differ")
 
 
 def validate_copilot_marketplace(manifests: dict[str, dict[str, Any]]) -> None:
@@ -450,6 +471,7 @@ def validate_licenses() -> None:
 def main() -> int:
     validate_public_boundary()
     manifests = validate_manifests()
+    validate_claude_marketplace(manifests)
     validate_copilot_marketplace(manifests)
     validate_endpoint(manifests)
     validate_skills()
