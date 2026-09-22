@@ -69,11 +69,11 @@ ALLOWED_FILES = {
     "scripts/validate-json-schema.py",
     "scripts/skill_references.py",
     "server.json",
-    "skills/vidiq-packaging-studio/references/production.md",
-    "skills/vidiq-packaging-studio/references/research.md",
-    "skills/vidiq-packaging-comparison/references/production.md",
-    "skills/vidiq-status/references/job-recovery.md",
-    "skills/vidiq-status/references/troubleshooting.md",
+    "skills/packaging-studio/references/production.md",
+    "skills/packaging-studio/references/research.md",
+    "skills/packaging-comparison/references/production.md",
+    "skills/get-started/references/job-recovery.md",
+    "skills/get-started/references/troubleshooting.md",
 } | {
     relative
     for skill in EXPECTED_SKILLS

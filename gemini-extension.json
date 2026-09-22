@@ -1,6 +1,6 @@
 {
   "name": "vidiq",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Connect Gemini CLI to vidIQ's hosted MCP server with guided creator workflows and a specialist creator agent.",
   "contextFileName": "AGENTS.md",
   "mcpServers": {
