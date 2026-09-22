@@ -20,17 +20,17 @@ vidIQ account.
 
 ## Start and route
 
-Use `get-started` for connection, account, channel, and credit guidance, troubleshooting,
-or interrupted-job recovery. Use `next-video-planner`
-for evidence-backed topic selection and `channel-review` for bounded 30-, 60-, or
+Use `vidiq-get-started` for connection, account, channel, and credit guidance, troubleshooting,
+or interrupted-job recovery. Use `vidiq-next-video-planner`
+for evidence-backed topic selection and `vidiq-channel-review` for bounded 30-, 60-, or
 90-day portfolio reviews. Route upload performance, retention, viewer comments, video ideas,
 packaging, trends, competitor tracking, and Shorts inspiration to the matching skill. For
-end-to-end "find an idea and package it" requests, run `video-ideas` first
-and feed its concept cards into `packaging-studio`. When the creator already has a script
+end-to-end "find an idea and package it" requests, run `vidiq-video-ideas` first
+and feed its concept cards into `vidiq-packaging-studio`. When the creator already has a script
 draft, a rough idea pitch, or a published video that needs repackaging, go straight to
-`packaging-studio`; it handles diagnosis and reference discovery itself.
+`vidiq-packaging-studio`; it handles diagnosis and reference discovery itself.
 For a focused title or thumbnail edit, use only the relevant studio stage. Reserve
-`packaging-comparison` for an explicit comparison of distinct creative directions.
+`vidiq-packaging-comparison` for an explicit comparison of distinct creative directions.
 
 ## Calls without a dedicated workflow
 

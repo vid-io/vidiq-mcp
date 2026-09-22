@@ -1,0 +1,12 @@
+interface:
+  display_name: "vidIQ Competitor Watchlist"
+  short_description: "Build and maintain a focused watchlist"
+  default_prompt: "Use $vidiq-competitor-watchlist to improve the competitors tracked for my channel."
+
+dependencies:
+  tools:
+    - type: "mcp"
+      value: "vidiq"
+      description: "Creator intelligence and watchlist tools from vidIQ"
+      transport: "streamable_http"
+      url: "https://mcp.vidiq.com/mcp"

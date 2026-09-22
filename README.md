@@ -254,36 +254,36 @@ Use natural language. Replace the bracketed details, or give the assistant a cha
 Choose a workflow for the decision you want to make. The assistant can also select one from your
 request.
 
-In Claude Code, invoke skills as `/vidiq:get-started` or `/vidiq:packaging-studio`.
-As of 0.1.2, skill names omit the `vidiq-` prefix; connection diagnostics and job recovery
+In Claude Code, invoke skills as `/vidiq:vidiq-get-started` or `/vidiq:vidiq-packaging-studio`.
+Version 0.1.3 restores the `vidiq-` skill prefix. Connection diagnostics and job recovery
 are part of Get Started.
 
 ### Connect and choose a direction
 
 | Workflow | Best for |
 | --- | --- |
-| [Get Started](skills/get-started/SKILL.md) | Connect vidIQ, check channels and credits, troubleshoot errors, recover jobs, and choose a workflow. |
-| [Next Video Planner](skills/next-video-planner/SKILL.md) | Build an evidence-backed next-video brief from channel fit, search demand, trends, outliers, and competitor patterns. |
-| [Video Ideas](skills/video-ideas/SKILL.md) | Scan outliers across the creator's channel, niche, and adjacent-audience niches for adaptable concept candidates. |
+| [Get Started](skills/vidiq-get-started/SKILL.md) | Connect vidIQ, check channels and credits, troubleshoot errors, recover jobs, and choose a workflow. |
+| [Next Video Planner](skills/vidiq-next-video-planner/SKILL.md) | Build an evidence-backed next-video brief from channel fit, search demand, trends, outliers, and competitor patterns. |
+| [Video Ideas](skills/vidiq-video-ideas/SKILL.md) | Scan outliers across the creator's channel, niche, and adjacent-audience niches for adaptable concept candidates. |
 
 ### Understand performance and opportunity
 
 | Workflow | Best for |
 | --- | --- |
-| [Channel Review](skills/channel-review/SKILL.md) | Review 30–90 days of channel performance and prioritize the next actions. |
-| [New Upload Review](skills/new-upload-review/SKILL.md) | Compare a new upload with the channel's normal curve before deciding whether to wait or intervene. |
-| [Retention Analysis](skills/retention-analysis/SKILL.md) | Align retention changes with transcript, scenes, and comments to find moments worth improving. |
-| [Comment Insights](skills/comment-insights/SKILL.md) | Turn recurring, de-identified viewer language into hooks, briefs, titles, and audience insight. |
-| [Trend Radar](skills/trend-radar/SKILL.md) | Separate urgent breakouts and short-lived spikes from durable search demand. |
-| [Competitor Watchlist](skills/competitor-watchlist/SKILL.md) | Propose precise additions and removals before changing the competitors tracked in vidIQ. |
+| [Channel Review](skills/vidiq-channel-review/SKILL.md) | Review 30–90 days of channel performance and prioritize the next actions. |
+| [New Upload Review](skills/vidiq-new-upload-review/SKILL.md) | Compare a new upload with the channel's normal curve before deciding whether to wait or intervene. |
+| [Retention Analysis](skills/vidiq-retention-analysis/SKILL.md) | Align retention changes with transcript, scenes, and comments to find moments worth improving. |
+| [Comment Insights](skills/vidiq-comment-insights/SKILL.md) | Turn recurring, de-identified viewer language into hooks, briefs, titles, and audience insight. |
+| [Trend Radar](skills/vidiq-trend-radar/SKILL.md) | Separate urgent breakouts and short-lived spikes from durable search demand. |
+| [Competitor Watchlist](skills/vidiq-competitor-watchlist/SKILL.md) | Propose precise additions and removals before changing the competitors tracked in vidIQ. |
 
 ### Package and produce
 
 | Workflow | Best for |
 | --- | --- |
-| [Packaging Comparison](skills/packaging-comparison/SKILL.md) | Compare distinct title and thumbnail concepts for the same video using creator evidence. |
-| [Packaging Studio](skills/packaging-studio/SKILL.md) | Turn a source video, concept card, script draft, rough idea pitch, or underperforming published video into scored titles, a thumbnail, and an optional script for the creator's channel. |
-| [Shorts Inspiration](skills/shorts-inspiration/SKILL.md) | Study short-form content patterns and develop original YouTube Shorts ideas. |
+| [Packaging Comparison](skills/vidiq-packaging-comparison/SKILL.md) | Compare distinct title and thumbnail concepts for the same video using creator evidence. |
+| [Packaging Studio](skills/vidiq-packaging-studio/SKILL.md) | Turn a source video, concept card, script draft, rough idea pitch, or underperforming published video into scored titles, a thumbnail, and an optional script for the creator's channel. |
+| [Shorts Inspiration](skills/vidiq-shorts-inspiration/SKILL.md) | Study short-form content patterns and develop original YouTube Shorts ideas. |
 
 ## You stay in control
 
