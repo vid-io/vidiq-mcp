@@ -1,22 +1,21 @@
 ---
 name: vidiq-next-video-planner
-description: Research and rank a small shortlist of original next-video opportunities for an authorized YouTube channel with the connected vidIQ MCP. Use when a creator asks what to make next, wants to combine recent channel fit with competitor and outlier whitespace, keyword demand, and trend timing, or needs an evidence-based content brief without generating assets or changing state.
+description: Rank original next-video opportunities for an authorized YouTube channel using channel fit, competitors, outliers, search demand, and trend timing. Use for topic selection and evidence-based briefs, without generating assets or changing state.
 ---
 
 # vidIQ Next Video Planner
 
-Read [Live surface notes](references/live-surface-notes.md) before starting this workflow,
-including analysis that uses only supplied evidence.
+Read [Live surface notes](references/live-surface-notes.md) first, even when using only supplied evidence.
 
-Turn channel fit, competitor opportunities, search demand, and timing into a bounded next-video
-decision. Keep this workflow read-only: no generation, packaging scoring, refinement, or mutations.
+Rank next-video opportunities from channel fit, competitors, demand, and timing. Keep this workflow
+read-only: no generation, packaging scoring, refinement, or mutations.
 
 ## Scope and channel fit
 
-1. Use the supplied audience, format, language/market, horizon, constraints, and goal. Ask one
-   compact question only for information that changes tool inputs or ranking.
-2. Agree on a capped evidence plan, starting with one call per relevant lane. Expand only when a
-   missing fact can change the decision.
+1. Use supplied audience, format, language/market, horizon, constraints, and goal. Ask one compact
+   question only for gaps affecting tool inputs or ranking.
+2. Use a capped evidence plan: start with one call per relevant lane and expand only for facts
+   that could change the decision.
 3. Resolve the intended authorized channel with `vidiq_user_channels`. For recent channel fit,
    use `vidiq_channel_videos` with `popular: false` and matching `videoFormat: long`, `short`,
    or `live`.
@@ -60,9 +59,9 @@ findings provisional.
 ## Decide and deliver
 
 Compare up to three supported opportunities, or the requested count, on channel fit, competitive
-opportunity, demand, timing, originality, and feasibility. Use ordinal judgments, not a sum of
+opportunity, demand, timing, originality, and feasibility. Use ordinal judgments; do not sum
 incompatible metrics. Prefer corroborating evidence types and state what could change the choice.
 
-Return the shortlist, strongest supported brief, evidence scope and dates, confidence, and
-contradictory evidence. Adapt the promise with original framing, examples, and expression.
-If evidence cannot support a choice, state the gap rather than forcing a winner.
+Return the shortlist and strongest supported brief with evidence scope/dates, confidence, and
+counterevidence. Use original framing, examples, and expression. If evidence cannot support a
+choice, state the gap; do not force a winner.

@@ -4,7 +4,7 @@ Use this guidance when evaluating discovered examples, including supplied search
 
 For recurring discovery-pattern claims, require three relevant examples from independent
 channels/creators. This is a triage minimum, not statistical validation. With fewer, use at most
-one scoped correction within budget, then label insufficient evidence. A single reference can
+one correction within scope, then label insufficient evidence. A single reference can
 still support a design choice or tentative idea; it cannot establish a recurring pattern.
 
 Match the requested audience and mechanism, including transferable viewer motivation across

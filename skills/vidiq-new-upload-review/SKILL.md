@@ -1,12 +1,11 @@
 ---
 name: vidiq-new-upload-review
-description: Triage a newly published YouTube video against its channel's normal performance curve with the connected vidIQ MCP. Use when a creator asks whether an upload is ahead, on track, or behind; whether to wait or inspect packaging; or when to reassess performance during the first hours or days after publication.
+description: Assess a new YouTube upload against its channel's performance at the same publication age. Recommend whether to wait, inspect packaging, or reassess during its first hours or days.
 ---
 
 # vidIQ New Upload Review
 
-Read [Live surface notes](references/live-surface-notes.md) before starting this workflow,
-including analysis that uses only supplied evidence.
+Read [Live surface notes](references/live-surface-notes.md) first, even when using only supplied evidence.
 
 Judge a new upload against the channel's performance at the same publication age. Recommend
 whether to hold, inspect, or prepare a packaging change; do not change YouTube metadata/settings.
@@ -14,7 +13,7 @@ whether to hold, inspect, or prepare a packaging change; do not change YouTube m
 ## Compare the trajectory
 
 1. Establish video, channel, goal, format, publication time, and current age from supplied context.
-   Agree on the bounded evidence plan and live cost.
+   Use a bounded evidence plan.
 2. For “my channel” or private analytics, resolve the authorized target with `vidiq_user_channels`.
    For “my newest upload,” use `vidiq_channel_videos` with `popular: false` and confirmed
    `videoFormat: long`, `short`, or `live`, then confirm the returned video.
@@ -40,7 +39,7 @@ Inspect only decision-relevant evidence within scope: authorized `vidiq_channel_
 supplied Studio CTR/impressions, or `vidiq_video_comments`. Thumbnail CTR/impressions are not in
 the analytics metric enum; annotation CTR and ad impressions are not substitutes. Comments and
 scores cannot prove low CTR or its cause. Use `vidiq_score_title`/`vidiq_score_thumbnail` only
-when useful and after exact action/cost approval.
+when useful within the requested diagnosis.
 
 A known factual or formatting error can warrant correction at any age, independently of
 performance. Choose a reassessment point from the observed channel curve, with no universal

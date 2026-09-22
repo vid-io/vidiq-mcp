@@ -1,7 +1,7 @@
 # Produce and score packaging candidates
 
-Concept comparison can stay text-only. Follow the agreed variant budget and exact action/cost
-approvals. Before an asynchronous call, read [Job lifecycle](job-lifecycle.md).
+Concept comparison can stay text-only. Generate only the requested variants.
+Before an asynchronous call, read [Job lifecycle](job-lifecycle.md).
 
 ## Titles and previews
 
@@ -44,10 +44,9 @@ scorer results or treat either as proof of factual authenticity.
 
 ## Refine within scope
 
-Use `vidiq_refine_thumbnail` for the requested edit; preserve the approved orientation explicitly.
-Masked edits retain source dimensions. Default to one refinement, with additional iterations
-requiring a bounded request and exact action/cost approval. Change one variable for a controlled
-comparison.
+Use `vidiq_refine_thumbnail` for the requested edit; preserve the intended orientation explicitly.
+Masked edits retain source dimensions. Default to one refinement unless more iterations are
+requested; keep them bounded. Change one variable for a controlled comparison.
 
 Save and poll that job, inspect the result, and use returned critique before requesting separate
 scoring when missing or necessary for comparability. Keep the version that best meets the brief

@@ -1,12 +1,11 @@
 ---
 name: vidiq-shorts-inspiration
-description: Study Instagram Reels or TikTok examples and adapt their mechanisms into original YouTube Shorts concepts with the connected vidIQ MCP. Use for cross-platform hook, pacing, format, and payoff research; verify source availability from live tools.
+description: Study Instagram Reels or TikTok to develop original YouTube Shorts concepts. Use for cross-platform hook, pacing, format, and payoff research.
 ---
 
 # vidIQ Shorts Inspiration
 
-Read [Live surface notes](references/live-surface-notes.md) before starting this workflow,
-including analysis that uses only supplied evidence.
+Read [Live surface notes](references/live-surface-notes.md) first, even when using only supplied evidence.
 
 Study Instagram Reels or TikTok examples and adapt their abstract mechanisms into original
 YouTube Shorts concepts. Transfer hypotheses need evidence from the target platform.
@@ -14,18 +13,15 @@ YouTube Shorts concepts. Transfer hypotheses need evidence from the target platf
 ## Research a bounded sample
 
 1. Establish the source platform, target audience, niche, region, and production constraints.
-   Verify current source availability from connected tools and agree on the live-cost scope,
-   including any watch/poll work.
-2. Use the current `vidiq_instagram_tiktok_outlier_search`, not deprecated aliases. Build its
-   required `audienceQuery` from supplied context as the live schema specifies; ask when context
-   is vague rather than inferring sensitive traits. Set matching `embeddingType` (`concept`,
-   `hook`, or `format`) and `query`. Date bounds require full ISO 8601 datetimes with timezone,
-   not date-only strings.
+2. Search with `vidiq_instagram_tiktok_outlier_search`, building `audienceQuery` from the supplied
+   audience. Ask when context is vague rather than inferring sensitive traits. Set `embeddingType`
+   (`concept`, `hook`, or `format`) and `query`. Date bounds require full ISO 8601 datetimes with
+   timezone, not date-only strings.
 3. Read [Discovery evidence](references/discovery-evidence.md) when evaluating source examples,
    including supplied results. Search only relevant concept, hook, or format lanes. Apply its
    minimum separately per platform before claiming a recurring pattern.
-4. Use `vidiq_watch_shortform_content` on strong examples only after exact source and live
-   watch/poll approval. Pass full public URLs, expanding Instagram shortcodes into full reel
+4. Use `vidiq_watch_shortform_content` on strong examples within scope. Verify the source and
+   pass full public URLs, expanding Instagram shortcodes into full reel
    URLs; bare IDs, shortcodes, and TikTok short links are invalid. Preserve, poll, and recover
    jobs using [Job lifecycle](references/job-lifecycle.md); read it before a watch call.
 5. Compare hook, pacing, on-screen text, reveal, payoff, duration, and production complexity
@@ -57,9 +53,9 @@ relevant watched target examples. Without that evidence, label transfer a hypoth
 
 Return the requested patterns/adaptations with source evidence grouped by platform, target-platform
 support, production notes, confidence, and contradictions. Keep incomparable platform scores
-separate. State actual watch status and material coverage/cost limits.
+separate. State actual watch status and material coverage limits.
 
 Change subject, wording, examples, visuals, and payoff; use original or appropriately licensed
 footage/audio, preserving required attribution. Do not copy or reupload source clips. Additional
-generation or voice cloning requires its own exact approval and source, likeness, and speaker
-rights checks.
+generation requires a request and relevant source and likeness rights. Voice cloning also
+requires explicit speaker consent.

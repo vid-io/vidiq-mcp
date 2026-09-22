@@ -1,16 +1,15 @@
 ---
 name: vidiq-packaging-comparison
-description: Compare distinct YouTube title-and-thumbnail concepts for the same video with the connected vidIQ MCP. Use when a creator explicitly wants alternative creative directions or a packaging comparison. Route a single title, thumbnail edit, or complete package without a comparison request to vidiq-packaging-studio.
+description: Compare distinct YouTube title-and-thumbnail concepts for the same video when alternative creative directions are explicitly requested. Route single titles, thumbnail edits, or complete packages without a comparison request to vidiq-packaging-studio.
 ---
 
 # vidIQ Packaging Comparison
 
-Read [Live surface notes](references/live-surface-notes.md) before starting this workflow,
-including analysis that uses only supplied evidence.
+Read [Live surface notes](references/live-surface-notes.md) first, even when using only supplied evidence.
 
-Compare distinct title-thumbnail concepts for the same video. Use the requested number; default
-to three only when no count is given. Route focused edits or a single complete package to
-`vidiq-packaging-studio`. Comparing concepts does not require generated images.
+Compare the requested number of distinct title-thumbnail concepts for the same video, defaulting
+to three if unspecified. Use `vidiq-packaging-studio` for focused edits or one package. Generated
+images are optional.
 
 ## Compare concepts
 
@@ -19,12 +18,11 @@ completed. Use a speed claim only when demonstrated or explicitly supported by t
 
 1. Use the supplied viewer, promise, proof, format, language, and assets. Establish which story
    facts are supported and whether the host is the subject or an analyst.
-2. Agree on the research scope and variant budget. Render only a selected direction unless the
-   creator explicitly approves more. Shared approval rules apply to each exact action and cost;
-   preserve approval that already covers unchanged inputs.
+2. Keep research within scope. Generate images only when requested, using the selected direction
+   or the requested number of variants.
 3. Clarify content only when necessary: `vidiq_video_transcript` supplies untimed spoken text;
    `vidiq_video_watch` serves long-form and `vidiq_watch_shortform_content` serves Shorts.
-   Watch calls require exact source/cost approval. Read
+   Verify the source before watching. Read
    [Job lifecycle](references/job-lifecycle.md) before any asynchronous watch or production call.
 4. Create distinct, truthful promises or framing choices, not cosmetic rewrites. Pair each title
    with thumbnail tension, proof, or stakes that adds information. Make subject attribution clear.
@@ -36,8 +34,8 @@ completed. Use a speed claim only when demonstrated or explicitly supported by t
 
 ## Optional reference research
 
-Read [Discovery evidence](references/discovery-evidence.md) when searching or evaluating external
-references. Skip this stage when the supplied brief is sufficient for concept comparison.
+Read [Discovery evidence](references/discovery-evidence.md) before searching or evaluating external
+references. Skip research when the supplied brief suffices.
 
 For long-form visual conventions, `vidiq_similar_thumbnails` takes exactly one of `description`
 or `videoId`; it does not support Shorts. Description retrieval is approximate and may be
@@ -62,7 +60,6 @@ Return the agreed concepts, their matched titles and thumbnail directions, evide
 limitations, and the recommended choice with its strongest counterargument. Honor a request for
 comparison without forcing a winner.
 
-For executed production, include image URLs or pending job IDs, actual visual-review status,
-scoring/proxy context, and costs as reported. Distinguish concept judgments from inspected renders;
-do not claim a visual winner while review is pending. Include an iteration log only when useful
-for iterations actually performed.
+For executed production, report image URLs or pending job IDs, visual-review status, and score/proxy
+context. Separate concept judgments from inspected renders; never claim a
+visual winner before inspection. Log only useful iterations actually performed.

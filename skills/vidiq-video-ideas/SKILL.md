@@ -1,31 +1,30 @@
 ---
 name: vidiq-video-ideas
-description: Discover adaptable video concepts from outlier title mechanisms across adjacent-audience niches, using own-channel and competitor diagnostics with the connected vidIQ MCP. Use when a creator asks what is working right now, wants breakout inspiration, wants a recurring idea scan, or needs concept candidates to feed into packaging.
+description: Find original video concepts inspired by outlier title mechanisms across adjacent audiences. Use for breakout inspiration, recurring idea scans, and concept cards for vidiq-packaging-studio.
 ---
 
 # vidIQ Video Ideas
 
-Read [Live surface notes](references/live-surface-notes.md) before starting this workflow,
-including analysis that uses only supplied evidence.
+Read [Live surface notes](references/live-surface-notes.md) first, even when using only supplied evidence.
 
-Find adaptable concepts in videos that overperform on their source channels. Use the creator's
-own channel and competitors as context; look across adjacent niches for title mechanisms serving
-the same viewer motivation. Hand off full packaging to `vidiq-packaging-studio`.
+Find concepts in videos that overperform on their source channels. Use own-channel and competitor
+context to discover title mechanisms across adjacent niches serving the same viewer motivation.
+Hand off full packaging to `vidiq-packaging-studio`.
 
 ## Establish the scan
 
 Read [Discovery evidence](references/discovery-evidence.md) before evaluating concept sources,
 including supplied examples.
 
-Use supplied channel, niche, viewer, format, language, and market context. Ask only when missing
-information changes the scan. Agree on a small research budget; one or two outlier calls per
-mechanism lane is a useful starting point, including the shared bounded correction.
+Reuse supplied channel, niche, viewer, format, language, and market context; ask only for gaps that
+change the scan. Keep the scan bounded, e.g. one or two outlier calls per mechanism lane,
+including the shared bounded correction.
 
 Resolve canonical channel IDs from supplied context, `vidiq_user_channels`, or exact-handle
 `vidiq_channel_search`. Authorized IDs do not supply niche classifications. Reuse a supplied
 niche; otherwise search a known handle/title and verify the returned `channelId` before using
-`niche` or `subNiches`. Use `vidiq_get_channels_by_ids` for a missing title only if necessary
-and approved. Missing classification stays unknown or needs creator input.
+`niche` or `subNiches`. Use `vidiq_get_channels_by_ids` for a missing title only if necessary.
+Missing classification stays unknown or needs creator input.
 
 Keep these evidence lanes distinct:
 
@@ -76,6 +75,5 @@ Return concept cards with source/link and lane, actual performance context, insp
 evidence or its limitation, the adapted concept, mechanism/transfer reasoning, and a working title,
 hook, and format direction. Include separate rubric judgments and evidence confidence.
 
-Report scan coverage, exclusions, and costs once for the scan rather than on every card.
-These are research candidates, not performance predictions. Generate no assets or tool-based
-scores; use original wording and hand eligible concepts to packaging.
+Report coverage and exclusions once per scan. Use original wording and present concepts as
+research candidates, not performance predictions. Generate no assets or tool-based scores.

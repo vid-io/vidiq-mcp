@@ -1,12 +1,11 @@
 ---
 name: vidiq-packaging-studio
-description: Create or improve YouTube titles and thumbnails, including title-only rewrites from a supplied brief without MCP calls. Use for concepts, scripts, reference videos, published uploads, and focused packaging edits; match vidIQ research and production to the requested result.
+description: Create or improve YouTube titles and thumbnails from ideas, scripts, references, or published videos. Use for full packaging or focused edits, including title-only rewrites from supplied context without MCP calls.
 ---
 
 # vidIQ Packaging Studio
 
-Read [Live surface notes](references/live-surface-notes.md) before starting this workflow,
-including analysis that uses only supplied evidence.
+Read [Live surface notes](references/live-surface-notes.md) first, even when using only supplied evidence.
 
 Create an honest title-thumbnail package from a concept, script, reference, or published video.
 Use the creator's supplied audience, format, language, tone, and assets.
@@ -43,9 +42,7 @@ completed. Use a speed claim only when demonstrated or explicitly supported by t
    Pair the title with thumbnail imagery or text that adds tension, proof, or stakes.
    Judge the pair against the brief; a model score is not a performance verdict.
 4. Before using vidIQ tools to generate, score, or refine titles, thumbnails, or scripts,
-   read [Production and scoring](references/production.md). Obtain exact action and
-   live-cost approval within the shared rules. A broad package brief does not approve
-   unspecified paid actions.
+   read [Production and scoring](references/production.md).
    Before an asynchronous call, read [Job lifecycle](references/job-lifecycle.md).
 5. Inspect completed images for factual accuracy, legibility, rights, and attribution.
    If visual inspection is unavailable, return the draft with that limitation; do not claim it
@@ -56,7 +53,7 @@ completed. Use a speed claim only when demonstrated or explicitly supported by t
 Return the requested titles, thumbnail directions, edited assets, or critique, with the rationale
 and material limitations. Include source-to-adaptation reasoning when references informed the
 work. For executed tools, report generated URLs or pending job IDs, relevant scores and their
-context, and returned charges separately from estimates.
+context.
 
 Omit unused stages and empty report sections. Include a script, comparison table, or iteration log
 only when requested or useful to understand work actually performed.

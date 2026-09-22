@@ -17,12 +17,11 @@ Before opening a pull request:
 
 1. Use current production behavior and public or synthetic data.
 2. Remove credentials, account identifiers, personal information, and private analytics.
-3. Treat the connected MCP tool list, schemas, availability, and displayed costs as authoritative.
-4. Keep the machine identifier and installable version synchronized across all client manifests.
+3. Keep the machine identifier and installable version synchronized across all client manifests.
    The client-manifest version tracks this plugin bundle. `server.json.version` tracks the active
    MCP Registry descriptor and may differ from the client-manifest version.
-5. Confirm that every added visual or third-party asset is licensed for redistribution.
-6. Test the affected client installation or usage flow, or explain why that is not applicable, then
+4. Confirm that every added visual or third-party asset is licensed for redistribution.
+5. Test the affected client installation or usage flow, or explain why that is not applicable, then
    describe the public user need in the pull request.
 
 Run the repository release check before submitting:

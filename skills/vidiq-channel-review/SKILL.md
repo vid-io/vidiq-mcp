@@ -1,12 +1,11 @@
 ---
 name: vidiq-channel-review
-description: Review an authorized YouTube channel's performance over a chosen 30-, 60-, or 90-day window with the connected vidIQ MCP. Use when a creator wants a private channel checkup, needs to compare portfolio and format patterns, asks what improved or weakened, or wants a few evidence-led interventions without generating content or changing state.
+description: Review an authorized YouTube channel over 30, 60, or 90 days. Compare performance, formats, and portfolio patterns; recommend evidence-led actions without generating content or changing state.
 ---
 
 # vidIQ Channel Review
 
-Read [Live surface notes](references/live-surface-notes.md) before starting this workflow,
-including analysis that uses only supplied evidence.
+Read [Live surface notes](references/live-surface-notes.md) first, even when using only supplied evidence.
 
 Produce a private, read-only diagnosis of the authorized channel from its own evidence.
 Do not generate assets, score packaging, or make state changes.
@@ -15,9 +14,9 @@ Do not generate assets, score packaging, or make state changes.
 
 Use the requested 30-, 60-, or 90-day window; propose 30 days in the research plan if unspecified.
 Choose the latest completed calendar days, excluding today, and the immediately preceding equal
-period. State both exact date ranges and date basis before charged calls.
+period. State both exact date ranges and date basis before querying.
 
-Agree on a bounded analytics plan and live cost. Resolve the intended authorized channel with
+Use a bounded analytics plan. Resolve the intended authorized channel with
 `vidiq_user_channels`; stop private analysis if it is absent instead of substituting a similarly
 named public channel. Request sensitive revenue, demographic, or geography breakdowns only when
 the creator explicitly needs them.
@@ -36,7 +35,7 @@ the creator explicitly needs them.
   Filter analytics to sampled IDs using `filters: "video==ID1,ID2"` in batches of at most 150;
   absent requested IDs remain unknown.
 - **Audience overlap or publishing windows:** use `vidiq_subscriber_insights` only when explicitly
-  needed and approved for the authorized channel. Its histogram is sampled public activity,
+  requested for the authorized channel. Its histogram is sampled public activity,
   not watch history or a live online-audience signal. Keep overlap data private.
 
 ## Interpret valid comparisons

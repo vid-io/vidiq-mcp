@@ -10,7 +10,7 @@
   "plugins": [
     {
       "name": "vidiq",
-      "description": "Use live vidIQ creator intelligence and guided, credit-aware workflows for stronger video decisions.",
+      "description": "Use live vidIQ creator intelligence and guided creator workflows for stronger video decisions.",
       "version": "0.1.0",
       "source": ".",
       "author": {

@@ -1,13 +1,13 @@
 # Produce and score packaging
 
-Use only the requested production stages, with exact action and live-cost approval. For an
-asynchronous call, read [Job lifecycle](job-lifecycle.md) before submitting it.
+Use only the requested production stages. Before an asynchronous call, read
+[Job lifecycle](job-lifecycle.md).
 
 ## Titles
 
 Pass the confirmed `type` and `language` to `vidiq_generate_titles`. Omitted values can produce
 long-form English titles for an unpublished Short. Check generation's language codes separately
-from discovery and use the live schema for seed inputs.
+from discovery.
 
 Generation already returns scores. Use `vidiq_score_title` for new/changed candidates or necessary
 comparable context, with confirmed `type: long` or `short` and the creator's `channelId` when
@@ -51,11 +51,11 @@ interchangeable, and neither establishes factual authenticity.
 
 ## Refinement
 
-Use `vidiq_refine_thumbnail` for the requested edit. Preserve the approved orientation explicitly;
-masked edits retain source dimensions. Default to one refinement; further iterations require a
-bounded request and exact action/cost approval. Change one variable for a controlled comparison.
+Use `vidiq_refine_thumbnail` for the requested edit. Preserve the intended orientation explicitly;
+masked edits retain source dimensions. Default to one refinement unless more iterations are
+requested; keep them bounded. Change one variable for a controlled comparison.
 
-Save and poll the refinement job, inspect the image, and use returned critique before buying
+Save and poll the refinement job, inspect the image, and use returned critique before requesting
 additional scoring. Missing score/feedback remains missing; separately score only when needed.
 Keep the best eligible result for the brief, not merely the highest score.
 
