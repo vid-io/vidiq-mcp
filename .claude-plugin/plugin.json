@@ -1,6 +1,7 @@
 {
   "name": "vidiq",
-  "version": "0.1.0",
+  "displayName": "vidIQ",
+  "version": "0.1.1",
   "description": "Use live vidIQ creator intelligence to research YouTube and short-form video, analyze performance, and make stronger content decisions.",
   "author": {
     "name": "vidIQ"
@@ -15,9 +16,9 @@
     "instagram",
     "tiktok",
     "creator",
-    "analytics",
+    "creator-analytics",
+    "video-research",
     "content-strategy",
-    "thumbnails",
     "shorts"
   ],
   "skills": "./skills/",

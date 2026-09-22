@@ -9,7 +9,20 @@
   "plugins": [
     {
       "name": "vidiq",
-      "source": "./"
+      "displayName": "vidIQ",
+      "source": "./",
+      "description": "Use live vidIQ creator intelligence to research YouTube and short-form video, analyze performance, and make stronger content decisions.",
+      "category": "Data & Analytics",
+      "tags": [
+        "creator analytics",
+        "media and entertainment",
+        "creative",
+        "youtube",
+        "instagram",
+        "tiktok",
+        "video research",
+        "content strategy"
+      ]
     }
   ]
 }
