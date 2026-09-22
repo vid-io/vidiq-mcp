@@ -1,0 +1,12 @@
+interface:
+  display_name: "vidIQ Next Video Planner"
+  short_description: "Prioritize the strongest next-video opportunity"
+  default_prompt: "Use $next-video-planner to find and rank the best next-video opportunities for my channel."
+
+dependencies:
+  tools:
+    - type: "mcp"
+      value: "vidiq"
+      description: "Live creator intelligence from vidIQ"
+      transport: "streamable_http"
+      url: "https://mcp.vidiq.com/mcp"

@@ -1,0 +1,12 @@
+interface:
+  display_name: "vidIQ Shorts Inspiration"
+  short_description: "Find original Shorts ideas from Reels and TikToks"
+  default_prompt: "Use $shorts-inspiration to adapt a breakout short-form pattern for YouTube."
+
+dependencies:
+  tools:
+    - type: "mcp"
+      value: "vidiq"
+      description: "Live YouTube and short-form creator intelligence from vidIQ"
+      transport: "streamable_http"
+      url: "https://mcp.vidiq.com/mcp"

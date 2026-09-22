@@ -1,0 +1,12 @@
+interface:
+  display_name: "vidIQ Trend Radar"
+  short_description: "Sort trends by urgency and durability"
+  default_prompt: "Use $trend-radar to separate trends I should act on now from durable opportunities."
+
+dependencies:
+  tools:
+    - type: "mcp"
+      value: "vidiq"
+      description: "Live creator intelligence from vidIQ"
+      transport: "streamable_http"
+      url: "https://mcp.vidiq.com/mcp"

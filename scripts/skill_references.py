@@ -9,26 +9,23 @@ from typing import Iterator
 
 ROOT = Path(__file__).resolve().parent.parent
 SKILLS = frozenset(
-    f"vidiq-{name}"
-    for name in (
+    (
         "channel-review", "comment-insights", "competitor-watchlist", "get-started",
         "new-upload-review", "next-video-planner", "packaging-comparison", "packaging-studio",
-        "retention-analysis", "shorts-inspiration", "status", "trend-radar", "video-ideas",
+        "retention-analysis", "shorts-inspiration", "trend-radar", "video-ideas",
     )
 )
 SHARED_REFERENCES = {
     "live-surface-notes.md": SKILLS,
     "discovery-evidence.md": frozenset(
-        f"vidiq-{name}"
-        for name in (
+        (
             "comment-insights", "competitor-watchlist", "next-video-planner",
             "packaging-comparison", "packaging-studio", "shorts-inspiration",
             "trend-radar", "video-ideas",
         )
     ),
     "job-lifecycle.md": frozenset(
-        f"vidiq-{name}"
-        for name in (
+        (
             "packaging-comparison", "packaging-studio", "retention-analysis",
             "shorts-inspiration",
         )
