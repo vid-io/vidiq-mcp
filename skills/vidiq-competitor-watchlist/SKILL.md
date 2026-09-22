@@ -1,19 +1,18 @@
 ---
 name: vidiq-competitor-watchlist
-description: Audit and deliberately update the competitors tracked for an authorized YouTube channel with the connected vidIQ MCP. Use when a creator wants to clean up a stale watchlist, discover emerging competitors, separate direct competitors from format references, or approve an exact follow-and-unfollow change inside vidIQ.
+description: Audit an authorized YouTube channel's competitor watchlist, identify direct competitors and format references, discover emerging channels, and propose or execute explicitly approved follow/unfollow changes.
 ---
 
 # vidIQ Competitor Watchlist
 
-Read [Live surface notes](references/live-surface-notes.md) before starting this workflow,
-including analysis that uses only supplied evidence.
+Read [Live surface notes](references/live-surface-notes.md) first, even when using only supplied evidence.
 
 Audit or update a watchlist for the intended authorized channel. Research only what the request
 needs; a recommendation never authorizes a mutation.
 
 ## Establish the list and candidate fit
 
-1. Agree on the live-cost scope. Resolve the intended owner with `vidiq_user_channels`, then
+1. Resolve the intended owner with `vidiq_user_channels`, then
    capture `vidiq_list_competitors` for its `youtubeChannelId` as the original canonical-ID set.
    Enrich titles with `vidiq_get_channels_by_ids` only when useful.
 2. Exclude self, known siblings, and unrelated channels from analysis, but present removals as
@@ -45,18 +44,17 @@ Raw fame or size is insufficient; do not invent audience-overlap or private comp
    final set: `(snapshot - remove) ∪ add`. Deduplicate, prevent overlap, and omit already-present
    additions or absent removals. Map additions to `follow` and removals to `unfollow`.
    An empty diff needs no mutation. Do not invent a watchlist/plan cap.
-2. Quote the mutation, preflight snapshot read, and verification read costs separately and in
-   total. Obtain approval of that exact owner, diff, and live cost.
+2. Obtain approval of the exact owner and add/remove diff.
 3. Immediately before mutation, re-read the list within that approval. Compare canonical-ID sets
    with the original snapshot. If changed, abort, show the concurrent difference, and obtain
-   approval for a revised diff. If the read fails or prices change, pause.
+   approval for a revised diff. If the read fails, pause.
 4. With unchanged preflight and approval, call `vidiq_update_competitors` once with
    `youtubeChannelId`, `follow`, and `unfollow`. Preserve the response and read back with
-   `vidiq_list_competitors` within budget.
+   `vidiq_list_competitors`.
 5. Compare actual added/removed and final sets with the approved expectation. Report discrepancies,
    partial updates, or limit failures; never silently repair, roll back, or resubmit. Readback
    detects but cannot prevent a race after preflight because no atomic compare-and-swap is
-   declared. If verification fails or its price changes, label readback unverified and distinguish
+   declared. If verification fails, label readback unverified and distinguish
    any response-confirmed state.
 
 ## Deliver

@@ -7,8 +7,7 @@ Research YouTube channels, videos, trends, and comments; study public Instagram
 and TikTok short-form content when those tools are exposed by the connected account; and analyze
 private YouTube performance for channels connected to your vidIQ account.
 
-The workflow plugin turns that data into better content decisions with guided, credit-aware
-creator playbooks.
+The workflow plugin turns that data into better content decisions with guided creator playbooks.
 
 **[Connect in ChatGPT](#chatgpt)** ·
 **[Connect in Claude.ai](#claudeai)** ·
@@ -68,9 +67,9 @@ as Claude Code.
 ### Workflow plugin
 
 Install the vidIQ workflow plugin to connect your AI client to vidIQ's hosted tools and add guided
-creator workflows, credit-aware approvals, and safe recovery for long-running jobs. Clients with
+creator workflows and safe recovery for long-running jobs. Clients with
 bundled-agent support can also load the [vidIQ specialist](agents/vidiq-mcp.agent.md) to select the
-right workflow. Shared rules cover evidence quality and current tool costs; discovery,
+right workflow. Shared rules cover scope, evidence quality, and permissions; discovery,
 production, and job-recovery guidance loads when relevant to the request. The capabilities and
 prices shown in your connected client apply.
 
@@ -172,8 +171,8 @@ Restart or reload the client when required, complete vidIQ authorization in the 
 
 > Help me get started with vidIQ and choose a useful first workflow.
 
-The Get Started workflow verifies authorization and the returned authorized channels, explains how
-credits will be used, and starts with one focused creator decision. If you have already connected,
+The Get Started workflow verifies authorization and the returned authorized channels, shows your
+credit balance, and starts with one focused creator decision. If you have already connected,
 verify everything without launching creative work:
 
 > Check my vidIQ MCP status.
@@ -259,7 +258,7 @@ request.
 
 | Workflow | Best for |
 | --- | --- |
-| [Get Started](skills/vidiq-get-started/SKILL.md) | Verify authorization and channels, understand current credit costs, and choose the smallest useful first step. |
+| [Get Started](skills/vidiq-get-started/SKILL.md) | Verify authorization, channels, and credit balance, and choose a first workflow. |
 | [Status & Troubleshooting](skills/vidiq-status/SKILL.md) | Diagnose the connection, authorization, channels, credits, available capabilities, and existing jobs. |
 | [Next Video Planner](skills/vidiq-next-video-planner/SKILL.md) | Build an evidence-backed next-video brief from channel fit, search demand, trends, outliers, and competitor patterns. |
 | [Video Ideas](skills/vidiq-video-ideas/SKILL.md) | Scan outliers across the creator's channel, niche, and adjacent-audience niches for adaptable concept candidates. |
@@ -268,7 +267,7 @@ request.
 
 | Workflow | Best for |
 | --- | --- |
-| [Channel Review](skills/vidiq-channel-review/SKILL.md) | Review 30–90 days of channel performance within an approved credit budget and prioritize the next actions. |
+| [Channel Review](skills/vidiq-channel-review/SKILL.md) | Review 30–90 days of channel performance and prioritize the next actions. |
 | [New Upload Review](skills/vidiq-new-upload-review/SKILL.md) | Compare a new upload with the channel's normal curve before deciding whether to wait or intervene. |
 | [Retention Analysis](skills/vidiq-retention-analysis/SKILL.md) | Align retention changes with transcript, scenes, and comments to find moments worth improving. |
 | [Comment Insights](skills/vidiq-comment-insights/SKILL.md) | Turn recurring, de-identified viewer language into hooks, briefs, titles, and audience insight. |
@@ -283,23 +282,17 @@ request.
 | [Packaging Studio](skills/vidiq-packaging-studio/SKILL.md) | Turn a source video, concept card, script draft, rough idea pitch, or underperforming published video into scored titles, a thumbnail, and an optional script for the creator's channel. |
 | [Shorts Inspiration](skills/vidiq-shorts-inspiration/SKILL.md) | Study short-form content patterns and develop original YouTube Shorts ideas. |
 
-Each workflow tells the assistant to inspect the tools available in your current connection
-before acting. The capabilities and costs shown in your client are authoritative.
-
 ## You stay in control
 
 - Authorization belongs to your vidIQ account; your AI client email does not need to match it.
 - Private YouTube analytics are available only for channels authorized in that vidIQ account.
-- Some tools can create media, update your vidIQ competitor list, or change an owned YouTube
-  video's title, description, tags, visibility, or scheduled publish time. YouTube updates require
-  directly authorized owner access and YouTube verification for the current authorization.
-  The bundled guidance tells the assistant to show the exact target, final changes, and live
-  credit cost, then wait for your explicit approval before making a change.
+- Some tools can create media, update tracked competitors, or edit your YouTube videos.
+  Changes to your account or published videos require your approval. YouTube updates also
+  require authorized owner access and YouTube verification.
 - The bundled guidance tells the assistant to preserve long-running job IDs and resume existing
   work instead of accidentally starting a duplicate.
 
-Availability varies by account and client. Use the connected client's live tool list and cost
-descriptions rather than static tool counts or prices.
+Availability varies by account and client.
 
 ## Help and support
 

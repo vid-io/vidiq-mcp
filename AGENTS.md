@@ -4,7 +4,7 @@ This repository packages connection metadata and creator-workflow skills for the
 service across Claude, Codex, Cursor, GitHub Copilot, and Gemini.
 
 Apply this guide to vidIQ requests and vidIQ MCP calls. Do not start onboarding, account checks,
-or creator research for an unrelated task. For a vidIQ workflow, read
+or creator research for an unrelated task. Read
 [Live surface notes](references/live-surface-notes.md), including when analyzing supplied evidence.
 Load only the selected skill and references relevant to the request.
 
@@ -32,16 +32,12 @@ draft, a rough idea pitch, or a published video that needs repackaging, go strai
 For a focused title or thumbnail edit, use only the relevant studio stage. Reserve
 `vidiq-packaging-comparison` for an explicit comparison of distinct creative directions.
 
-Treat the connected MCP tool list, input schemas, availability, and displayed costs as
-authoritative. Do not rely on a copied tool catalog or deprecated alias.
-
 ## Calls without a dedicated workflow
 
-Follow the live tool description and the shared scope, credit, approval, privacy, and retry rules.
 Read [Discovery evidence](references/discovery-evidence.md) before recurring discovery-pattern
 claims, and [Job lifecycle](references/job-lifecycle.md) before asynchronous work.
 
 For media generation, confirm only the source, likeness, and speaker rights relevant to that
 medium; preserve required attribution. Reuse rights already established for the supplied assets.
-Voice cloning requires explicit speaker consent. Feedback submission requires an explicit request
-to send it. Keep temporary or signed media URLs within the user's requested workflow.
+Voice cloning requires explicit speaker consent. Keep temporary or signed media URLs within the
+user's requested workflow.

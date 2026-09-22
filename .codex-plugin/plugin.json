@@ -26,7 +26,7 @@
   "interface": {
     "displayName": "vidIQ",
     "shortDescription": "Creator intelligence for better video decisions",
-    "longDescription": "vidIQ MCP connects your assistant to live creator intelligence for YouTube and short-form video. Research topics and competitors, inspect authorized channel analytics, evaluate titles and thumbnails, and use guided workflows for planning, channel health, launches, retention, trends, and packaging. Available tools can also update an owned YouTube video's title, description, tags, visibility, or scheduled publish time with directly authorized owner access and current YouTube verification. Creative generation, vidIQ data updates, and YouTube changes require explicit approval of the exact action and live credit cost.",
+    "longDescription": "vidIQ MCP connects your assistant to live creator intelligence for YouTube and short-form video. Research topics and competitors, inspect authorized channel analytics, evaluate titles and thumbnails, and use guided workflows for planning, channel health, launches, retention, trends, and packaging. Available tools can also update an owned YouTube video's title, description, tags, visibility, or scheduled publish time with directly authorized owner access and current YouTube verification.",
     "developerName": "vidIQ",
     "category": "Creativity",
     "capabilities": [

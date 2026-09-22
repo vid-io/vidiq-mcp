@@ -1,20 +1,19 @@
 ---
 name: vidiq-comment-insights
-description: Mine de-identified viewer language from YouTube comments and transcripts with the connected vidIQ MCP. Use when a creator needs authentic phrases for hooks, briefs, titles, scripts, offers, or audience research; wants recurring questions and objections; or needs to distinguish creator language from the words viewers actually use.
+description: Find deidentified viewer phrases, questions, objections, and desired outcomes in YouTube comments, with transcripts as creator context. Use for audience research, hooks, titles, scripts, or offers.
 ---
 
 # vidIQ Comment Insights
 
-Read [Live surface notes](references/live-surface-notes.md) before starting this workflow,
-including analysis that uses only supplied evidence.
+Read [Live surface notes](references/live-surface-notes.md) first, even when using only supplied evidence.
 
 Extract reusable audience language from comments while protecting commenter identity.
 Keep viewer wording distinct from the creator's transcript and from original copy.
 
 ## Sample the requested audience
 
-1. Establish topic, intended use, language/market, and period; agree on the live-cost sample.
-   Use supplied videos. Discover additional sources only when needed and approved.
+1. Establish topic, intended use, language/market, and period; use a bounded sample.
+   Use supplied videos. Discover additional sources only when needed and within scope.
 2. For discovery, use `vidiq_channel_videos`, `vidiq_youtube_search`, or `vidiq_outliers` to
    include typical, recent, and breakout examples. Catalog calls require matching
    `videoFormat: long`, `short`, or `live`; use `popular: false` for recent uploads.
@@ -23,11 +22,11 @@ Keep viewer wording distinct from the creator's transcript and from original cop
 3. Read [Discovery evidence](references/discovery-evidence.md) when discovering source videos or
    asserting a recurring pattern. Inspect thumbnails only
    if visual context changes source selection; missing image access does not invalidate comment
-   analysis. Fetch independent samples in parallel only after agreeing on scope.
+   analysis. Fetch independent samples in parallel within scope.
 4. Start `vidiq_video_comments` with `videoId`, explicit `order`, and singular `maxResult`
    (1–100 threads per page). Report the sample cap and selection bias. Count actual returned
    replies; `replyCount` is not the number inspected. When the live tool returns `nextPageToken`,
-   continue within the agreed budget using `pageToken` and the same source, `order`, and
+   continue within the sample limit using `pageToken` and the same source, `order`, and
    `minLikes`. Like filtering can leave a page short or empty while more pages remain.
    Filter dates locally; undated comments have unknown recency.
 5. Use representative `vidiq_video_transcript` results only when useful; `transcription` is
@@ -37,7 +36,7 @@ Keep viewer wording distinct from the creator's transcript and from original cop
 
 Verify the video's owner channel from metadata, using `vidiq_get_videos_by_ids` only when needed.
 Compare `authorChannelUrl` in the same identifier form: `/channel/ID` against the owner ID,
-or `/@handle` against a verified owner handle. If the handle is missing, one budgeted
+or `/@handle` against a verified owner handle. If the handle is missing, one
 `vidiq_channel_search` with `channelTitleMatch: "exact"` can resolve it; require the returned
 `channelId` to match the video's owner before trusting its handle.
 

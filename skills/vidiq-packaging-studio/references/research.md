@@ -1,7 +1,6 @@
 # Research and diagnose packaging
 
-Use only the sections needed to resolve an evidence gap. Keep every extra read within the
-agreed research scope and live cost boundary.
+Use only the sections needed to resolve an evidence gap within the requested scope.
 
 ## Establish the content
 
@@ -55,8 +54,8 @@ applicability, and limitations. Let the creator choose when references imply dif
 
 Use `vidiq_video_watch` for long-form or `vidiq_watch_shortform_content` for Shorts when visual
 structure can change the decision. Verify eligibility separately for a live stream or recording.
-Obtain approval for the exact source and live watch/poll cost; preserve and poll the returned job
-using [Job lifecycle](job-lifecycle.md), read before submission.
+Verify the source; preserve and poll the returned job using [Job lifecycle](job-lifecycle.md),
+read before submission.
 
 Use completed watch evidence for pacing, scene, and moving-image claims. Transcripts, URLs, and
 thumbnails cannot establish them. With missing image access, provide provisional text-only

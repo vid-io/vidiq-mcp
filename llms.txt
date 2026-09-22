@@ -50,5 +50,3 @@ workflow guidance for the hosted service.
 - [Trend Radar](skills/vidiq-trend-radar/SKILL.md)
 - [Competitor Watchlist](skills/vidiq-competitor-watchlist/SKILL.md)
 - [Shorts Inspiration](skills/vidiq-shorts-inspiration/SKILL.md)
-
-The connected tool list, schemas, availability, and displayed costs are authoritative.

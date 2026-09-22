@@ -1,20 +1,18 @@
 ---
 name: vidiq-retention-analysis
-description: Investigate audience-retention changes for an authorized YouTube video with the connected vidIQ MCP, aligning them to timestamped scenes when visual analysis is approved and available. Use when a creator wants to understand where viewers leave, diagnose pacing or expectation problems, compare retention zones, or redesign a video's structure using analytics plus content evidence.
+description: Analyze an authorized YouTube video's retention to investigate drop-offs, pacing, expectations, or structure. Align findings with timestamped scenes only when visual analysis is within scope and available.
 ---
 
 # vidIQ Retention Analysis
 
-Read [Live surface notes](references/live-surface-notes.md) before starting this workflow,
-including analysis that uses only supplied evidence.
+Read [Live surface notes](references/live-surface-notes.md) first, even when using only supplied evidence.
 
 Investigate retention changes with private analytics and relevant content evidence.
 Treat explanations as hypotheses, not proof of why every viewer left.
 
 ## Establish authorized evidence
 
-1. Identify video, format, and review dates; agree on the live-cost analysis scope, including any
-   optional watch/poll calls.
+1. Identify video, format, and review dates; keep analysis and optional watch/poll work within scope.
 2. Resolve authorized IDs with `vidiq_user_channels`. If no video is supplied, discover candidates
    with `vidiq_channel_videos`, `popular: false`, and confirmed `videoFormat: long`, `short`,
    or `live`; confirm the candidate. Use `vidiq_get_videos_by_ids` and require its `channelId`
@@ -43,7 +41,7 @@ samples, and near-end drops lower confidence without establishing an editing fau
 ## Align content only with appropriate evidence
 
 `vidiq_video_transcript` returns untimed `transcription`. Use it for spoken themes.
-For decision-relevant scene alignment, obtain exact source and live watch/poll approval:
+For scene alignment within the requested analysis, verify the source before watching:
 `vidiq_video_watch` serves long-form; `vidiq_watch_shortform_content` serves Shorts.
 Verify eligibility separately for live streams or recordings. Before a watch call, read
 [Job lifecycle](references/job-lifecycle.md) for submission, bounded polling, and recovery.

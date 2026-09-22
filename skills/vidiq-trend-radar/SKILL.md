@@ -1,12 +1,11 @@
 ---
 name: vidiq-trend-radar
-description: Separate urgent, durable, mature, and misleading YouTube trends with the connected vidIQ MCP. Use when a creator asks what requires a response now, what can wait, whether a trend has search durability, whether small channels can participate, or how to prioritize timely content without confusing velocity with long-term demand.
+description: Assess YouTube trends by urgency, durable demand, maturity, misleading signals, and accessibility to smaller channels. Use to prioritize timely content and distinguish current velocity from sustained search demand.
 ---
 
 # vidIQ Trend Radar
 
-Read [Live surface notes](references/live-surface-notes.md) before starting this workflow,
-including analysis that uses only supplied evidence.
+Read [Live surface notes](references/live-surface-notes.md) first, even when using only supplied evidence.
 
 Separate current velocity, channel-relative breakout, durable demand, and creator accessibility.
 Recommend timing from evidence and production lead time.
@@ -16,7 +15,7 @@ Recommend timing from evidence and production lead time.
 Read [Discovery evidence](references/discovery-evidence.md) before evaluating trend examples,
 including supplied results.
 
-1. Define niche, audience, region/language, format, and horizon; agree on the live-cost research
+1. Define niche, audience, region/language, format, and horizon; use a bounded research
    plan. Before a saved-watchlist scan, exclude self, known siblings, and unrelated channels from
    analysis, disclose uncertainty, and leave the list unchanged.
 2. Use `vidiq_trend_categories` only when its taxonomy can narrow outliers through
@@ -48,10 +47,10 @@ unclassified and state what observation could change the recommendation.
 
 | Class | Evidence and response |
 | --- | --- |
-| **Urgent** | A timely opening with relevant independent examples, performance above positive comparable baselines, and measured rising velocity. Act soon only if production can fit the window. |
-| **Durable** | Recurring need supported by relevant content over time and search-demand context; a normal production schedule can fit. |
-| **Mature** | Established demand with measured plateau or decay across relevant examples. Differentiate or pass; age alone is insufficient. |
-| **Misleading** | Relevance, independence, or sustained-demand evidence contradicts the apparent broad opportunity. State the contradiction; the topic itself need not be worthless. |
+| **Urgent** | Relevant independent examples exceed positive comparable baselines with measured rising velocity. Act soon only if production fits the opportunity window. |
+| **Durable** | Recurring need supported by relevant content over time and search demand; normal production timing can fit. |
+| **Mature** | Measured plateau or decay across relevant examples with established demand. Differentiate or pass; age alone is insufficient. |
+| **Misleading** | Evidence on relevance, independence, or sustained demand contradicts the apparent opportunity. State the contradiction; the topic itself need not be worthless. |
 
 For urgency, use at least two timestamped non-null historical VPH observations per qualifying
 example. Report baseline source, comparable format/age scope, window, and contrary movement.
