@@ -1,6 +1,6 @@
 ---
 name: video-ideas
-description: Find original video concepts inspired by outlier title mechanisms across adjacent audiences. Use for breakout inspiration, recurring idea scans, and concept cards for packaging-studio.
+description: Find original YouTube video concepts inspired by outlier title mechanisms across adjacent audiences. Use for breakout inspiration, recurring idea scans, and concept cards for packaging-studio.
 ---
 
 # vidIQ Video Ideas
