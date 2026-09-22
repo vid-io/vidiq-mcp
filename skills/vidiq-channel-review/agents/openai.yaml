@@ -1,0 +1,12 @@
+interface:
+  display_name: "vidIQ Channel Review"
+  short_description: "Review 30–90 days of channel performance"
+  default_prompt: "Use $vidiq-channel-review to assess my channel’s last 90 days and prioritize the next improvements."
+
+dependencies:
+  tools:
+    - type: "mcp"
+      value: "vidiq"
+      description: "Private channel analytics from vidIQ"
+      transport: "streamable_http"
+      url: "https://mcp.vidiq.com/mcp"

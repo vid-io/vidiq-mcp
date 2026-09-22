@@ -13,10 +13,10 @@ including supplied-evidence analysis.
 Follow the [agent guide](../AGENTS.md) for connection help, channel selection, and routing.
 Load only the selected skill and the references relevant to the task.
 
-For an end-to-end idea-and-package request, use `video-ideas` then
-`packaging-studio`. Take an existing idea, script, or published video directly to the
-studio. A focused title edit needs only that stage; use `packaging-comparison` for an
-explicit comparison of distinct directions. Use `next-video-planner` for choosing an upload
+For an end-to-end idea-and-package request, use `vidiq-video-ideas` then
+`vidiq-packaging-studio`. Take an existing idea, script, or published video directly to the
+studio. A focused title edit needs only that stage; use `vidiq-packaging-comparison` for an
+explicit comparison of distinct directions. Use `vidiq-next-video-planner` for choosing an upload
 from channel performance and demand evidence.
 
 ## Handle calls without a dedicated skill
@@ -28,6 +28,6 @@ For media generation, confirm the relevant source, likeness, and speaker rights;
 attribution. Reuse rights already established for the supplied assets. Voice cloning requires
 explicit speaker consent.
 
-Diagnose connection, credit, or interrupted-job problems with `get-started` when available.
+Diagnose connection, credit, or interrupted-job problems with `vidiq-get-started` when available.
 Recover existing jobs before considering another submission. Keep failed or unverified work
 explicit in the handoff.

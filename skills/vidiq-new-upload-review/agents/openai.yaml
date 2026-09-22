@@ -1,0 +1,12 @@
+interface:
+  display_name: "vidIQ New Upload Review"
+  short_description: "Triage a new video's performance curve"
+  default_prompt: "Use $vidiq-new-upload-review to decide whether my new upload needs action or more time."
+
+dependencies:
+  tools:
+    - type: "mcp"
+      value: "vidiq"
+      description: "Live creator intelligence from vidIQ"
+      transport: "streamable_http"
+      url: "https://mcp.vidiq.com/mcp"

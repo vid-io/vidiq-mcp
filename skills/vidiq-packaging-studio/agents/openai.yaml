@@ -1,0 +1,12 @@
+interface:
+  display_name: "vidIQ Packaging Studio"
+  short_description: "Develop original titles, thumbnails, and scripts"
+  default_prompt: "Use $vidiq-packaging-studio to turn my idea, script, reference, or published video into an original packaged concept."
+
+dependencies:
+  tools:
+    - type: "mcp"
+      value: "vidiq"
+      description: "Hosted creator intelligence from vidIQ"
+      transport: "streamable_http"
+      url: "https://mcp.vidiq.com/mcp"
