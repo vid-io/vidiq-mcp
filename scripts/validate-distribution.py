@@ -42,6 +42,7 @@ ALLOWED_FILES = {
     ".claude-plugin/plugin.json",
     ".codex-plugin/plugin.json",
     ".cursor-plugin/plugin.json",
+    ".github/CODEOWNERS",
     ".github/ISSUE_TEMPLATE/config.yml",
     ".github/ISSUE_TEMPLATE/documentation.yml",
     ".github/PULL_REQUEST_TEMPLATE.md",
