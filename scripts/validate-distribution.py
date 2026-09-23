@@ -21,6 +21,7 @@ MCP_URL = "https://mcp.vidiq.com/mcp"
 REPOSITORY_URL = "https://github.com/vid-io/vidiq-mcp"
 BRAND_ASSET = "assets/vidiq-icon-mark.svg"
 BRAND_COLOR = "#2574F5"
+CODEOWNERS_OWNER = "@vid-io/vidiq-mcp-maintainers"
 LICENSE_SHA256 = "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30"  # pragma: allowlist secret
 CC_BY_4_0_SHA256 = "9ba9550ad48438d0836ddab3da480b3b69ffa0aac7b7878b5a0039e7ab429411"  # pragma: allowlist secret
 EXPECTED_SKILLS = SKILLS
@@ -186,6 +187,17 @@ def validate_public_boundary() -> None:
         for label, pattern in SENSITIVE_PATTERNS.items():
             if pattern.search(text):
                 fail(f"{item} contains a {label}")
+
+
+def validate_codeowners() -> None:
+    codeowners = ROOT / ".github" / "CODEOWNERS"
+    rules = [
+        line.strip()
+        for line in codeowners.read_text(encoding="utf-8").splitlines()
+        if line.strip() and not line.lstrip().startswith("#")
+    ]
+    if rules != [f"* {CODEOWNERS_OWNER}"]:
+        fail(f"CODEOWNERS must assign every path to {CODEOWNERS_OWNER}")
 
 
 def validate_manifests() -> dict[str, dict[str, Any]]:
@@ -471,6 +483,7 @@ def validate_licenses() -> None:
 
 def main() -> int:
     validate_public_boundary()
+    validate_codeowners()
     manifests = validate_manifests()
     validate_claude_marketplace(manifests)
     validate_copilot_marketplace(manifests)
