@@ -11,7 +11,7 @@ ROOT = Path(__file__).resolve().parent.parent
 SKILLS = frozenset(
     f"vidiq-{name}"
     for name in (
-        "channel-review", "comment-insights", "competitor-watchlist", "get-started",
+        "channel-audit", "comment-insights", "competitor-watchlist", "get-started",
         "new-upload-review", "next-video-planner", "packaging-comparison", "packaging-studio",
         "retention-analysis", "shorts-inspiration", "trend-radar", "video-ideas",
     )

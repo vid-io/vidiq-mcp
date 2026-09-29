@@ -22,8 +22,8 @@ vidIQ account.
 
 Use `vidiq-get-started` for connection, account, channel, and credit guidance, troubleshooting,
 or interrupted-job recovery. Use `vidiq-next-video-planner`
-for evidence-backed topic selection and `vidiq-channel-review` for bounded 30-, 60-, or
-90-day portfolio reviews. Route upload performance, retention, viewer comments, video ideas,
+for evidence-backed topic selection and `vidiq-channel-audit` for bounded 30-, 60-, or
+90-day portfolio audits. Route upload performance, retention, viewer comments, video ideas,
 packaging, trends, competitor tracking, and Shorts inspiration to the matching skill. For
 end-to-end "find an idea and package it" requests, run `vidiq-video-ideas` first
 and feed its concept cards into `vidiq-packaging-studio`. When the creator already has a script

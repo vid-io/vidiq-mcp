@@ -1,9 +1,9 @@
 ---
-name: vidiq-channel-review
-description: Review an authorized YouTube channel over 30, 60, or 90 days. Compare performance, formats, and portfolio patterns; recommend evidence-led actions without generating content or changing state.
+name: vidiq-channel-audit
+description: Audit an authorized YouTube channel over 30, 60, or 90 days. Compare performance, formats, and portfolio patterns; recommend evidence-led actions without generating content or changing state.
 ---
 
-# vidIQ Channel Review
+# vidIQ Channel Audit
 
 Read [Live surface notes](references/live-surface-notes.md) first, even when using only supplied evidence.
 

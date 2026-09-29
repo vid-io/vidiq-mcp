@@ -270,7 +270,7 @@ are part of Get Started.
 
 | Workflow | Best for |
 | --- | --- |
-| [Channel Review](skills/vidiq-channel-review/SKILL.md) | Review 30–90 days of channel performance and prioritize the next actions. |
+| [Channel Audit](skills/vidiq-channel-audit/SKILL.md) | Audit 30–90 days of channel performance and prioritize the next actions. |
 | [New Upload Review](skills/vidiq-new-upload-review/SKILL.md) | Compare a new upload with the channel's normal curve before deciding whether to wait or intervene. |
 | [Retention Analysis](skills/vidiq-retention-analysis/SKILL.md) | Align retention changes with transcript, scenes, and comments to find moments worth improving. |
 | [Comment Insights](skills/vidiq-comment-insights/SKILL.md) | Turn recurring, de-identified viewer language into hooks, briefs, titles, and audience insight. |
