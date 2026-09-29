@@ -255,8 +255,9 @@ Choose a workflow for the decision you want to make. The assistant can also sele
 request.
 
 In Claude Code, invoke skills as `/vidiq:vidiq-get-started` or `/vidiq:vidiq-packaging-studio`.
-Version 0.1.3 restores the `vidiq-` skill prefix. Connection diagnostics and job recovery
-are part of Get Started.
+Version 0.1.3 restores the `vidiq-` skill prefix. Version 0.1.4 renames Channel Review to
+Channel Audit; invoke it as `/vidiq:vidiq-channel-audit`. Connection diagnostics and job
+recovery are part of Get Started.
 
 ### Connect and choose a direction
 
