@@ -255,8 +255,9 @@ Choose a workflow for the decision you want to make. The assistant can also sele
 request.
 
 In Claude Code, invoke skills as `/vidiq:vidiq-get-started` or `/vidiq:vidiq-packaging-studio`.
-Version 0.1.3 restores the `vidiq-` skill prefix. Connection diagnostics and job recovery
-are part of Get Started.
+Version 0.1.3 restores the `vidiq-` skill prefix. Version 0.1.4 renames Channel Review to
+Channel Audit; invoke it as `/vidiq:vidiq-channel-audit`. Connection diagnostics and job
+recovery are part of Get Started.
 
 ### Connect and choose a direction
 
@@ -270,7 +271,7 @@ are part of Get Started.
 
 | Workflow | Best for |
 | --- | --- |
-| [Channel Review](skills/vidiq-channel-review/SKILL.md) | Review 30–90 days of channel performance and prioritize the next actions. |
+| [Channel Audit](skills/vidiq-channel-audit/SKILL.md) | Audit 30–90 days of channel performance and prioritize the next actions. |
 | [New Upload Review](skills/vidiq-new-upload-review/SKILL.md) | Compare a new upload with the channel's normal curve before deciding whether to wait or intervene. |
 | [Retention Analysis](skills/vidiq-retention-analysis/SKILL.md) | Align retention changes with transcript, scenes, and comments to find moments worth improving. |
 | [Comment Insights](skills/vidiq-comment-insights/SKILL.md) | Turn recurring, de-identified viewer language into hooks, briefs, titles, and audience insight. |

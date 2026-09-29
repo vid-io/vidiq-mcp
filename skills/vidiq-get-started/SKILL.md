@@ -41,7 +41,7 @@ After setup, use the creator's stated decision. If it is unclear, ask one compac
 - **Package an existing idea or video:** `vidiq-packaging-studio`.
 - **Discover an idea:** `vidiq-video-ideas`; feed its concept cards into packaging for an
   end-to-end request.
-- **Review performance:** `vidiq-channel-review`, or `vidiq-new-upload-review` for a recent upload.
+- **Review performance:** `vidiq-channel-audit`, or `vidiq-new-upload-review` for a recent upload.
 
 Honor a more specific request with its matching skill. Supplied-context analysis or text drafting
 may need no MCP calls. Do not run research merely to demonstrate the connection.
