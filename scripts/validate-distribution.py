@@ -246,6 +246,14 @@ def validate_manifests() -> dict[str, dict[str, Any]]:
         else:
             check_component_path("codex.interface", field, value)
 
+    claude_icon = manifests["claude"].get("icon")
+    if claude_icon != f"./{BRAND_ASSET}":
+        fail(f"Claude icon must reference ./{BRAND_ASSET}")
+    else:
+        check_component_path("claude", "icon", claude_icon)
+    if manifests["claude"].get("privacyPolicyUrl") != "https://vidiq.com/privacy/":
+        fail("Claude privacyPolicyUrl must be https://vidiq.com/privacy/")
+
     cursor_logo = manifests["cursor"].get("logo")
     if cursor_logo != BRAND_ASSET:
         fail(f"Cursor logo must reference {BRAND_ASSET}")
