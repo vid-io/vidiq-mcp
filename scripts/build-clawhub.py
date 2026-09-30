@@ -64,6 +64,7 @@ def build_package(root: Path, output: Path, public_files: set[str]) -> Path:
                 "version": manifest["version"],
                 "description": manifest["description"],
                 "skills": ["./skills"],
+                "categories": ["research"],
                 "configSchema": {"type": "object", "additionalProperties": False, "properties": {}},
             },
             ".mcp.json": {

@@ -76,7 +76,7 @@ npx --yes clawhub@0.23.3 package publish .context/clawhub/vidiq \
   --family bundle-plugin --owner vidiq \
   --source-repo https://github.com/vid-io/vidiq-mcp \
   --source-commit "$(git rev-parse HEAD)" --source-path . \
-  --topics youtube,creator-analytics,video-research,content-strategy --dry-run --json
+  --topics youtube,instagram,tiktok,video-research,creator-analytics --dry-run --json
 ```
 
 The package name is `@vidiq/vidiq`; its version comes from `.claude-plugin/plugin.json`.
