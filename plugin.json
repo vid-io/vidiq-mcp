@@ -2,7 +2,7 @@
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "vidiq",
   "version": "0.1.5",
-  "description": "Twelve vidIQ creator workflows for YouTube research, channel analytics, video planning, and packaging. Connect the hosted vidIQ MCP service separately using browser OAuth.",
+  "description": "Use live vidIQ creator intelligence to research YouTube and short-form video, analyze performance, and make stronger content decisions.",
   "author": {
     "name": "vidIQ"
   },
