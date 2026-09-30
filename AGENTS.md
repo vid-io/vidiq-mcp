@@ -1,7 +1,7 @@
 # vidIQ MCP agent guide
 
 This repository packages connection metadata and creator-workflow skills for the hosted vidIQ MCP
-service across Claude, Codex, Cursor, GitHub Copilot, Gemini, Grok Build, and Hermes Agent.
+service across Claude, Codex, Cursor, GitHub Copilot, Gemini, Grok Build, Hermes Agent, and OpenClaw.
 
 Apply this guide to vidIQ requests and vidIQ MCP calls. Do not start onboarding, account checks,
 or creator research for an unrelated task. Read
