@@ -5,20 +5,16 @@ from __future__ import annotations
 
 import argparse
 import json
-import re
 import runpy
 import shutil
 import tempfile
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
-OWNER = re.compile(r"[a-z0-9](?:[a-z0-9._-]*[a-z0-9])?")
 
 
-def build_package(root: Path, output: Path, owner: str, public_files: set[str]) -> Path:
+def build_package(root: Path, output: Path, public_files: set[str]) -> Path:
     """Copy only allowlisted runtime files; never overwrite an existing destination."""
-    if not OWNER.fullmatch(owner):
-        raise ValueError("owner must be a lowercase ClawHub publisher handle without @")
     root = root.resolve()
     output = output.absolute()
     if output.exists() or output.is_symlink():
@@ -55,7 +51,7 @@ def build_package(root: Path, output: Path, owner: str, public_files: set[str]) 
 
         generated = {
             "package.json": {
-                "name": f"@{owner}/vidiq",
+                "name": "@vidiq/vidiq",
                 "version": manifest["version"],
                 "description": manifest["description"],
                 "license": manifest["license"],
@@ -91,14 +87,13 @@ def build_package(root: Path, output: Path, owner: str, public_files: set[str]) 
 
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--owner", required=True, help="ClawHub publisher handle (without @).")
     parser.add_argument("--output", type=Path, default=ROOT / ".context/clawhub/vidiq")
     args = parser.parse_args()
     validation = runpy.run_path(str(ROOT / "scripts/validate-distribution.py"))
     if validation["main"]():
         return 1
     try:
-        output = build_package(ROOT, args.output, args.owner, validation["ALLOWED_FILES"])
+        output = build_package(ROOT, args.output, validation["ALLOWED_FILES"])
     except (OSError, ValueError, KeyError) as error:
         parser.exit(1, f"Build failed: {error}\n")
     print(f"Built {output}")

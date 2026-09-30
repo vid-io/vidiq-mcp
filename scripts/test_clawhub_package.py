@@ -43,7 +43,7 @@ class ClawHubPackageTests(unittest.TestCase):
             path.write_text(content)
 
     def build(self) -> Path:
-        return build_package(self.root, self.output, "vidiq", self.public_files)
+        return build_package(self.root, self.output, self.public_files)
 
     def test_copies_references_and_excludes_unlisted_files(self) -> None:
         for name in [".env", "skills/vidiq-get-started/.env", "skills/vidiq-get-started/private.md"]:
@@ -107,12 +107,6 @@ class ClawHubPackageTests(unittest.TestCase):
         (self.root / "NOTICE").unlink()
         with self.assertRaisesRegex(ValueError, "missing public source"):
             self.build()
-        self.assertFalse(self.output.exists())
-
-    def test_rejects_invalid_publisher_handles(self) -> None:
-        for owner in ["", "@vidiq", "VidIQ", "../vidiq", "vidiq/other", "vidiq;"]:
-            with self.subTest(owner=owner), self.assertRaises(ValueError):
-                build_package(self.root, self.output, owner, self.public_files)
         self.assertFalse(self.output.exists())
 
 

@@ -39,7 +39,7 @@ jobs:
       - name: Test and build the ClawHub bundle without publishing
         run: |
           python3 -m unittest discover -s scripts -p 'test_clawhub_package.py'
-          python3 scripts/build-clawhub.py --owner vidiq
+          python3 scripts/build-clawhub.py
 
       - name: Validate ClawHub package compatibility
         run: >-

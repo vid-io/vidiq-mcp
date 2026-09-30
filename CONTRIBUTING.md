@@ -54,17 +54,15 @@ the shared references or individual workflows.
 
 ## OpenClaw bundle
 
-Build one ClawHub `bundle-plugin` from the shared skills and manifests. The builder includes
-their portable reference copies, icons, `LICENSE`, and `NOTICE`; generates OpenClaw metadata
-and OAuth configuration; and links its package README to the root setup guide. Other clients
-keep using the root `.mcp.json`. Do not publish the repository root or individual skills with
-`clawhub sync`.
+Build `@vidiq/vidiq` from the shared skills and manifests. The generated bundle includes the
+skill references, icons, license, and notices, with OpenClaw's OAuth configuration.
+Publish this bundle, not the repository root or individual skills.
 
 After installing the development requirements above, run from the repository root:
 
 ```bash
 python3 -m unittest discover -s scripts -p 'test_clawhub_package.py'
-python3 scripts/build-clawhub.py --owner vidiq
+python3 scripts/build-clawhub.py
 npx --yes clawhub@0.23.3 package validate .context/clawhub/vidiq \
   --openclaw-version 2026.9.6 --out "$PWD/.context/clawhub-reports"
 npx --yes clawhub@0.23.3 package publish .context/clawhub/vidiq \
@@ -75,9 +73,10 @@ npx --yes clawhub@0.23.3 package publish .context/clawhub/vidiq \
 ```
 
 The package name is `@vidiq/vidiq`; its version comes from `.claude-plugin/plugin.json`.
-Builds refuse to overwrite an existing directory. Use `--output` with a fresh path when
-rebuilding, and pass that path to subsequent commands. Keep the validator's absolute `--out`
-directory outside the bundle: relative report paths would add reports to the package.
+Builds refuse to overwrite an existing directory. For another build, use `--output` with a fresh
+directory under `.context/` and pass that path to subsequent commands. To replace an installed
+bundle, run `openclaw plugins install /absolute/path/to/new-bundle --force` after reviewing it.
+Keep the validator's absolute `--out` directory outside the bundle so reports are not packaged.
 
 ClawHub requires `openclaw.plugin.json`. Keep the Claude bundle marker and omit native
 entrypoints so OpenClaw loads the bundled skills and MCP connection. When upgrading the
@@ -85,7 +84,7 @@ pinned host or CLI, recheck bundle loading and the [README setup flow](README.md
 including authorization, channel access, logout, and login. For isolated tests, set
 `OPENCLAW_STATE_DIR` and `OPENCLAW_CONFIG_PATH` to private temporary paths.
 
-Release from a clean, committed checkout with access to the intended ClawHub publisher.
+Release from a clean checkout of a commit merged and pushed to `main`, with access to `@vidiq`.
 Review the generated files and retain Apache-2.0 and its notices. After approval of the exact
 package and version, rerun the publish command without `--dry-run`, adding `--wait`.
 Verify security review and public installation before announcing availability. See

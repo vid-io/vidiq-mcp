@@ -117,8 +117,8 @@ openclaw plugins inspect vidiq
 openclaw skills list
 ```
 
-Review and accept the requested capabilities. Inspection should show a Claude bundle with
-`skills` and `mcpServers`; the skill list should include the 12 `vidiq-` workflows.
+Review the requested capabilities before accepting. Confirm that inspection lists `skills` and
+`mcpServers`, and that the skill list includes the 12 `vidiq-` workflows.
 Register the server for OpenClaw's login command, then authorize your vidIQ account:
 
 ```bash
@@ -127,10 +127,10 @@ openclaw mcp login vidiq
 openclaw mcp doctor vidiq --probe
 ```
 
-Complete sign-in in the browser, then start a new agent conversation and ask:
-“Check my vidIQ connection, authorized channels, and credit balance.” Start the Gateway if it
-is stopped. This setup uses shared operator credentials: enable it only for agents and people
-you trust with that vidIQ account. Credentials stay in OpenClaw's credential store.
+Complete sign-in in the browser and start your OpenClaw Gateway if it is stopped. In a new
+agent conversation, ask: “Check my vidIQ connection, authorized channels, and credit balance.”
+All agents using this setup share the connected vidIQ account. Only enable it for people you
+trust with that account; credentials stay in OpenClaw's credential store.
 
 If tools are missing, check the plugin and tool policy; the `minimal` profile or a denial of
 `bundle-mcp` can hide them. See the [OpenClaw MCP guide](https://docs.openclaw.ai/tools/mcp)

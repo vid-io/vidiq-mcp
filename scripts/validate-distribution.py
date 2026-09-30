@@ -183,7 +183,7 @@ def validate_public_boundary() -> None:
         fail(f"public-distribution file is missing: {item}")
 
     for item in sorted(actual & ALLOWED_FILES):
-        if item == "scripts/validate-distribution.py":
+        if item == "scripts/validate-distribution.py" or Path(item).suffix == ".png":
             continue
         text = (ROOT / item).read_text(encoding="utf-8", errors="replace")
         if "[TODO:" in text:
