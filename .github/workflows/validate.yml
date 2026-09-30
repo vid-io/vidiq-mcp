@@ -36,6 +36,16 @@ jobs:
       - name: Validate distribution invariants
         run: python3 scripts/validate-distribution.py
 
+      - name: Test and build the ClawHub bundle without publishing
+        run: |
+          python3 -m unittest discover -s scripts -p 'test_clawhub_package.py'
+          python3 scripts/build-clawhub.py
+
+      - name: Validate ClawHub package compatibility
+        run: >-
+          npx --yes clawhub@0.23.3 package validate .context/clawhub/vidiq
+          --openclaw-version 2026.9.6 --out "${RUNNER_TEMP}/clawhub-reports"
+
       - name: Scan for committed secrets
         run: detect-secrets scan --no-verify | jq --exit-status '.results | length == 0'
 

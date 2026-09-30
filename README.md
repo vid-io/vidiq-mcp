@@ -106,6 +106,36 @@ Start a new session with `grok` and sign in to Grok if prompted. To connect your
 If the connection fails, run `grok mcp doctor vidiq` in your terminal. See the
 [Grok MCP guide](https://docs.x.ai/build/features/mcp-servers) for connection settings and help.
 
+#### OpenClaw
+
+Build the OpenClaw bundle from this repository using the
+[build instructions](CONTRIBUTING.md#openclaw-bundle), then install the generated directory:
+
+```bash
+openclaw plugins install /absolute/path/to/vidiq-mcp/.context/clawhub/vidiq
+openclaw plugins inspect vidiq
+openclaw skills list
+```
+
+Review the requested capabilities before accepting. Confirm that inspection lists `skills` and
+`mcpServers`, and that the skill list includes the 12 `vidiq-` workflows.
+Register the server for OpenClaw's login command, then authorize your vidIQ account:
+
+```bash
+openclaw mcp set vidiq '{"url":"https://mcp.vidiq.com/mcp","transport":"streamable-http","auth":"oauth"}'
+openclaw mcp login vidiq
+openclaw mcp doctor vidiq --probe
+```
+
+Complete sign-in in the browser and start your OpenClaw Gateway if it is stopped. In a new
+agent conversation, ask: “Check my vidIQ connection, authorized channels, and credit balance.”
+All agents using this setup share the connected vidIQ account. Only enable it for people you
+trust with that account; credentials stay in OpenClaw's credential store.
+
+If tools are missing, check the plugin and tool policy; the `minimal` profile or a denial of
+`bundle-mcp` can hide them. See the [OpenClaw MCP guide](https://docs.openclaw.ai/tools/mcp)
+and [bundle documentation](https://docs.openclaw.ai/plugins/bundles) for host requirements.
+
 #### Hermes Agent
 
 With a current Hermes version supporting
@@ -268,6 +298,17 @@ To switch vidIQ accounts, disconnect the current connection in the client, sign 
 account in the authorization browser, and connect again. For personal-data access or deletion
 requests, follow the **Exercising Your Data Subject Rights** instructions in the
 [vidIQ Privacy Policy](https://vidiq.com/privacy/).
+
+In OpenClaw, switch accounts with `openclaw mcp logout vidiq`, then `openclaw mcp login vidiq`.
+To remove the integration:
+
+```bash
+openclaw mcp logout vidiq
+openclaw mcp unset vidiq
+openclaw plugins uninstall vidiq
+```
+
+Removing only the saved server leaves the bundle's server definition available.
 
 ## Try these creator prompts
 
