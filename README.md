@@ -117,9 +117,9 @@ hermes mcp add vidiq --url https://mcp.vidiq.com/mcp --auth oauth
 ```
 
 Complete browser authorization, then start a new Hermes conversation. The plugin adds all
-12 workflow skills; the separate MCP connection supplies the live tools. If `vidiq` is already
+12 workflow skills, discoverable through `skills_list`; the separate MCP connection supplies the live tools. If `vidiq` is already
 configured, check it with `hermes mcp test vidiq` and use `hermes mcp login vidiq` when
-authorization is needed.
+authorization is needed. Re-running `add` does not reauthenticate an existing connection.
 
 See the [Hermes guide](integrations/hermes/README.md) for verification, account switching,
 and removal. This uses a direct GitHub installation; a Hermes catalog listing is separate.

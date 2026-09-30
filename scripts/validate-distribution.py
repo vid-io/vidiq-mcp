@@ -6,6 +6,7 @@ from __future__ import annotations
 import hashlib
 import json
 import re
+import runpy
 import subprocess
 import sys
 from pathlib import Path
@@ -299,6 +300,21 @@ def validate_claude_marketplace(manifests: dict[str, dict[str, Any]]) -> None:
         fail("Claude marketplace and plugin manifest versions differ")
 
 
+def validate_hermes_pin() -> None:
+    pin = runpy.run_path(str(ROOT / "scripts" / "validate-hermes.py"))["HERMES_COMMIT"]
+    workflow = load_yaml(ROOT / ".github" / "workflows" / "validate.yml")
+    steps = workflow.get("jobs", {}).get("validate", {}).get("steps", [])
+    checkouts = [
+        step.get("with", {}) for step in steps
+        if step.get("with", {}).get("repository") == "NousResearch/hermes-agent"
+    ]
+    if len(checkouts) != 1 or checkouts[0].get("ref") != pin:
+        fail("Hermes CI checkout must match the loader validation pin")
+    guide = (ROOT / "integrations" / "hermes" / "README.md").read_text(encoding="utf-8")
+    if f"Hermes commit `{pin}`" not in guide:
+        fail("Hermes compatibility guide must name the tested loader pin")
+
+
 def validate_copilot_marketplace(manifests: dict[str, dict[str, Any]]) -> None:
     marketplace = load_json(ROOT / ".github" / "plugin" / "marketplace.json")
     if marketplace.get("name") != "vidiq-plugins":
@@ -511,6 +527,7 @@ def main() -> int:
     validate_codeowners()
     manifests = validate_manifests()
     validate_claude_marketplace(manifests)
+    validate_hermes_pin()
     validate_copilot_marketplace(manifests)
     validate_endpoint(manifests)
     validate_skills()

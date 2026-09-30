@@ -20,9 +20,19 @@ def main() -> int:
     parser.add_argument("hermes_source", type=Path, help="checkout of the tested Hermes revision")
     args = parser.parse_args()
     source = args.hermes_source.resolve(strict=True)
-    revision = subprocess.check_output(
-        ["git", "rev-parse", "HEAD"], cwd=source, text=True,
-    ).strip()
+    try:
+        top = subprocess.check_output(
+            ["git", "rev-parse", "--show-toplevel"], cwd=source, text=True,
+            stderr=subprocess.PIPE,
+        ).strip()
+        if Path(top).resolve() != source:
+            parser.error("hermes_source must be the root of its own Git checkout")
+        revision = subprocess.check_output(
+            ["git", "rev-parse", "HEAD"], cwd=source, text=True,
+            stderr=subprocess.PIPE,
+        ).strip()
+    except (OSError, subprocess.CalledProcessError) as error:
+        parser.error(f"cannot read the Hermes checkout: {error}")
     if revision != HERMES_COMMIT:
         parser.error(f"expected Hermes {HERMES_COMMIT}, got {revision}")
 

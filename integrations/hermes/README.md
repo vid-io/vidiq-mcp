@@ -29,7 +29,7 @@ hermes mcp test vidiq
 
 Start a new Hermes conversation and ask:
 
-> Use the vidIQ Get Started workflow to check my connection, authorized channels, and credit balance.
+> List the installed vidIQ skills, then use Get Started to check my connection, authorized channels, and credit balance.
 
 Hermes namespaces plugin skills. Ask it to discover the installed skill names with `skills_list`
 and load the matching workflow with `skill_view`; use the names it actually returns.
@@ -62,10 +62,11 @@ hermes plugins remove vidiq
 hermes mcp remove vidiq
 ```
 
-Removing only the plugin leaves the MCP connection active. Removing the MCP server cleans up
-its local OAuth tokens; it does not claim to revoke the authorization at vidIQ.
-To switch accounts, remove the saved MCP connection, repeat the add command, and sign in to
-the intended account in the browser.
+Removing only the plugin leaves the MCP connection active. Removing the MCP server attempts to
+clean up its local OAuth tokens; it does not claim to revoke the authorization at vidIQ.
+To switch accounts, run `hermes mcp login vidiq` to start reauthentication, then select the
+intended account in the browser. Confirm the returned authorized channels before using private
+analytics. Re-running `hermes mcp add` over an existing connection does not force a new sign-in.
 
 ## Compatibility and support
 
