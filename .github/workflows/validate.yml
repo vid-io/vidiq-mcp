@@ -60,6 +60,9 @@ jobs:
       - name: Fetch official distribution schemas
         run: |
           curl --fail --silent --show-error --location \
+            https://agent-plugins.org/schemas/1.0.0/plugin.schema.json \
+            --output "${RUNNER_TEMP}/agent-plugin.schema.json"
+          curl --fail --silent --show-error --location \
             https://raw.githubusercontent.com/cursor/plugins/3fe2823ce17c1656c222d4b7c59d3f82fbf20143/schemas/plugin.schema.json \
             --output "${RUNNER_TEMP}/cursor-plugin.schema.json"
           curl --fail --silent --show-error --location \
@@ -75,6 +78,12 @@ jobs:
           "${RUNNER_TEMP}/cursor-plugin.schema.json"
           .cursor-plugin/plugin.json
 
+      - name: Validate the Hermes portable manifest
+        run: >-
+          python3 scripts/validate-json-schema.py
+          "${RUNNER_TEMP}/agent-plugin.schema.json"
+          plugin.json
+
       - name: Validate the MCP Registry metadata
         run: >-
           python3 scripts/validate-json-schema.py
@@ -87,3 +96,18 @@ jobs:
           python3 scripts/validate-json-schema.py \
             "${RUNNER_TEMP}/gemini-settings.schema.json" \
             "${RUNNER_TEMP}/gemini-settings.json"
+
+      - name: Check out the tested Hermes loader
+        uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
+        with:
+          repository: NousResearch/hermes-agent
+          ref: 5c08ad68f7ec488057880752f8071cee154a6e60 # pragma: allowlist secret
+          path: .context/hermes-source
+          persist-credentials: false
+          sparse-checkout: |
+            hermes_cli
+            hermes_platform
+            agent
+
+      - name: Load the workflows with Hermes
+        run: python3 scripts/validate-hermes.py .context/hermes-source

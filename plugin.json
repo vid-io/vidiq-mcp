@@ -1,0 +1,24 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "vidiq",
+  "version": "0.1.5",
+  "description": "Twelve vidIQ creator workflows for YouTube research, channel analytics, video planning, and packaging. Connect the hosted vidIQ MCP service separately using browser OAuth.",
+  "author": {
+    "name": "vidIQ"
+  },
+  "homepage": "https://vidiq.com/mcp/",
+  "repository": "https://github.com/vid-io/vidiq-mcp",
+  "license": "Apache-2.0",
+  "keywords": [
+    "vidiq",
+    "mcp",
+    "youtube",
+    "instagram",
+    "tiktok",
+    "creator",
+    "creator-analytics",
+    "video-research",
+    "content-strategy",
+    "shorts"
+  ]
+}

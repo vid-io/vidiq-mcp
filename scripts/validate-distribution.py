@@ -31,6 +31,7 @@ CLIENT_MANIFESTS = {
     "cursor": ROOT / ".cursor-plugin" / "plugin.json",
     "copilot": ROOT / ".github" / "plugin" / "plugin.json",
     "gemini": ROOT / "gemini-extension.json",
+    "hermes": ROOT / "plugin.json",
 }
 PATH_FIELDS = {
     "claude": ("skills", "mcpServers"),
@@ -65,10 +66,14 @@ ALLOWED_FILES = {
     BRAND_ASSET,
     "gemini-extension.json",
     "llms.txt",
+    "plugin.json",
+    "integrations/hermes/README.md",
+    "references/hermes-release.md",
     "requirements-dev.txt",
     "rules/vidiq-lifecycle.mdc",
     "scripts/validate-distribution.py",
     "scripts/validate-json-schema.py",
+    "scripts/validate-hermes.py",
     "scripts/skill_references.py",
     "server.json",
     "skills/vidiq-packaging-studio/references/production.md",
@@ -221,12 +226,24 @@ def validate_manifests() -> dict[str, dict[str, Any]]:
             else:
                 check_component_path(client, field, value)
 
-    for client in ("claude", "codex", "cursor", "copilot"):
+    for client in ("claude", "codex", "cursor", "copilot", "hermes"):
         if manifests[client].get("license") != "Apache-2.0":
             fail(f"{client} manifest license must be Apache-2.0")
-    repositories = [manifests[name].get("repository") for name in PATH_FIELDS]
+    repositories = [manifests[name].get("repository") for name in (*PATH_FIELDS, "hermes")]
     if not all(isinstance(item, str) and item == REPOSITORY_URL for item in repositories):
         fail(f"plugin repository URLs must all be {REPOSITORY_URL}: {repositories}")
+
+    hermes = manifests["hermes"]
+    if hermes.get("$schema") != "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json":
+        fail("Hermes must use the Agent Plugins v1 schema")
+    expected_hermes_fields = {
+        "$schema", "name", "version", "description", "author", "homepage",
+        "repository", "license", "keywords",
+    }
+    if set(hermes) != expected_hermes_fields:
+        fail("Hermes must remain a declarative skills-only portable plugin")
+    if (ROOT / "mcp.json").exists():
+        fail("Hermes OAuth must use native MCP setup, not a portable mcp.json")
 
     codex_interface = manifests["codex"].get("interface", {})
     if not isinstance(codex_interface, dict):

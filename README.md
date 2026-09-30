@@ -106,6 +106,24 @@ Start a new session with `grok` and sign in to Grok if prompted. To connect your
 If the connection fails, run `grok mcp doctor vidiq` in your terminal. See the
 [Grok MCP guide](https://docs.x.ai/build/features/mcp-servers) for connection settings and help.
 
+#### Hermes Agent
+
+Install and enable the workflow plugin, then connect your vidIQ account separately:
+
+```bash
+hermes plugins install vid-io/vidiq-mcp --no-enable
+hermes plugins enable vidiq
+hermes mcp add vidiq --url https://mcp.vidiq.com/mcp --auth oauth
+```
+
+Complete browser authorization, then start a new Hermes conversation. The plugin adds all
+12 workflow skills; the separate MCP connection supplies the live tools. If `vidiq` is already
+configured, check it with `hermes mcp test vidiq` and use `hermes mcp login vidiq` when
+authorization is needed.
+
+See the [Hermes guide](integrations/hermes/README.md) for verification, account switching,
+and removal. This uses a direct GitHub installation; a Hermes catalog listing is separate.
+
 #### Local preview
 
 For local preview, clone or download this repository and follow your client's local-plugin flow.
