@@ -74,7 +74,7 @@ npx --yes clawhub@0.23.3 package publish .context/clawhub/vidiq \
   --topics youtube,creator-analytics,video-research,content-strategy --dry-run --json
 ```
 
-The package name is `@<owner>/vidiq`; its version comes from `.claude-plugin/plugin.json`.
+The package name is `@vidiq/vidiq`; its version comes from `.claude-plugin/plugin.json`.
 Builds refuse to overwrite an existing directory. Use `--output` with a fresh path when
 rebuilding, and pass that path to subsequent commands. Keep the validator's absolute `--out`
 directory outside the bundle: relative report paths would add reports to the package.
