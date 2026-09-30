@@ -277,12 +277,12 @@ requests, follow the **Exercising Your Data Subject Rights** instructions in the
 [vidIQ Privacy Policy](https://vidiq.com/privacy/).
 
 In OpenClaw, switch accounts with `openclaw mcp logout vidiq`, then `openclaw mcp login vidiq`.
-To disconnect completely:
+To remove the integration:
 
 ```bash
-openclaw plugins disable vidiq
 openclaw mcp logout vidiq
 openclaw mcp unset vidiq
+openclaw plugins uninstall vidiq
 ```
 
 Removing only the saved server leaves the bundle's server definition available.
