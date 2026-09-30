@@ -13,7 +13,7 @@ from pathlib import Path
 from urllib.parse import urljoin
 
 ROOT = Path(__file__).resolve().parent.parent
-DISPLAY_NAME = "vidIQ — Grow Your YouTube Channel"
+DISPLAY_NAME = "vidIQ — Grow on YouTube, IG & TikTok"
 
 
 def build_readme(readme: str, repository: str) -> str:
