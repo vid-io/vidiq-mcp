@@ -308,7 +308,9 @@ def validate_hermes_pin() -> None:
         step.get("with", {}) for step in steps
         if step.get("with", {}).get("repository") == "NousResearch/hermes-agent"
     ]
-    if len(checkouts) != 1 or checkouts[0].get("ref") != pin:
+    if len(checkouts) != 1:
+        fail("expected one NousResearch/hermes-agent checkout in the validate job")
+    elif checkouts[0].get("ref") != pin:
         fail("Hermes CI checkout must match the loader validation pin")
     guide = (ROOT / "integrations" / "hermes" / "README.md").read_text(encoding="utf-8")
     if f"Hermes commit `{pin}`" not in guide:
