@@ -27,7 +27,7 @@ workflow guidance for the hosted service.
 - [Copilot marketplace](.github/plugin/marketplace.json): Local and repository marketplace entry
 - [Gemini manifest](gemini-extension.json): Gemini CLI extension
 - [Hermes manifest](plugin.json): Agent Plugins v1 workflow plugin with separate MCP authorization
-- [Hermes setup](integrations/hermes/README.md): Install workflows and connect vidIQ with browser OAuth
+- [Hermes setup](README.md#hermes-agent): Install workflows and connect vidIQ with browser OAuth
 - [MCP Registry metadata](server.json): Official Registry descriptor
 - [Specialist agent](agents/vidiq-mcp.agent.md): Workflow routing and safety lifecycle
 - [Cursor lifecycle rule](rules/vidiq-lifecycle.mdc): Persistent tool-use guidance
