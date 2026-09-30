@@ -136,6 +136,29 @@ If tools are missing, check the plugin and tool policy; the `minimal` profile or
 `bundle-mcp` can hide them. See the [OpenClaw MCP guide](https://docs.openclaw.ai/tools/mcp)
 and [bundle documentation](https://docs.openclaw.ai/plugins/bundles) for host requirements.
 
+#### Hermes Agent
+
+With a current Hermes version supporting
+[portable plugins](https://hermes-agent.nousresearch.com/docs/developer-guide/plugins/#portable-agent-plugins-v1-packages), run:
+
+```bash
+hermes plugins install vid-io/vidiq-mcp --no-enable
+hermes plugins enable vidiq
+hermes mcp add vidiq --url https://mcp.vidiq.com/mcp --auth oauth
+```
+
+Complete vidIQ authorization in your browser, then start a new session and ask Hermes to use
+vidIQ Get Started. The plugin installs all 12 workflows; the separate MCP connection provides
+the live tools. A vidIQ account is required, and hosted tools may consume credits.
+
+Check the connection with `hermes mcp test vidiq`. If already configured, sign in again or switch
+accounts with `hermes mcp login vidiq`, then confirm the authorized channels. See the
+[Hermes MCP guide](https://hermes-agent.nousresearch.com/docs/user-guide/features/mcp/) for help.
+
+To update, run `hermes plugins update vidiq` and start a new session. To remove vidIQ, run
+`hermes plugins disable vidiq`, `hermes plugins remove vidiq`, and `hermes mcp remove vidiq`.
+Removing only the plugin leaves the MCP connection active.
+
 #### Local preview
 
 For local preview, clone or download this repository and follow your client's local-plugin flow.

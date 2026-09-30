@@ -35,6 +35,13 @@ The same invariant and client-schema checks run in GitHub Actions. If a new publ
 workflow is intentional, update the validator's file or skill inventory in the same pull
 request.
 
+CI also loads all skills with a pinned Hermes checkout. When upgrading it, update the workflow
+checkout and `HERMES_COMMIT` in `scripts/validate-hermes.py` together; the loader check verifies
+the actual revision. Hermes catalog submissions follow the upstream
+[catalog rules](https://github.com/NousResearch/hermes-agent/blob/main/plugin-catalog/README.md)
+and must reference a published, tested commit. Keep the GitHub installation command in the README
+until the catalog entry is accepted.
+
 The repository-root [live surface notes](references/live-surface-notes.md) contain the universal
 operating rules. Keep discovery evidence and asynchronous procedures in their separate files in
 `references/`; put tool-specific guidance in the skills that use it. Link optional references at
