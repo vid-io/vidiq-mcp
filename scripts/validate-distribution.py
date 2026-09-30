@@ -6,6 +6,7 @@ from __future__ import annotations
 import hashlib
 import json
 import re
+import struct
 import subprocess
 import sys
 from pathlib import Path
@@ -63,6 +64,8 @@ ALLOWED_FILES = {
     "SECURITY.md",
     "agents/vidiq-mcp.agent.md",
     BRAND_ASSET,
+    "assets/vidiq-icon-mark.png",
+    "integrations/openclaw/README.md",
     "gemini-extension.json",
     "llms.txt",
     "requirements-dev.txt",
@@ -70,6 +73,8 @@ ALLOWED_FILES = {
     "scripts/validate-distribution.py",
     "scripts/validate-json-schema.py",
     "scripts/skill_references.py",
+    "scripts/build-clawhub.py",
+    "scripts/test_clawhub_package.py",
     "server.json",
     "skills/vidiq-packaging-studio/references/production.md",
     "skills/vidiq-packaging-studio/references/research.md",
@@ -489,6 +494,19 @@ def validate_licenses() -> None:
         fail("CODE_OF_CONDUCT.md is missing source and license attribution")
 
 
+def validate_clawhub_icon() -> None:
+    path = ROOT / "assets/vidiq-icon-mark.png"
+    if not path.is_file():
+        return  # Missing files are reported by the public boundary check.
+    data = path.read_bytes()
+    if len(data) < 24 or data[:16] != b"\x89PNG\r\n\x1a\n\x00\x00\x00\rIHDR":
+        fail("ClawHub icon must be a PNG with an IHDR header")
+    elif struct.unpack(">II", data[16:24]) != (512, 512):
+        fail("ClawHub icon must be 512 by 512 pixels")
+    if len(data) > 512 * 1024:
+        fail("ClawHub icon exceeds the 512 KiB catalog limit")
+
+
 def main() -> int:
     validate_public_boundary()
     validate_codeowners()
@@ -500,6 +518,7 @@ def main() -> int:
     validate_links()
     validate_skill_portability()
     validate_licenses()
+    validate_clawhub_icon()
     for item in sorted(ALLOWED_FILES):
         path = ROOT / item
         if path.suffix in {".yaml", ".yml"} and path.is_file():

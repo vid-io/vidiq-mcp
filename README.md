@@ -108,6 +108,10 @@ If the connection fails, run `grok mcp doctor vidiq` in your terminal. See the
 
 #### Local preview
 
+For OpenClaw, follow the [setup and release guide](integrations/openclaw/README.md)
+to build the dedicated bundle, install it, and authorize vidIQ.
+ClawHub publication is pending; the build is available for local testing.
+
 For local preview, clone or download this repository and follow your client's local-plugin flow.
 Install from a clean clone or archive, and keep ignored files, local credentials, and other
 local-only files out of the package.
