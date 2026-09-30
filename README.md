@@ -87,6 +87,25 @@ This installs the plugin for your user account across projects. Restart Claude C
 [Claude Code plugin guide](https://code.claude.com/docs/en/discover-plugins) for installation
 scopes and updates.
 
+#### Grok Build
+
+The command below installs vidIQ directly from GitHub. It works without a Grok marketplace listing.
+Install [Grok Build](https://x.ai/build), then run:
+
+```bash
+grok plugin install vid-io/vidiq-mcp --trust
+```
+
+Start a new session with `grok` and sign in to Grok if prompted. To connect your vidIQ account:
+
+1. Open `/mcps` and expand **Plugin: vidiq**.
+2. Select **vidiq** and press `i` to authenticate.
+3. Complete vidIQ sign-in and authorization in your browser.
+4. Return to Grok and run `/vidiq-get-started`.
+
+If the connection fails, run `grok mcp doctor vidiq` in your terminal. See the
+[Grok MCP guide](https://docs.x.ai/build/features/mcp-servers) for connection settings and help.
+
 #### Local preview
 
 For local preview, clone or download this repository and follow your client's local-plugin flow.
