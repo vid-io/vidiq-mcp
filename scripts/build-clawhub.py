@@ -14,6 +14,10 @@ from urllib.parse import urljoin
 
 ROOT = Path(__file__).resolve().parent.parent
 DISPLAY_NAME = "vidIQ — Grow on YouTube, IG & TikTok"
+DESCRIPTION = (
+    "Find video ideas, research competitors, and improve titles and thumbnails with live "
+    "YouTube, Instagram, and TikTok insights. Analyze your YouTube channel to see what’s working."
+)
 
 
 def build_readme(readme: str, repository: str) -> str:
@@ -88,7 +92,7 @@ def build_package(root: Path, output: Path, public_files: set[str]) -> Path:
             "package.json": {
                 "name": "@vidiq/vidiq",
                 "version": manifest["version"],
-                "description": manifest["description"],
+                "description": DESCRIPTION,
                 "license": manifest["license"],
                 "homepage": manifest["homepage"],
                 "repository": manifest["repository"],
@@ -97,7 +101,7 @@ def build_package(root: Path, output: Path, public_files: set[str]) -> Path:
                 "id": "vidiq",
                 "name": DISPLAY_NAME,
                 "version": manifest["version"],
-                "description": manifest["description"],
+                "description": DESCRIPTION,
                 "skills": ["./skills"],
                 "categories": ["research"],
                 "configSchema": {"type": "object", "additionalProperties": False, "properties": {}},
