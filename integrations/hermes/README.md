@@ -5,7 +5,8 @@ A vidIQ account is required; hosted tools may consume credits.
 
 ## Install
 
-With an up-to-date Hermes installation, run:
+With an up-to-date Hermes installation supporting
+[portable plugins](https://hermes-agent.nousresearch.com/docs/developer-guide/plugins/#portable-agent-plugins-v1-packages), run:
 
 ```bash
 hermes plugins install vid-io/vidiq-mcp --no-enable
