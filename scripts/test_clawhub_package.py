@@ -26,6 +26,18 @@ class ClawHubPackageTests(unittest.TestCase):
             "skills": "./skills/", "mcpServers": "./.mcp.json",
         }
         sources = {
+            "README.md": (
+                "# vidIQ\n\n## What you can do\n\nResearch videos.\n\n"
+                "## Connect vidIQ\n\n#### OpenClaw\n\nInstall the bundle.\n\n"
+                "##### Switch accounts\n\nSign in again.\n\n"
+                "#### Another client\n\nOther-client setup.\n\n"
+                "## Try these creator prompts\n\nFind an idea.\n\n"
+                "## Creator workflows\n\n### Research\n\n"
+                "[Get Started](skills/vidiq-get-started/SKILL.md)\n\n"
+                "## You stay in control\n\nApprove changes.\n\n"
+                "## Help and support\n\n[Support](https://support.vidiq.com/)\n\n"
+                "[Setup](#openclaw)\n\n## License\n\n[License](LICENSE)\n"
+            ),
             ".claude-plugin/plugin.json": json.dumps(self.manifest),
             ".mcp.json": json.dumps({"mcpServers": {"vidiq": {
                 "type": "http", "url": "https://mcp.vidiq.com/mcp",
@@ -76,6 +88,30 @@ class ClawHubPackageTests(unittest.TestCase):
         self.assertEqual(json.loads((self.output / ".claude-plugin/plugin.json").read_text()),
                          self.manifest)
         self.assertTrue((self.output / self.manifest["icon"]).is_file())
+
+    def test_listing_reuses_selected_readme_sections_and_resolves_links(self) -> None:
+        self.build()
+        readme = (self.output / "README.md").read_text()
+        plugin = json.loads((self.output / "openclaw.plugin.json").read_text())
+        self.assertTrue(readme.startswith(f"# {plugin['name']}\n"))
+        self.assertEqual(plugin["categories"], ["research"])
+        self.assertIn("Research videos.", readme)
+        self.assertIn("## OpenClaw\n\nInstall the bundle.", readme)
+        self.assertIn("### Switch accounts\n\nSign in again.", readme)
+        self.assertNotIn("Other-client setup", readme)
+        self.assertIn("### Research", readme)
+        base = self.manifest["repository"] + "/blob/main/"
+        self.assertIn(f"[Get Started]({base}skills/vidiq-get-started/SKILL.md)", readme)
+        self.assertIn(f"[License]({base}LICENSE)", readme)
+        self.assertIn(f"[Setup]({base}README.md#openclaw)", readme)
+        self.assertIn("[Support](https://support.vidiq.com/)", readme)
+
+    def test_missing_readme_section_does_not_publish_partial_documentation(self) -> None:
+        path = self.root / "README.md"
+        path.write_text(path.read_text().replace("## What you can do", "## Removed"))
+        with self.assertRaisesRegex(ValueError, "missing README section"):
+            self.build()
+        self.assertFalse(self.output.exists())
 
     def test_existing_output_is_untouched(self) -> None:
         self.output.mkdir()

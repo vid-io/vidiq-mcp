@@ -64,6 +64,8 @@ the shared references or individual workflows.
 Build `@vidiq/vidiq` from the shared skills and manifests. The generated bundle includes the
 skill references, icons, license, and notices, with OpenClaw's OAuth configuration.
 Publish this bundle, not the repository root or individual skills.
+The catalog README is generated from selected sections of the root README, including OpenClaw
+setup and shared creator guidance. Edit those sections to update the listing.
 
 After installing the development requirements above, run from the repository root:
 

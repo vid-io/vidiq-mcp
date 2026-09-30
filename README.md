@@ -23,6 +23,21 @@ are returned to the AI client you choose, whose privacy practices also apply. Se
 [vidIQ Privacy Policy](https://vidiq.com/privacy/) and the
 [disconnect instructions](#disconnect-or-switch-accounts).
 
+## What you can do
+
+Use live vidIQ data to decide what to make next and understand how your content performs:
+
+- Discover video ideas, emerging trends, and opportunities in your niche.
+- Research competitors, successful videos, and the questions viewers ask in comments.
+- Review your channel's performance, new uploads, and audience retention.
+- Improve titles and thumbnails with research, scoring, and creative workflows.
+- Study public Instagram and TikTok content for patterns to adapt to YouTube Shorts.
+
+YouTube research covers public channels and videos; private analytics require a channel
+authorized in your vidIQ account. Instagram and TikTok research depends on the tools available
+to your connected account. Coverage varies by tool, format, language, and market; ask the
+assistant to check availability before starting research.
+
 ## Connect vidIQ
 
 ### ChatGPT
@@ -87,6 +102,11 @@ This installs the plugin for your user account across projects. Restart Claude C
 [Claude Code plugin guide](https://code.claude.com/docs/en/discover-plugins) for installation
 scopes and updates.
 
+Invoke workflows as `/vidiq:vidiq-get-started` or `/vidiq:vidiq-packaging-studio`.
+Version 0.1.3 restores the `vidiq-` skill prefix. Version 0.1.4 renames Channel Review to
+Channel Audit; invoke it as `/vidiq:vidiq-channel-audit`. Connection diagnostics and job
+recovery are part of Get Started.
+
 #### Grok Build
 
 The command below installs vidIQ directly from GitHub. It works without a Grok marketplace listing.
@@ -108,11 +128,10 @@ If the connection fails, run `grok mcp doctor vidiq` in your terminal. See the
 
 #### OpenClaw
 
-Build the OpenClaw bundle from this repository using the
-[build instructions](CONTRIBUTING.md#openclaw-bundle), then install the generated directory:
+You need OpenClaw with MCP bundle support and a vidIQ account. Install from ClawHub:
 
 ```bash
-openclaw plugins install /absolute/path/to/vidiq-mcp/.context/clawhub/vidiq
+openclaw plugins install clawhub:@vidiq/vidiq
 openclaw plugins inspect vidiq
 openclaw skills list
 ```
@@ -135,6 +154,20 @@ trust with that account; credentials stay in OpenClaw's credential store.
 If tools are missing, check the plugin and tool policy; the `minimal` profile or a denial of
 `bundle-mcp` can hide them. See the [OpenClaw MCP guide](https://docs.openclaw.ai/tools/mcp)
 and [bundle documentation](https://docs.openclaw.ai/plugins/bundles) for host requirements.
+
+##### Switch accounts or remove vidIQ
+
+Switch accounts with `openclaw mcp logout vidiq`, then `openclaw mcp login vidiq`.
+Sign in with the intended account in the browser and confirm the authorized channels.
+To remove the integration:
+
+```bash
+openclaw mcp logout vidiq
+openclaw mcp unset vidiq
+openclaw plugins uninstall vidiq
+```
+
+Removing only the saved server leaves the bundle's server definition available.
 
 #### Hermes Agent
 
@@ -299,16 +332,7 @@ account in the authorization browser, and connect again. For personal-data acces
 requests, follow the **Exercising Your Data Subject Rights** instructions in the
 [vidIQ Privacy Policy](https://vidiq.com/privacy/).
 
-In OpenClaw, switch accounts with `openclaw mcp logout vidiq`, then `openclaw mcp login vidiq`.
-To remove the integration:
-
-```bash
-openclaw mcp logout vidiq
-openclaw mcp unset vidiq
-openclaw plugins uninstall vidiq
-```
-
-Removing only the saved server leaves the bundle's server definition available.
+For OpenClaw commands, see [Switch accounts or remove vidIQ](#switch-accounts-or-remove-vidiq).
 
 ## Try these creator prompts
 
@@ -336,11 +360,6 @@ Use natural language. Replace the bracketed details, or give the assistant a cha
 
 Choose a workflow for the decision you want to make. The assistant can also select one from your
 request.
-
-In Claude Code, invoke skills as `/vidiq:vidiq-get-started` or `/vidiq:vidiq-packaging-studio`.
-Version 0.1.3 restores the `vidiq-` skill prefix. Version 0.1.4 renames Channel Review to
-Channel Audit; invoke it as `/vidiq:vidiq-channel-audit`. Connection diagnostics and job
-recovery are part of Get Started.
 
 ### Connect and choose a direction
 
@@ -373,6 +392,10 @@ recovery are part of Get Started.
 
 - Authorization belongs to your vidIQ account; your AI client email does not need to match it.
 - Private YouTube analytics are available only for channels authorized in that vidIQ account.
+- Hosted tools may consume vidIQ credits. Ask for your balance and the current cost before
+  starting a workflow; the connected service reports the applicable capabilities and prices.
+- Tool results are sent to your AI client, whose privacy practices also apply. Never put
+  passwords, API keys, or authorization tokens in chat or shared configuration.
 - Some tools can create media, update tracked competitors, or edit your YouTube videos.
   Changes to your account or published videos require your approval. YouTube updates also
   require authorized owner access and YouTube verification.
