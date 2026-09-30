@@ -108,22 +108,8 @@ If the connection fails, run `grok mcp doctor vidiq` in your terminal. See the
 
 #### Hermes Agent
 
-Install and enable the workflow plugin, then connect your vidIQ account separately:
-
-```bash
-hermes plugins install vid-io/vidiq-mcp --no-enable
-hermes plugins enable vidiq
-hermes mcp add vidiq --url https://mcp.vidiq.com/mcp --auth oauth
-```
-
-Complete browser authorization, then start a new Hermes conversation. The plugin adds all
-12 workflow skills, discoverable through `skills_list`; the separate MCP connection supplies the
-live tools. If `vidiq` is already configured, check it with `hermes mcp test vidiq` and use
-`hermes mcp login vidiq` when
-authorization is needed. Re-running `add` does not reauthenticate an existing connection.
-
-See the [Hermes guide](integrations/hermes/README.md) for verification, account switching,
-and removal. This uses a direct GitHub installation; a Hermes catalog listing is separate.
+Follow the [Hermes setup guide](integrations/hermes/README.md) to install all 12 workflows
+from GitHub and connect your vidIQ account with browser OAuth.
 
 #### Local preview
 

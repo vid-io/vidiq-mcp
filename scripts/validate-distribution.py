@@ -312,9 +312,9 @@ def validate_hermes_pin() -> None:
         fail("expected one NousResearch/hermes-agent checkout in the validate job")
     elif checkouts[0].get("ref") != pin:
         fail("Hermes CI checkout must match the loader validation pin")
-    guide = (ROOT / "integrations" / "hermes" / "README.md").read_text(encoding="utf-8")
+    guide = (ROOT / "references" / "hermes-release.md").read_text(encoding="utf-8")
     if f"Hermes commit `{pin}`" not in guide:
-        fail("Hermes compatibility guide must name the tested loader pin")
+        fail("Hermes release checklist must name the tested loader pin")
 
 
 def validate_copilot_marketplace(manifests: dict[str, dict[str, Any]]) -> None:
