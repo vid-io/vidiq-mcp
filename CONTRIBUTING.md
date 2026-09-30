@@ -64,6 +64,8 @@ the shared references or individual workflows.
 Build `@vidiq/vidiq` from the shared skills and manifests. The generated bundle includes the
 skill references, icons, license, and notices, with OpenClaw's OAuth configuration.
 Publish this bundle, not the repository root or individual skills.
+The catalog README is generated from selected sections of the root README, including OpenClaw
+setup and shared creator guidance. Edit those sections to update the listing.
 
 After installing the development requirements above, run from the repository root:
 
@@ -76,7 +78,7 @@ npx --yes clawhub@0.23.3 package publish .context/clawhub/vidiq \
   --family bundle-plugin --owner vidiq \
   --source-repo https://github.com/vid-io/vidiq-mcp \
   --source-commit "$(git rev-parse HEAD)" --source-path . \
-  --topics youtube,creator-analytics,video-research,content-strategy --dry-run --json
+  --topics youtube,instagram,tiktok,video-research,creator-analytics --dry-run --json
 ```
 
 The package name is `@vidiq/vidiq`; its version comes from `.claude-plugin/plugin.json`.

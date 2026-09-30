@@ -5,12 +5,46 @@ from __future__ import annotations
 
 import argparse
 import json
+import re
 import runpy
 import shutil
 import tempfile
 from pathlib import Path
+from urllib.parse import urljoin
 
 ROOT = Path(__file__).resolve().parent.parent
+DISPLAY_NAME = "vidIQ — Grow on YouTube, IG & TikTok"
+
+
+def build_readme(readme: str, repository: str) -> str:
+    """Reuse the public README's creator guidance and OpenClaw setup in the listing."""
+    sections = []
+    for heading in (
+        "## What you can do",
+        "#### OpenClaw",
+        "## Try these creator prompts",
+        "## Creator workflows",
+        "## You stay in control",
+        "## Help and support",
+        "## License",
+    ):
+        start = re.search(rf"(?m)^{re.escape(heading)}$", readme)
+        if start is None:
+            raise ValueError(f"missing README section: {heading}")
+        depth = len(heading.split(" ", 1)[0])
+        tail = readme[start.end():]
+        end = re.search(rf"(?m)^#{{1,{depth}}} ", tail)
+        section = heading + tail[:end.start() if end else len(tail)]
+        if depth > 2:
+            section = re.sub(rf"(?m)^#{{{depth - 2}}}(?=#)", "", section)
+        sections.append(section.strip())
+    content = f"# {DISPLAY_NAME}\n\n" + "\n\n".join(sections) + "\n"
+    # Repository links must still work when rendered outside GitHub or when unbundled.
+    return re.sub(
+        r"(\[[^\]\n]+\]\()([^\s)]+)(\))",
+        lambda match: match[1] + urljoin(repository.rstrip("/") + "/blob/main/README.md", match[2]) + match[3],
+        content,
+    )
 
 
 def build_package(root: Path, output: Path, public_files: set[str]) -> Path:
@@ -29,7 +63,7 @@ def build_package(root: Path, output: Path, public_files: set[str]) -> Path:
         ".claude-plugin/plugin.json": ".claude-plugin/plugin.json",
     })
     # The allowlist, rather than a recursive directory copy, excludes ignored local files.
-    for source in {*copies, ".mcp.json"}:
+    for source in {*copies, ".mcp.json", "README.md"}:
         path = root / source
         if source not in public_files or not path.is_file():
             raise ValueError(f"missing public source: {source}")
@@ -40,6 +74,7 @@ def build_package(root: Path, output: Path, public_files: set[str]) -> Path:
 
     manifest = json.loads((root / ".claude-plugin/plugin.json").read_text())
     endpoint = json.loads((root / ".mcp.json").read_text())["mcpServers"]["vidiq"]["url"]
+    readme = build_readme((root / "README.md").read_text(), manifest["repository"])
     output.parent.mkdir(parents=True, exist_ok=True)
     with tempfile.TemporaryDirectory(prefix=".vidiq-build-", dir=output.parent) as temporary:
         stage = Path(temporary) / "vidiq"
@@ -60,10 +95,11 @@ def build_package(root: Path, output: Path, public_files: set[str]) -> Path:
             },
             "openclaw.plugin.json": {
                 "id": "vidiq",
-                "name": "vidIQ",
+                "name": DISPLAY_NAME,
                 "version": manifest["version"],
                 "description": manifest["description"],
                 "skills": ["./skills"],
+                "categories": ["research"],
                 "configSchema": {"type": "object", "additionalProperties": False, "properties": {}},
             },
             ".mcp.json": {
@@ -75,12 +111,7 @@ def build_package(root: Path, output: Path, public_files: set[str]) -> Path:
         # No native entrypoints: OpenClaw must load the Claude skills/MCP bundle.
         for name, value in generated.items():
             (stage / name).write_text(json.dumps(value, indent=2) + "\n", encoding="utf-8")
-        (stage / "README.md").write_text(
-            f"# vidIQ for OpenClaw\n\n{manifest['description']}\n\n"
-            f"[Installation and account setup]({manifest['repository']}/blob/main/README.md#openclaw).\n\n"
-            "Apache-2.0; see LICENSE and NOTICE.\n",
-            encoding="utf-8",
-        )
+        (stage / "README.md").write_text(readme, encoding="utf-8")
         stage.rename(output)
     return output
 
