@@ -106,11 +106,37 @@ Start a new session with `grok` and sign in to Grok if prompted. To connect your
 If the connection fails, run `grok mcp doctor vidiq` in your terminal. See the
 [Grok MCP guide](https://docs.x.ai/build/features/mcp-servers) for connection settings and help.
 
-#### Local preview
+#### OpenClaw
 
-For OpenClaw, follow the [setup and release guide](integrations/openclaw/README.md)
-to build the dedicated bundle, install it, and authorize vidIQ.
-ClawHub publication is pending; the build is available for local testing.
+Build the OpenClaw bundle from this repository using the
+[build instructions](CONTRIBUTING.md#openclaw-bundle), then install the generated directory:
+
+```bash
+openclaw plugins install /absolute/path/to/vidiq-mcp/.context/clawhub/vidiq
+openclaw plugins inspect vidiq
+openclaw skills list
+```
+
+Review and accept the requested capabilities. Inspection should show a Claude bundle with
+`skills` and `mcpServers`; the skill list should include the 12 `vidiq-` workflows.
+Register the server for OpenClaw's login command, then authorize your vidIQ account:
+
+```bash
+openclaw mcp set vidiq '{"url":"https://mcp.vidiq.com/mcp","transport":"streamable-http","auth":"oauth"}'
+openclaw mcp login vidiq
+openclaw mcp doctor vidiq --probe
+```
+
+Complete sign-in in the browser, then start a new agent conversation and ask:
+“Check my vidIQ connection, authorized channels, and credit balance.” Start the Gateway if it
+is stopped. This setup uses shared operator credentials: enable it only for agents and people
+you trust with that vidIQ account. Credentials stay in OpenClaw's credential store.
+
+If tools are missing, check the plugin and tool policy; the `minimal` profile or a denial of
+`bundle-mcp` can hide them. See the [OpenClaw MCP guide](https://docs.openclaw.ai/tools/mcp)
+and [bundle documentation](https://docs.openclaw.ai/plugins/bundles) for host requirements.
+
+#### Local preview
 
 For local preview, clone or download this repository and follow your client's local-plugin flow.
 Install from a clean clone or archive, and keep ignored files, local credentials, and other
@@ -249,6 +275,17 @@ To switch vidIQ accounts, disconnect the current connection in the client, sign 
 account in the authorization browser, and connect again. For personal-data access or deletion
 requests, follow the **Exercising Your Data Subject Rights** instructions in the
 [vidIQ Privacy Policy](https://vidiq.com/privacy/).
+
+In OpenClaw, switch accounts with `openclaw mcp logout vidiq`, then `openclaw mcp login vidiq`.
+To disconnect completely:
+
+```bash
+openclaw plugins disable vidiq
+openclaw mcp logout vidiq
+openclaw mcp unset vidiq
+```
+
+Removing only the saved server leaves the bundle's server definition available.
 
 ## Try these creator prompts
 

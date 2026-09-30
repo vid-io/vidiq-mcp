@@ -30,7 +30,6 @@ def build_package(root: Path, output: Path, owner: str, public_files: set[str]) 
         "NOTICE": "NOTICE",
         "assets/vidiq-icon-mark.png": "assets/icon.png",
         "assets/vidiq-icon-mark.svg": "assets/vidiq-icon-mark.svg",
-        "integrations/openclaw/README.md": "README.md",
         ".claude-plugin/plugin.json": ".claude-plugin/plugin.json",
     })
     # The allowlist, rather than a recursive directory copy, excludes ignored local files.
@@ -80,6 +79,12 @@ def build_package(root: Path, output: Path, owner: str, public_files: set[str]) 
         # No native entrypoints: OpenClaw must load the Claude skills/MCP bundle.
         for name, value in generated.items():
             (stage / name).write_text(json.dumps(value, indent=2) + "\n", encoding="utf-8")
+        (stage / "README.md").write_text(
+            f"# vidIQ for OpenClaw\n\n{manifest['description']}\n\n"
+            f"[Installation and account setup]({manifest['repository']}/blob/main/README.md#openclaw).\n\n"
+            "Apache-2.0; see LICENSE and NOTICE.\n",
+            encoding="utf-8",
+        )
         stage.rename(output)
     return output
 

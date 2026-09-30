@@ -33,7 +33,6 @@ class ClawHubPackageTests(unittest.TestCase):
             "LICENSE": "Apache-2.0", "NOTICE": "vidIQ",
             "assets/vidiq-icon-mark.png": "test icon",
             "assets/vidiq-icon-mark.svg": "<svg></svg>",
-            "integrations/openclaw/README.md": "# OpenClaw setup\n",
             "skills/vidiq-get-started/SKILL.md": "# Get started\n",
             "skills/vidiq-get-started/references/setup.md": "OAuth instructions\n",
         }

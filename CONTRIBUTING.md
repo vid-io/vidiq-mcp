@@ -52,6 +52,47 @@ checks without writing. CI rejects missing or divergent copies and runtime links
 skill directory. Keep the specialist and client rules focused on routing rather than repeating
 the shared references or individual workflows.
 
+## OpenClaw bundle
+
+Build one ClawHub `bundle-plugin` from the shared skills and manifests. The builder includes
+their portable reference copies, icons, `LICENSE`, and `NOTICE`; generates OpenClaw metadata
+and OAuth configuration; and links its package README to the root setup guide. Other clients
+keep using the root `.mcp.json`. Do not publish the repository root or individual skills with
+`clawhub sync`.
+
+After installing the development requirements above, run from the repository root:
+
+```bash
+python3 -m unittest discover -s scripts -p 'test_clawhub_package.py'
+python3 scripts/build-clawhub.py --owner vidiq
+npx --yes clawhub@0.23.3 package validate .context/clawhub/vidiq \
+  --openclaw-version 2026.9.6 --out "$PWD/.context/clawhub-reports"
+npx --yes clawhub@0.23.3 package publish .context/clawhub/vidiq \
+  --family bundle-plugin --owner vidiq \
+  --source-repo https://github.com/vid-io/vidiq-mcp \
+  --source-commit "$(git rev-parse HEAD)" --source-path . \
+  --topics youtube,creator-analytics,video-research,content-strategy --dry-run --json
+```
+
+The package name is `@<owner>/vidiq`; its version comes from `.claude-plugin/plugin.json`.
+Builds refuse to overwrite an existing directory. Use `--output` with a fresh path when
+rebuilding, and pass that path to subsequent commands. Keep the validator's absolute `--out`
+directory outside the bundle: relative report paths would add reports to the package.
+
+ClawHub requires `openclaw.plugin.json`. Keep the Claude bundle marker and omit native
+entrypoints so OpenClaw loads the bundled skills and MCP connection. When upgrading the
+pinned host or CLI, recheck bundle loading and the [README setup flow](README.md#openclaw),
+including authorization, channel access, logout, and login. For isolated tests, set
+`OPENCLAW_STATE_DIR` and `OPENCLAW_CONFIG_PATH` to private temporary paths.
+
+Release from a clean, committed checkout with access to the intended ClawHub publisher.
+Review the generated files and retain Apache-2.0 and its notices. After approval of the exact
+package and version, rerun the publish command without `--dry-run`, adding `--wait`.
+Verify security review and public installation before announcing availability. See
+[ClawHub publishing](https://docs.openclaw.ai/clawhub/publishing) for registry requirements.
+
+## Contribution terms
+
 By submitting a contribution, you represent that you have the right to submit it. Except for
 contributions to `CODE_OF_CONDUCT.md`, which are licensed under CC BY 4.0, your contribution is
 licensed under the [Apache License 2.0](LICENSE).

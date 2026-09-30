@@ -65,7 +65,6 @@ ALLOWED_FILES = {
     "agents/vidiq-mcp.agent.md",
     BRAND_ASSET,
     "assets/vidiq-icon-mark.png",
-    "integrations/openclaw/README.md",
     "gemini-extension.json",
     "llms.txt",
     "requirements-dev.txt",
