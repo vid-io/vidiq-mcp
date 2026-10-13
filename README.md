@@ -407,7 +407,7 @@ request.
 ## Tools the workflows use
 
 The workflows call these hosted vidIQ tools by name. Availability varies by account and client; the
-Claude.ai directory connector, for example, omits generation and video-editing tools, so the
+Claude.ai directory connector, for example, omits thumbnail generation and video-update tools, so the
 workflows check the live tool list before relying on one.
 
 | Job | Tools |
@@ -416,10 +416,10 @@ workflows check the live tool list before relying on one.
 | Keyword and topic research | `vidiq_keyword_research`, `vidiq_trending_videos`, `vidiq_trend_categories`, `vidiq_youtube_search` |
 | Ideas and outliers | `vidiq_outliers`, `vidiq_similar_videos`, `vidiq_similar_thumbnails`, `vidiq_instagram_tiktok_outlier_search` |
 | Channels and competitors | `vidiq_channel_search`, `vidiq_get_channels_by_ids`, `vidiq_similar_channels`, `vidiq_channel_videos`, `vidiq_list_competitors`, `vidiq_update_competitors` |
-| Video evidence | `vidiq_get_videos_by_ids`, `vidiq_video_stats`, `vidiq_video_transcript`, `vidiq_video_comments`, `vidiq_video_watch`, `vidiq_watch_shortform_content` |
+| Video evidence | `vidiq_get_videos_by_ids`, `vidiq_video_stats`, `vidiq_video_change_history`, `vidiq_video_transcript`, `vidiq_video_comments`, `vidiq_video_watch`, `vidiq_watch_shortform_content` |
 | Private analytics | `vidiq_channel_analytics`, `vidiq_channel_performance_trends`, `vidiq_subscriber_insights` |
 | Titles, thumbnails, and scripts | `vidiq_generate_titles`, `vidiq_score_title`, `vidiq_generate_thumbnail`, `vidiq_refine_thumbnail`, `vidiq_score_thumbnail`, `vidiq_generate_script` |
-| Video updates (owner access) | `vidiq_update_video`, `vidiq_update_video_thumbnail` |
+| Video updates (owner access) | `vidiq_user_videos`, `vidiq_update_video`, `vidiq_update_video_thumbnail` |
 | Instagram | `vidiq_ig_profile`, `vidiq_ig_profile_reels`, `vidiq_ig_accounts_from_outliers` |
 
 ## You stay in control

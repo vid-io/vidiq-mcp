@@ -42,8 +42,9 @@ candidate opportunities, including supplied examples.
   payoffs. Treat absent matches as a sampling limit, not proof of an unclaimed opportunity.
 - **Search demand:** use `vidiq_keyword_research` with `mode: "research"`, seed `keyword`, and
   optional supported `country`. For momentum, `rising` uses `period` and `language`; discover
-  `availableTopics` before supplying a `topic`. It has no arbitrary `keyword`/`country`
-  filter. Keep measured demand/growth separate from scores or ranking; missing, stale, or
+  `availableTopics` before supplying a `topic`. It ignores `keyword` and `country`; where declared,
+  `includeKeyword` narrows results to a whole word or adjacent phrase.
+  Keep measured demand/growth separate from scores or ranking; missing, stale, or
   nonpositive baselines cannot establish relative growth.
 - **Timing:** `vidiq_trending_videos` measures absolute velocity in the confirmed format and
   market. `vidiq_video_stats` on a finalist can test acceleration/decay; choose required

@@ -1,7 +1,7 @@
 interface:
   display_name: "vidIQ Shorts Inspiration"
   short_description: "Find original Shorts ideas from Reels and TikToks"
-  default_prompt: "Use $vidiq-shorts-inspiration to adapt a breakout short-form pattern for YouTube."
+  default_prompt: "Use $vidiq-shorts-inspiration to find Reels and TikToks breaking out in [niche] and turn them into original Shorts ideas."
 
 dependencies:
   tools:

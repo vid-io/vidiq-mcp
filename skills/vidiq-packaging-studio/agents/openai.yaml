@@ -1,7 +1,7 @@
 interface:
   display_name: "vidIQ Packaging Studio"
   short_description: "Write and score YouTube titles and thumbnails"
-  default_prompt: "Use $vidiq-packaging-studio to turn my idea, script, reference, or published video into an original packaged concept."
+  default_prompt: "Use $vidiq-packaging-studio to write and score title options for my video about [topic] and suggest a matching thumbnail concept."
 
 dependencies:
   tools:

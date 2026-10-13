@@ -182,19 +182,12 @@ def validate_public_boundary() -> None:
         elif path.is_file():
             actual.add(item)
 
-    # ponytail: evals stay out of ALLOWED_FILES so the ClawHub bundle never packages them.
-    evals = {
-        item for item in actual
-        if item.startswith("evals/") and not item.startswith("evals/results/")
-        and Path(item).suffix in {".md", ".yaml"}
-    }
-    allowed = ALLOWED_FILES | evals
-    for item in sorted(actual - allowed):
+    for item in sorted(actual - ALLOWED_FILES):
         fail(f"file is outside the public-distribution allowlist: {item}")
     for item in sorted(ALLOWED_FILES - actual):
         fail(f"public-distribution file is missing: {item}")
 
-    for item in sorted(actual & allowed):
+    for item in sorted(actual & ALLOWED_FILES):
         if item == "scripts/validate-distribution.py" or Path(item).suffix == ".png":
             continue
         text = (ROOT / item).read_text(encoding="utf-8", errors="replace")

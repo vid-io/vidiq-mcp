@@ -36,7 +36,7 @@ workflow guidance for the hosted service.
 - [Specialist agent](agents/vidiq-mcp.agent.md): Workflow routing and safety lifecycle
 - [Agent guide](AGENTS.md): Routing table from creator wording to workflow
 - [Cursor lifecycle rule](rules/vidiq-lifecycle.mdc): Persistent tool-use guidance
-- [Contributing](CONTRIBUTING.md): Public contribution scope, description rules, and trigger evals
+- [Contributing](CONTRIBUTING.md): Public contribution scope and description rules
 - [Security policy](SECURITY.md): Security reporting route and scope
 - [Code of Conduct](CODE_OF_CONDUCT.md): Community participation standards
 - [Licensing](README.md#license): Apache 2.0, with the Contributor Covenant adaptation under CC BY 4.0

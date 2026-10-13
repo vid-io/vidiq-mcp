@@ -1,7 +1,7 @@
 interface:
   display_name: "vidIQ Comment Insights"
   short_description: "Mine YouTube comments for what viewers want"
-  default_prompt: "Use $vidiq-comment-insights to find useful phrases, questions, and objections in my viewers' comments."
+  default_prompt: "Use $vidiq-comment-insights to find what viewers ask, want, and push back on in the comments on my recent videos."
 
 dependencies:
   tools:

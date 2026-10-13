@@ -30,7 +30,8 @@ including supplied results.
    viewer motivation for cross-niche searches. Use semantic `requireAllTitleTerms: false` where
    declared, with strict matching as supporting evidence.
 5. Use `vidiq_keyword_research` for search durability. Seed `research` gives demand context;
-   `rising` accepts supported trend windows/categories, not an arbitrary keyword filter.
+   `rising` accepts supported trend windows/categories and ignores `keyword`; narrow it to a phrase
+   only with `includeKeyword` where declared (whole words or adjacent phrases).
    Search demand alone does not prove format fit.
 6. Use `vidiq_video_stats` on finalists with required age-appropriate `granularity`; prefer
    `hourly` for recent trends and explicit ISO `from`/`to` bounds. Analyze historical `vph`,

@@ -1,7 +1,7 @@
 interface:
   display_name: "vidIQ Video Breakdown"
   short_description: "Analyze why any YouTube video performed"
-  default_prompt: "Use $vidiq-video-breakdown to analyze this YouTube video and explain why it performed the way it did."
+  default_prompt: "Use $vidiq-video-breakdown to analyze [YouTube URL] for likely reasons behind its performance and lessons I can use in my own videos."
 
 dependencies:
   tools:

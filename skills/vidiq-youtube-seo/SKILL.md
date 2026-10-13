@@ -28,12 +28,14 @@ competing titles, including supplied examples.
   an optional supported `country`. Capture search volume, competition, and related terms as returned.
   Run additional seeds only when the first set cannot cover the topic; keep the plan bounded.
 - **Momentum:** use `mode: "rising"` with `period` and `language` only when timing matters. Discover
-  `availableTopics` before supplying a `topic`; rising mode has no arbitrary keyword filter.
+  `availableTopics` before supplying a `topic`. Rising mode ignores `keyword` and `country`; to test
+  a specific phrase, pass it as `includeKeyword` where declared, which matches whole words or
+  adjacent phrases only.
 - **Competing results:** use `vidiq_youtube_search` with `type: ["video"]` for the top results on the
   chosen phrase. Note title patterns, publication ages, and channel sizes without copying wording.
-- **Short-form demand:** when the creator makes Shorts, use `vidiq_trending_videos` with
-  `videoFormat: short` and the matching `videoTitleLanguage` to check whether the phrase appears in
-  short-form at all. Velocity measures current interest, not search durability.
+- **Short-form demand:** when the creator makes Shorts, use `vidiq_trending_videos` with the phrase
+  as `titleQuery`, `videoFormat: short`, and the matching `videoTitleLanguage` to check whether it
+  appears in short-form at all. Velocity measures current interest, not search durability.
 
 Keep measured demand, competition, and growth separate from scores or rank. Missing, stale, or
 nonpositive baselines cannot establish growth, and search demand alone does not prove format fit.

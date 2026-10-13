@@ -1,7 +1,7 @@
 interface:
   display_name: "vidIQ Competitor Watchlist"
   short_description: "Find and track your YouTube competitors"
-  default_prompt: "Use $vidiq-competitor-watchlist to improve the competitors tracked for my channel."
+  default_prompt: "Use $vidiq-competitor-watchlist to review the competitors I track and suggest channels to add or remove."
 
 dependencies:
   tools:

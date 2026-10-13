@@ -1,7 +1,7 @@
 interface:
   display_name: "vidIQ Video Ideas"
   short_description: "Find YouTube video ideas from outlier videos"
-  default_prompt: "Use $vidiq-video-ideas to find adaptable video concepts for my channel from current outlier evidence."
+  default_prompt: "Use $vidiq-video-ideas to find five original ideas for my [niche] channel, with a recent breakout example and a hook for each."
 
 dependencies:
   tools:

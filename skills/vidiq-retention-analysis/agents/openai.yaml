@@ -1,7 +1,7 @@
 interface:
   display_name: "vidIQ Retention Analysis"
   short_description: "Find where viewers drop off in your video"
-  default_prompt: "Use $vidiq-retention-analysis to map where viewers leave and assess competing causes."
+  default_prompt: "Use $vidiq-retention-analysis to show where viewers drop off in my video [YouTube URL] and suggest what to improve."
 
 dependencies:
   tools:
