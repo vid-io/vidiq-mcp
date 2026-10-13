@@ -11,7 +11,7 @@
       "name": "vidiq",
       "displayName": "vidIQ",
       "source": "./",
-      "description": "Official vidIQ plugin for YouTube creators. Find video ideas, trending topics, and keywords; research competitors and outlier videos; audit channel analytics, new uploads, retention, and comments; write and score titles, thumbnails, and scripts; study Instagram Reels and TikTok for YouTube Shorts. 14 guided workflows on vidIQ's hosted MCP server (OAuth, vidIQ account required).",
+      "description": "Get more views with Claude, powered by YouTube, Instagram, and TikTok insights.",
       "category": "Data & Analytics",
       "tags": [
         "youtube",
