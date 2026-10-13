@@ -1,6 +1,6 @@
 {
   "name": "vidiq",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "Official vidIQ plugin for YouTube creators. Find video ideas, trending topics, and keywords; research competitors and outlier videos; audit channel analytics, new uploads, retention, and comments; write and score titles, thumbnails, and scripts; study Instagram Reels and TikTok for YouTube Shorts. 14 guided workflows on vidIQ's hosted MCP server (OAuth, vidIQ account required).",
   "contextFileName": "AGENTS.md",
   "mcpServers": {
