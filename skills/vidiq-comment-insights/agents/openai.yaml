@@ -1,6 +1,6 @@
 interface:
   display_name: "vidIQ Comment Insights"
-  short_description: "Mine viewer language for stronger content"
+  short_description: "Mine YouTube comments for what viewers want"
   default_prompt: "Use $vidiq-comment-insights to find useful phrases, questions, and objections in my viewers' comments."
 
 dependencies:

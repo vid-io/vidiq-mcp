@@ -1,6 +1,6 @@
 ---
 name: vidiq-packaging-comparison
-description: Compare distinct YouTube title-and-thumbnail concepts for the same video when alternative creative directions are explicitly requested. Route single titles, thumbnail edits, or complete packages without a comparison request to vidiq-packaging-studio.
+description: Compare several distinct title-and-thumbnail concepts for the same video side by side and recommend one. Use when asked 'which title is better', 'A/B test these titles or thumbnails', 'compare three packaging directions', or 'give me alternative angles and pick the strongest'. Grounded in live vidIQ outlier and thumbnail evidence; image generation optional. For one title rewrite, one thumbnail edit, or a single complete package use vidiq-packaging-studio.
 ---
 
 # vidIQ Packaging Comparison

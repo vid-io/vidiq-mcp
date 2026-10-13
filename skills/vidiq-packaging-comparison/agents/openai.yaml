@@ -1,6 +1,6 @@
 interface:
   display_name: "vidIQ Packaging Comparison"
-  short_description: "Compare title and thumbnail concepts"
+  short_description: "Compare YouTube title and thumbnail concepts"
   default_prompt: "Use $vidiq-packaging-comparison to compare three title and thumbnail directions for my video."
 
 dependencies:

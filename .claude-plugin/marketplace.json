@@ -11,17 +11,23 @@
       "name": "vidiq",
       "displayName": "vidIQ",
       "source": "./",
-      "description": "Use live vidIQ creator intelligence to research YouTube and short-form video, analyze performance, and make stronger content decisions.",
-      "category": "Data & Analytics",
+      "description": "Official vidIQ plugin for YouTube creators. Find video ideas, trending topics, and keywords; research competitors and outlier videos; audit channel analytics, new uploads, retention, and comments; write and score titles, thumbnails, and scripts; study Instagram Reels and TikTok for YouTube Shorts. 15 guided workflows on vidIQ's hosted MCP server (OAuth, vidIQ account required).",
+      "category": "productivity",
       "tags": [
-        "creator analytics",
-        "media and entertainment",
-        "creative",
         "youtube",
-        "instagram",
+        "youtube analytics",
+        "youtube seo",
+        "keyword research",
+        "video ideas",
+        "titles and thumbnails",
+        "channel audit",
+        "competitor research",
+        "shorts",
         "tiktok",
-        "video research",
-        "content strategy"
+        "instagram",
+        "creator analytics",
+        "content strategy",
+        "media and entertainment"
       ]
     }
   ]

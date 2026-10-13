@@ -1,6 +1,6 @@
 ---
 name: vidiq-competitor-watchlist
-description: Audit an authorized YouTube channel's competitor watchlist, identify direct competitors and format references, discover emerging channels, and propose or execute explicitly approved follow/unfollow changes.
+description: Find and manage the competitor channels tracked in vidIQ for an authorized YouTube channel. Audit the watchlist, identify direct competitors, format references, and emerging breakout channels, and add or remove channels after explicit approval. Use when asked 'who are my competitors', 'youtube competitor analysis', 'find channels like mine', 'channels similar to [channel]', 'track or unfollow these channels', or 'clean up my competitor list'. Only this skill changes the saved watchlist, and only with approval.
 ---
 
 # vidIQ Competitor Watchlist

@@ -1,6 +1,6 @@
 interface:
   display_name: "vidIQ Next Video Planner"
-  short_description: "Prioritize the strongest next-video opportunity"
+  short_description: "Rank what to publish next on YouTube"
   default_prompt: "Use $vidiq-next-video-planner to find and rank the best next-video opportunities for my channel."
 
 dependencies:

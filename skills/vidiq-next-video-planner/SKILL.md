@@ -1,6 +1,6 @@
 ---
 name: vidiq-next-video-planner
-description: Rank original next-video opportunities for an authorized YouTube channel using channel fit, competitors, outliers, search demand, and trend timing. Use for topic selection and evidence-based briefs, without generating assets or changing state.
+description: Rank what an authorized YouTube creator should publish next from their own analytics plus live search demand, trends, and competitor gaps. Use when asked 'what should my next video be', 'what should I post on YouTube to grow', 'rank these ideas for my channel', or for an evidence-backed next-video brief. Read-only, so no titles, thumbnails, or scripts are generated. For idea discovery from breakout videos use vidiq-video-ideas; to package a chosen idea use vidiq-packaging-studio.
 ---
 
 # vidIQ Next Video Planner

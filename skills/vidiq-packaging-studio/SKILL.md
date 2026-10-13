@@ -1,6 +1,6 @@
 ---
 name: vidiq-packaging-studio
-description: Create or improve YouTube titles and thumbnails from ideas, scripts, references, or published videos. Use for full packaging or focused edits, including title-only rewrites from supplied context without MCP calls.
+description: Write, score, and improve YouTube titles and thumbnails, and optionally a script, for an idea, outline, script, reference video, or underperforming video. Use whenever a creator asks for titles or thumbnails, even a quick list, because vidIQ generation and scoring improve them. Triggers include 'title ideas', 'title generator', 'rewrite my title', 'is my title clickbait', 'thumbnail ideas', 'make or refine a thumbnail', 'score my thumbnail', 'why didn't this video get clicks', 'repackage my old video', or 'write a script for this video'. For comparing competing directions use vidiq-packaging-comparison.
 ---
 
 # vidIQ Packaging Studio

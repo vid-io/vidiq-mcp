@@ -1,6 +1,6 @@
 ---
 name: vidiq-video-ideas
-description: Find original YouTube video concepts inspired by outlier title mechanisms across adjacent audiences. Use for breakout inspiration, recurring idea scans, and concept cards for vidiq-packaging-studio.
+description: Find original YouTube video ideas from outlier videos overperforming right now in the creator's niche and adjacent niches. Use when asked for 'video ideas', 'content ideas', 'what's working in my niche', 'videos breaking out', 'outlier finder', 'viral formats I can adapt', '10 ideas for a [niche] channel', or a recurring idea scan. Returns concept cards (mechanism, hook, working title) for vidiq-packaging-studio. For choosing the next upload from the creator's own analytics use vidiq-next-video-planner.
 ---
 
 # vidIQ Video Ideas

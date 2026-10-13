@@ -59,6 +59,26 @@ checks without writing. CI rejects missing or divergent copies and runtime links
 skill directory. Keep the specialist and client rules focused on routing rather than repeating
 the shared references or individual workflows.
 
+## Skill descriptions and trigger evals
+
+The frontmatter `description` is the only text an assistant reads before deciding to load a skill.
+Write it as the situations a creator is in: what the skill produces, "Use when asked ..." with the
+phrases creators actually type, the limits (read-only, authorized channel), and which sibling skill
+handles near-miss requests. Keep each description between 200 and 1,024 characters and the whole
+set within 7,800 characters including names; Codex and ChatGPT shorten the skill list past 8,000.
+The release check enforces both limits.
+
+`evals/` holds one trigger case per skill and a few near-miss cases that must not trigger any vidIQ
+skill. Run them locally after changing a description; they need Claude Code credentials and are not
+part of CI:
+
+```bash
+claude plugin eval . --ablation none --runs 2 --no-publish --max-cost-usd 5
+```
+
+Iterate on one skill with `--case <case-name>`. A failing `skill-fired` grader means the wording does
+not trigger on natural phrasing; a failing `no-vidiq-skill` grader means a description is too broad.
+
 ## OpenClaw bundle
 
 Build `@vidiq/vidiq` from the shared skills and manifests. The generated bundle includes the

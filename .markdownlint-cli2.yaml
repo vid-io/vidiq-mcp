@@ -3,6 +3,7 @@ config:
   MD033: false
 
 ignores:
+  - "evals/**"
   - ".context/**"
   - ".venv/**"
   - "venv/**"

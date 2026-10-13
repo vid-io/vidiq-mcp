@@ -97,6 +97,8 @@ ALLOWED_FILES = {
     for filename, skills in SHARED_REFERENCES.items()
     for skill in skills
 }
+# Codex and ChatGPT shorten the skill list past 8,000 characters of names plus descriptions.
+SKILL_LIST_BUDGET = 7800
 SEMVER = re.compile(r"^(0|[1-9]\d*)\.(0|[1-9]\d*)\.(0|[1-9]\d*)(?:[-+].+)?$")
 MARKDOWN_LINK = re.compile(r"(?<!!)\[[^\]]+\]\(([^)]+)\)")
 SENSITIVE_PATTERNS = {
@@ -180,12 +182,19 @@ def validate_public_boundary() -> None:
         elif path.is_file():
             actual.add(item)
 
-    for item in sorted(actual - ALLOWED_FILES):
+    # ponytail: evals stay out of ALLOWED_FILES so the ClawHub bundle never packages them.
+    evals = {
+        item for item in actual
+        if item.startswith("evals/") and not item.startswith("evals/results/")
+        and Path(item).suffix in {".md", ".yaml"}
+    }
+    allowed = ALLOWED_FILES | evals
+    for item in sorted(actual - allowed):
         fail(f"file is outside the public-distribution allowlist: {item}")
     for item in sorted(ALLOWED_FILES - actual):
         fail(f"public-distribution file is missing: {item}")
 
-    for item in sorted(actual & ALLOWED_FILES):
+    for item in sorted(actual & allowed):
         if item == "scripts/validate-distribution.py" or Path(item).suffix == ".png":
             continue
         text = (ROOT / item).read_text(encoding="utf-8", errors="replace")
@@ -390,7 +399,9 @@ def parse_frontmatter(path: Path) -> dict[str, Any]:
     return value if isinstance(value, dict) else {}
 
 
-def validate_skills() -> None:
+def validate_skills() -> int:
+    """Check every skill and return the characters its names and descriptions add to a skill list."""
+    budget = 0
     actual = {path.name for path in (ROOT / "skills").iterdir() if path.is_dir()}
     if actual != EXPECTED_SKILLS:
         fail(
@@ -408,8 +419,13 @@ def validate_skills() -> None:
             fail(f"{skill} frontmatter must contain only name and description")
         if frontmatter.get("name") != skill:
             fail(f"frontmatter name does not match folder: {skill}")
-        if not isinstance(frontmatter.get("description"), str):
+        description = frontmatter.get("description")
+        if not isinstance(description, str):
             fail(f"frontmatter description is missing: {skill}")
+            description = ""
+        elif not 200 <= len(description) <= 1024:
+            fail(f"description must contain 200 to 1024 characters: {skill}")
+        budget += len(skill) + len(description)
 
         if not metadata_file.is_file():
             fail(f"missing agents/openai.yaml: {skill}")
@@ -441,6 +457,9 @@ def validate_skills() -> None:
             for tool in tools
         ):
             fail(f"missing vidIQ MCP dependency in agents/openai.yaml: {skill}")
+    if budget > SKILL_LIST_BUDGET:
+        fail(f"skill names and descriptions total {budget} characters; keep them within {SKILL_LIST_BUDGET}")
+    return budget
 
 
 def validate_links() -> None:
@@ -528,7 +547,7 @@ def main() -> int:
     validate_claude_marketplace(manifests)
     validate_copilot_marketplace(manifests)
     validate_endpoint(manifests)
-    validate_skills()
+    skill_list_chars = validate_skills()
     validate_links()
     validate_skill_portability()
     validate_licenses()
@@ -543,7 +562,8 @@ def main() -> int:
         return 1
     print(
         f"Validated {len(CLIENT_MANIFESTS)} manifests, {len(EXPECTED_SKILLS)} skills, "
-        f"the public file boundary, links, licenses, and {MCP_URL}."
+        f"the public file boundary, links, licenses, and {MCP_URL}. "
+        f"Skill list uses {skill_list_chars} of {SKILL_LIST_BUDGET} characters."
     )
     return 0
 

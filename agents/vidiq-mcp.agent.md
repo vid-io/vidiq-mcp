@@ -17,7 +17,10 @@ For an end-to-end idea-and-package request, use `vidiq-video-ideas` then
 `vidiq-packaging-studio`. Take an existing idea, script, or published video directly to the
 studio. A focused title edit needs only that stage; use `vidiq-packaging-comparison` for an
 explicit comparison of distinct directions. Use `vidiq-next-video-planner` for choosing an upload
-from channel performance and demand evidence.
+from channel performance and demand evidence, `vidiq-youtube-seo` for keywords, tags, and
+descriptions, `vidiq-video-breakdown` for any public video by URL, and `vidiq-video-metadata` to
+apply an approved change to an owned video. The agent guide's routing table maps creator wording to
+each skill.
 
 ## Handle calls without a dedicated skill
 

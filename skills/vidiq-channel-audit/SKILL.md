@@ -1,6 +1,6 @@
 ---
 name: vidiq-channel-audit
-description: Audit an authorized YouTube channel over 30, 60, or 90 days. Compare performance, formats, and portfolio patterns; recommend evidence-led actions without generating content or changing state.
+description: Audit an authorized YouTube channel's last 30, 60, or 90 days with private vidIQ analytics (views, watch time, subscribers gained and lost, format mix, top-video concentration), then prioritize improvements. Use when asked 'analyze, audit, or review my YouTube channel', 'is my channel doing well', 'why are my views or subscribers dropping', or 'monthly channel report'. Read-only. For one new upload use vidiq-new-upload-review; for one video's retention use vidiq-retention-analysis.
 ---
 
 # vidIQ Channel Audit

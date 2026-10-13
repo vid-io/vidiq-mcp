@@ -1,6 +1,6 @@
 ---
 name: vidiq-comment-insights
-description: Find deidentified viewer phrases, questions, objections, and desired outcomes in YouTube comments, with transcripts as creator context. Use for audience research, hooks, titles, scripts, or offers.
+description: Mine YouTube comments for what viewers ask, want, object to, and say in their own words, with identities removed, then turn it into hooks, titles, FAQs, script angles, or offers. Use when asked 'what do my viewers want', 'summarize or analyze the comments on this video', 'common questions in my comments', 'audience research', 'find ideas in a competitor's comments', or 'sentiment on my latest video'. Works on own or public videos; never reports usernames.
 ---
 
 # vidIQ Comment Insights

@@ -1,6 +1,6 @@
 ---
 name: vidiq-shorts-inspiration
-description: Study Instagram Reels or TikTok to develop original YouTube Shorts concepts. Use for cross-platform hook, pacing, format, and payoff research.
+description: Find original YouTube Shorts ideas by studying what is breaking out on Instagram Reels and TikTok, then adapting the hook, pacing, format, and payoff. Use when asked for 'Shorts ideas', 'how to go viral on Shorts', 'viral TikTok or Reels formats I can use', 'what's working on TikTok in [niche]', 'repurpose this trend for Shorts', or 'analyze this Reel or TikTok'. Uses vidIQ Instagram and TikTok outlier search and video watching. For long-form YouTube ideas use vidiq-video-ideas.
 ---
 
 # vidIQ Shorts Inspiration

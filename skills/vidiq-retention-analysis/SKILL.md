@@ -1,6 +1,6 @@
 ---
 name: vidiq-retention-analysis
-description: Analyze an authorized YouTube video's retention to investigate drop-offs, pacing, expectations, or structure. Align findings with timestamped scenes only when visual analysis is within scope and available.
+description: Find where and why viewers leave an authorized YouTube video using vidIQ audience-retention analytics, the transcript, watched scenes when available, and comments. Use when asked about 'audience retention', 'watch time', 'where people drop off', 'my intro or hook loses viewers', 'average view duration is low', or for editing, pacing, and structure advice on a specific video. Retention data needs an authorized channel; otherwise gives a content critique.
 ---
 
 # vidIQ Retention Analysis

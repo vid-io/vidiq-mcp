@@ -18,19 +18,32 @@ If vidIQ tools are not visible, help the user confirm that the plugin or MCP con
 and authorized. If the wrong account or channel appears, suggest reconnecting with the intended
 vidIQ account.
 
-## Start and route
+## Route by what the creator asks
 
-Use `vidiq-get-started` for connection, account, channel, and credit guidance, troubleshooting,
-or interrupted-job recovery. Use `vidiq-next-video-planner`
-for evidence-backed topic selection and `vidiq-channel-audit` for bounded 30-, 60-, or
-90-day portfolio audits. Route upload performance, retention, viewer comments, video ideas,
-packaging, trends, competitor tracking, and Shorts inspiration to the matching skill. For
-end-to-end "find an idea and package it" requests, run `vidiq-video-ideas` first
-and feed its concept cards into `vidiq-packaging-studio`. When the creator already has a script
-draft, a rough idea pitch, or a published video that needs repackaging, go straight to
-`vidiq-packaging-studio`; it handles diagnosis and reference discovery itself.
-For a focused title or thumbnail edit, use only the relevant studio stage. Reserve
-`vidiq-packaging-comparison` for an explicit comparison of distinct creative directions.
+| Creator asks | Skill |
+| --- | --- |
+| Connect vidIQ, check channels or credits, fix errors, recover a job | `vidiq-get-started` |
+| What should I post next for my channel | `vidiq-next-video-planner` |
+| Video ideas, what's working in my niche, outliers | `vidiq-video-ideas` |
+| Keywords, search volume, tags, description, YouTube SEO | `vidiq-youtube-seo` |
+| What's trending, is this trend worth it, timing | `vidiq-trend-radar` |
+| Who are my competitors, similar channels, watchlist changes | `vidiq-competitor-watchlist` |
+| How is my channel doing, views dropped, 30-, 60-, or 90-day review | `vidiq-channel-audit` |
+| I just uploaded and it is underperforming | `vidiq-new-upload-review` |
+| Where viewers drop off, retention, watch time | `vidiq-retention-analysis` |
+| What viewers say or want in the comments | `vidiq-comment-insights` |
+| Analyze this video, why did it go viral | `vidiq-video-breakdown` |
+| Titles, thumbnails, scripts, repackage a video | `vidiq-packaging-studio` |
+| Compare several title and thumbnail directions | `vidiq-packaging-comparison` |
+| Update a video's title, description, tags, schedule, or thumbnail | `vidiq-video-metadata` |
+| Shorts ideas from Reels and TikTok | `vidiq-shorts-inspiration` |
+
+For end-to-end "find an idea and package it" requests, run `vidiq-video-ideas` first and feed its
+concept cards into `vidiq-packaging-studio`. When the creator already has a script draft, a rough idea
+pitch, or a published video that needs repackaging, go straight to `vidiq-packaging-studio`; it handles
+diagnosis and reference discovery itself. For a focused title or thumbnail edit, use only the relevant
+studio stage. Reserve `vidiq-packaging-comparison` for an explicit comparison of distinct creative
+directions. Apply approved changes to an owned video only through `vidiq-video-metadata`.
 
 ## Calls without a dedicated workflow
 

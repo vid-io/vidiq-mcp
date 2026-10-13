@@ -1,6 +1,6 @@
 interface:
   display_name: "vidIQ New Upload Review"
-  short_description: "Triage a new video's performance curve"
+  short_description: "Triage a new YouTube upload's early performance"
   default_prompt: "Use $vidiq-new-upload-review to decide whether my new upload needs action or more time."
 
 dependencies:

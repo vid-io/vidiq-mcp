@@ -1,6 +1,6 @@
 ---
 name: vidiq-new-upload-review
-description: Assess a new YouTube upload against its channel's performance at the same publication age. Recommend whether to wait, inspect packaging, or reassess during its first hours or days.
+description: Triage a just-published YouTube video or Short against the channel's own curve at the same publication age and decide whether to wait, investigate, or change packaging. Use when a creator says 'I just uploaded', 'my new video is not getting views or impressions', 'is my latest video flopping', 'my Shorts are getting 0 views', 'views are slow in the first 24 or 48 hours', or 'should I change the thumbnail or title'. Does not edit YouTube metadata. For whole-channel trends use vidiq-channel-audit.
 ---
 
 # vidIQ New Upload Review

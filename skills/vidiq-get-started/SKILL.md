@@ -1,6 +1,6 @@
 ---
 name: vidiq-get-started
-description: Connect vidIQ MCP, check channels and credits, troubleshoot errors, recover jobs, and choose a workflow. Use for setup, connection or capability checks, and account or job problems.
+description: Set up, verify, or troubleshoot vidIQ MCP and pick a first workflow. Use when the user asks to connect vidIQ, 'is vidIQ connected', 'which channel is linked', 'check my credits', sees missing vidIQ tools, 401/403 or wrong-account errors, insufficient credits, or a stuck thumbnail, watch, or script job to recover. Also use for 'help me get started with vidIQ' or 'what can vidIQ do'. Not for creator research; route that to the matching vidiq skill.
 ---
 
 # vidIQ Get Started
