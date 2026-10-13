@@ -80,7 +80,6 @@ ALLOWED_FILES = {
     "server.json",
     "skills/vidiq-packaging-studio/references/production.md",
     "skills/vidiq-packaging-studio/references/research.md",
-    "skills/vidiq-packaging-comparison/references/production.md",
     "skills/vidiq-get-started/references/job-recovery.md",
     "skills/vidiq-get-started/references/troubleshooting.md",
 } | {

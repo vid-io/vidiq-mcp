@@ -1,6 +1,6 @@
 ---
 name: vidiq-trend-radar
-description: Judge YouTube trends by urgency, durability, saturation, and accessibility to smaller channels using live vidIQ velocity, outlier, and search-demand data. Use when asked 'what's trending on YouTube today', 'trending topics in [niche] this week', 'is this trend worth a video', 'should I jump on this now or is it too late', or for timing advice. Classifies topics as urgent, durable, mature, or misleading. For keyword volume and tags use vidiq-youtube-seo; for a ranked next-video choice use vidiq-next-video-planner.
+description: Judge YouTube trends by urgency, durability, saturation, and accessibility to smaller channels using live vidIQ data. Use when asked 'what's trending on YouTube today', 'trending topics in [niche] this week', 'is this trend worth a video', or 'should I jump on this now or is it too late'. Classifies topics as urgent, durable, mature, or misleading.
 ---
 
 # vidIQ Trend Radar
@@ -8,7 +8,8 @@ description: Judge YouTube trends by urgency, durability, saturation, and access
 Read [Live surface notes](references/live-surface-notes.md) first, even when using only supplied evidence.
 
 Separate current velocity, channel-relative breakout, durable demand, and creator accessibility.
-Recommend timing from evidence and production lead time.
+Recommend timing from evidence and production lead time. Switch to `vidiq-youtube-seo` for keyword
+volume and tags, and to `vidiq-next-video-planner` for a ranked next-video choice.
 
 ## Gather a bounded evidence set
 

@@ -1,6 +1,6 @@
 ---
 name: vidiq-youtube-seo
-description: Research YouTube keywords and search demand with vidIQ, then draft SEO-ready tags, descriptions, and title angles. Use when asked 'youtube keyword research', 'search volume for [topic]', 'low-competition keywords', 'youtube seo', 'tags for my video', 'write my video description', 'is anyone searching for this', or 'which keyword should I target'. Read-only text output. To apply changes to a published video use vidiq-video-metadata; for trend timing use vidiq-trend-radar.
+description: Research YouTube keywords and search demand with vidIQ, then draft tags, a description, and title angles. Use when asked 'youtube keyword research', 'search volume for [topic]', 'youtube seo', 'tags for my video', or 'write my video description'. Text output only; applying changes to a video belongs to vidiq-video-metadata.
 ---
 
 # vidIQ YouTube SEO
@@ -46,7 +46,8 @@ nonpositive baselines cannot establish growth, and search demand alone does not 
    for each and a note on why it fits the creator's audience and channel size.
 2. Draft tags from the shortlist and natural variants within YouTube's 500-character tag limit.
 3. Draft a description that leads with the primary phrase in the first two lines, reads naturally,
-   and never repeats terms for their own sake. Include chapters or links only when supplied.
+   and never repeats terms for their own sake. Include chapters or links only when supplied; for a
+   chapter block from captions, `vidiq-video-metadata` runs `vidiq_generate_video_chapters`.
 4. Suggest title angles that contain the primary phrase truthfully. Score candidates with
    `vidiq_score_title` using the confirmed `type: long` or `short` only when the creator wants scores;
    scores are directional, not predicted traffic.

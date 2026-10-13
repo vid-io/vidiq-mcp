@@ -1,6 +1,6 @@
 ---
 name: vidiq-channel-audit
-description: Audit an authorized YouTube channel's last 30, 60, or 90 days with private vidIQ analytics (views, watch time, subscribers gained and lost, format mix, top-video concentration), then prioritize improvements. Use when asked 'analyze, audit, or review my YouTube channel', 'is my channel doing well', 'why are my views or subscribers dropping', or 'monthly channel report'. Read-only. For one new upload use vidiq-new-upload-review; for one video's retention use vidiq-retention-analysis.
+description: Audit an authorized YouTube channel's last 30, 60, or 90 days with private vidIQ analytics (views, watch time, subscribers, format mix, top videos), then prioritize improvements. Use when asked 'analyze, audit, or review my YouTube channel', 'is my channel doing well', 'why are my views or subscribers dropping', or 'monthly channel report'. Whole-channel only; one new upload is vidiq-new-upload-review.
 ---
 
 # vidIQ Channel Audit
@@ -34,6 +34,9 @@ the creator explicitly needs them.
   required `videoFormat: long`, `short`, or `live` per call. Label that set a sample.
   Filter analytics to sampled IDs using `filters: "video==ID1,ID2"` in batches of at most 150;
   absent requested IDs remain unknown.
+- **Public growth context:** `vidiq_channel_stats` with the `channelId` and the same `from`/`to`
+  window gives public subscriber, view, and video-count growth for the channel or a comparison
+  channel; keep it separate from private analytics.
 - **Audience overlap or publishing windows:** use `vidiq_subscriber_insights` only when explicitly
   requested for the authorized channel. Its histogram is sampled public activity,
   not watch history or a live online-audience signal. Keep overlap data private.
@@ -68,5 +71,5 @@ comparison only when relevant, with its coverage or availability limit.
 
 Prioritize up to three interventions, or the requested number, with evidence, competing explanation,
 confidence, smallest action, success measure, and reassessment date. Report contradictions and
-the next read that would most improve confidence. Route a focused launch or retention question
-to its matching skill.
+the next read that would most improve confidence. Route a focused launch question to
+`vidiq-new-upload-review` and a single video's retention to `vidiq-retention-analysis`.

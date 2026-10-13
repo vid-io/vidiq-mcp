@@ -1,14 +1,16 @@
 ---
 name: vidiq-comment-insights
-description: Mine YouTube comments for what viewers ask, want, object to, and say in their own words, with identities removed, then turn it into hooks, titles, FAQs, script angles, or offers. Use when asked 'what do my viewers want', 'summarize or analyze the comments on this video', 'common questions in my comments', 'audience research', 'find ideas in a competitor's comments', or 'sentiment on my latest video'. Works on own or public videos; never reports usernames.
+description: Mine YouTube comments for what viewers ask, want, and object to, with identities removed, then turn it into hooks, titles, FAQs, or script angles, and draft replies. Use when asked 'what do my viewers want', 'summarize or analyze the comments on this video', 'what is my niche's audience asking for', 'does this idea resonate', or 'reply to this comment'.
 ---
 
 # vidIQ Comment Insights
 
 Read [Live surface notes](references/live-surface-notes.md) first, even when using only supplied evidence.
 
-Extract reusable audience language from comments while protecting commenter identity.
-Keep viewer wording distinct from the creator's transcript and from original copy.
+Extract reusable audience language from comments while protecting commenter identity. Works on
+own or public videos and never reports usernames.
+Keep viewer wording distinct from the creator's transcript and from original copy. Sample named
+videos, research a whole niche, or draft replies, as the request requires.
 
 ## Sample the requested audience
 
@@ -31,6 +33,20 @@ Keep viewer wording distinct from the creator's transcript and from original cop
    Filter dates locally; undated comments have unknown recency.
 5. Use representative `vidiq_video_transcript` results only when useful; `transcription` is
    untimed creator language, not viewer evidence.
+
+## Research a niche instead of named videos
+
+For "what does my niche's audience keep asking for" or "does this idea resonate", use
+`vidiq_comment_insights` instead of sampling videos one by one. `mode: "discover"` with `niche`
+(and optional `language`) returns recurring requests and pain points across a niche-wide cohort;
+`mode: "validate"` with `niche` and `idea` tests one proposed idea against comment evidence;
+`mode: "raw"` returns underlying threads and is the only mode that accepts `includeReplies`,
+`intents`, `minLikes`, `sort`, `pageSize`, `maxThreadsPerChannel`, and `cursor`, which other modes
+reject. Continue a raw search with `mode: "raw"` and `cursor` only, and omit
+`commentPublishedAfter` unless the creator asks for a time window. Every mode returns an
+`mcpJobId`: read [Job lifecycle](references/job-lifecycle.md), then poll `vidiq_job_poll` until
+completed. The tool picks its own cohort, so it does not replace `vidiq_video_comments` for named
+videos or channels, and the Claude.ai directory connector does not expose it; sample videos there.
 
 ## Deidentify and count accurately
 
@@ -60,6 +76,13 @@ comments are coverage gaps, not absence of audience concerns.
 Use `vidiq_keyword_research` only to test a requested or decision-relevant search-demand
 hypothesis; conversational phrasing does not establish search intent. Do not infer demographics
 or sensitive traits from wording.
+
+## Draft replies
+
+For reply ideas to one specific comment, use `vidiq_generate_comment_replies` with the video
+`title`, the exact `comment`, and optional `tones` (3 to 10 labels; the defaults are General,
+Humorous, Thankful, Witty, and Informal). It returns drafts only; the creator posts the reply they
+choose on YouTube. The Claude.ai directory connector does not expose this tool.
 
 ## Deliver
 
