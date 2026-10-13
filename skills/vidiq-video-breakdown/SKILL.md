@@ -1,6 +1,6 @@
 ---
 name: vidiq-video-breakdown
-description: Analyze any public YouTube video from a URL or ID, covering view history and velocity, title and thumbnail changes, transcript hooks and structure, comment themes, similar videos, and optional scene watching. Use when asked 'analyze this video', 'why did this video go viral', 'break down this competitor's video', 'summarize this YouTube video', or 'what can I learn from this'. No channel authorization needed. For your own fresh upload use vidiq-new-upload-review; for your retention curve use vidiq-retention-analysis.
+description: Analyze any public YouTube video from a URL or ID, covering view history and velocity, title and thumbnail changes, transcript hooks and structure, comment themes, similar videos, and estimated earnings. Use when asked 'analyze this video', 'why did this video go viral', 'break down this competitor's video', 'summarize this YouTube video', or 'how much did this video earn'. No channel authorization needed.
 ---
 
 # vidIQ Video Breakdown
@@ -23,9 +23,13 @@ private analytics are neither required nor assumed.
   (`hourly` for recent uploads, `daily` or `monthly` otherwise) and explicit ISO `from`/`to`
   bounds. Read historical `vph` for acceleration or decay; cumulative views are not velocity.
   Compare against the channel's typical results with `vidiq_channel_videos` (`popular: false`,
-  matching `videoFormat`) as a sample, never as the full catalog.
-- **Packaging history:** when the live tool list includes `vidiq_video_change_history`, read past
-  title and thumbnail changes and align them with the stats timeline. Report absence as unknown.
+  matching `videoFormat`) as a sample, never as the full catalog. `vidiq_channel_stats` with the
+  `channelId` and an optional `from`/`to` window adds subscriber, view, and video-count growth for
+  size context.
+- **Packaging history:** `vidiq_video_change_history` accepts a video ID or a watch, youtu.be,
+  Shorts, or live URL and returns observed title and thumbnail `changes`, with archived snapshots,
+  plus thumbnail `abTests`. Align them with the stats timeline; an empty history means no change
+  was observed, not that none happened.
 - **Content:** `vidiq_video_transcript` returns untimed `transcription`; use it for the hook,
   promise, structure, and payoff. Read [Discovery evidence](references/discovery-evidence.md) before
   claiming a pattern from the transcript or from similar videos.
@@ -37,6 +41,10 @@ private analytics are neither required nor assumed.
   `signalsUsed`, `signalsFailed`, and `matchedBy` first.
 - **Packaging quality:** `vidiq_score_title` with confirmed `type` and `vidiq_score_thumbnail` with
   the real `videoId`, current `title`, and thumbnail `image` give directional scores, not verdicts.
+- **Earnings:** when asked what the video earned, `vidiq_video_earnings_estimate` with the
+  `videoId` gives a low, mid, and high USD range from vidIQ's RPM model; label it an estimate that
+  assumes a monetized channel and ad-serving views. For "what would X views earn" scenarios use
+  `vidiq_earnings_calculate` with `subject`, `monthlyViews`, `category`, and `format`.
 - **Moving image:** only when pacing or on-screen structure changes the conclusion, read
   [Job lifecycle](references/job-lifecycle.md), then submit `vidiq_video_watch` for long-form or
   `vidiq_watch_shortform_content` for Shorts. Transcripts and thumbnails cannot establish scene

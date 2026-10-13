@@ -1,6 +1,6 @@
 ---
 name: vidiq-next-video-planner
-description: Rank what an authorized YouTube creator should publish next from their own analytics plus live search demand, trends, and competitor gaps. Use when asked 'what should my next video be', 'what should I post on YouTube to grow', 'rank these ideas for my channel', or for an evidence-backed next-video brief. Read-only, so no titles, thumbnails, or scripts are generated. For idea discovery from breakout videos use vidiq-video-ideas; to package a chosen idea use vidiq-packaging-studio.
+description: Rank what an authorized YouTube creator should publish next from their own analytics plus live search demand, audience requests, trends, and competitor gaps. Use when asked 'what should my next video be', 'what should I post on YouTube to grow', or 'rank these ideas for my channel'. Needs the creator's own channel; for ideas from breakout videos in any niche use vidiq-video-ideas.
 ---
 
 # vidIQ Next Video Planner
@@ -8,7 +8,9 @@ description: Rank what an authorized YouTube creator should publish next from th
 Read [Live surface notes](references/live-surface-notes.md) first, even when using only supplied evidence.
 
 Rank next-video opportunities from channel fit, competitors, demand, and timing. Keep this workflow
-read-only: no generation, packaging scoring, refinement, or mutations.
+read-only: no generation, packaging scoring, refinement, or mutations. Switch to
+`vidiq-video-ideas` for open-ended idea discovery and to `vidiq-packaging-studio` to package a
+chosen idea.
 
 ## Scope and channel fit
 
@@ -46,6 +48,11 @@ candidate opportunities, including supplied examples.
   `includeKeyword` narrows results to a whole word or adjacent phrase.
   Keep measured demand/growth separate from scores or ranking; missing, stale, or
   nonpositive baselines cannot establish relative growth.
+- **Audience requests:** `vidiq_comment_insights` with `mode: "discover"` and the `niche` returns
+  recurring viewer requests and pain points across the niche as an asynchronous job; read
+  [Job lifecycle](references/job-lifecycle.md) and poll `vidiq_job_poll`. `mode: "validate"` with
+  `idea` tests a finalist. It is one lane, not a verdict, and the Claude.ai directory connector
+  does not expose it.
 - **Timing:** `vidiq_trending_videos` measures absolute velocity in the confirmed format and
   market. `vidiq_video_stats` on a finalist can test acceleration/decay; choose required
   `granularity: hourly`, `daily`, or `monthly` to match its age/window. Normalize epoch-second

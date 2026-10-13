@@ -1,6 +1,6 @@
 ---
 name: vidiq-packaging-studio
-description: Write, score, and improve YouTube titles and thumbnails, and optionally a script, for an idea, outline, script, reference video, or underperforming video. Use whenever a creator asks for titles or thumbnails, even a quick list, because vidIQ generation and scoring improve them. Triggers include 'title ideas', 'title generator', 'rewrite my title', 'is my title clickbait', 'thumbnail ideas', 'make or refine a thumbnail', 'score my thumbnail', 'why didn't this video get clicks', 'repackage my old video', or 'write a script for this video'. For comparing competing directions use vidiq-packaging-comparison.
+description: Write, score, compare, and improve YouTube titles and thumbnails, and optionally a script, for an idea, script, reference video, or underperforming video. Use whenever a creator asks for titles or thumbnails, even a quick list; vidIQ scoring improves them. Triggers include 'title ideas', 'rewrite my title', 'thumbnail ideas', 'make or refine a thumbnail', 'which title is better', 'A/B test these titles or thumbnails', 'why didn't this video get clicks', or 'write a script for this video'.
 ---
 
 # vidIQ Packaging Studio
@@ -21,7 +21,7 @@ Use the creator's supplied audience, format, language, tone, and assets.
   supplied evidence.
 - Before evaluating external references, including examples already supplied by the creator,
   read [Discovery evidence](references/discovery-evidence.md).
-- For an explicit comparison of distinct concepts, use `vidiq-packaging-comparison`.
+- For "which of these directions should I use", run the compare section below.
 
 A critique does not imply generation; a title request does not imply a thumbnail or script.
 Ask only for missing information that changes the requested result.
@@ -47,6 +47,19 @@ completed. Use a speed claim only when demonstrated or explicitly supported by t
 5. Inspect completed images for factual accuracy, legibility, rights, and attribution.
    If visual inspection is unavailable, return the draft with that limitation; do not claim it
    passed. Keep the version that best meets the brief, explaining any score tradeoff.
+
+## Compare distinct directions
+
+When the creator asks which of several title and thumbnail directions to use, compare the requested
+number of distinct concepts (three if unspecified) for the same video. Make each a different
+truthful promise or framing, not a cosmetic rewrite, and pair every title with thumbnail tension,
+proof, or stakes that adds information. Compare audience fit, truthful payoff, differentiation,
+production feasibility, and evidence; a concept can stay useful despite a lower score. Research
+references only when they can change the comparison, and generate images only when requested, for
+the selected direction or the requested variants. Return the concepts with their matched titles
+and thumbnail directions, the evidence and limitations, and the recommended choice with its
+strongest counterargument. Honor a request for comparison without forcing a winner, and never
+claim a visual winner before inspecting renders.
 
 ## Deliver
 

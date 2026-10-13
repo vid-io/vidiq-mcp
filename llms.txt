@@ -3,7 +3,7 @@
 > Official vidIQ MCP plugin for YouTube creators. Bring live YouTube analytics, keyword research,
 > outlier and trending videos, competitor channels, comments, transcripts, title and thumbnail scoring,
 > and Instagram and TikTok short-form research into ChatGPT, Claude, Codex, Cursor, Gemini CLI, GitHub
-> Copilot, Grok Build, Hermes Agent, and OpenClaw, with 15 guided creator workflows.
+> Copilot, Grok Build, Hermes Agent, and OpenClaw, with 14 guided creator workflows.
 
 The service endpoint is https://mcp.vidiq.com/mcp and uses browser-based vidIQ authorization in
 compatible clients. This repository contains public plugin manifests, connection metadata, and
@@ -55,14 +55,16 @@ workflow guidance for the hosted service.
 - [Retention Analysis](skills/vidiq-retention-analysis/SKILL.md): Where and why viewers drop off
 - [Comment Insights](skills/vidiq-comment-insights/SKILL.md): What viewers ask and want, with identities removed
 - [Video Breakdown](skills/vidiq-video-breakdown/SKILL.md): Analyze any public video's performance, packaging, and hooks
-- [Packaging Studio](skills/vidiq-packaging-studio/SKILL.md): Write, score, and improve titles, thumbnails, and scripts
-- [Packaging Comparison](skills/vidiq-packaging-comparison/SKILL.md): Compare distinct title and thumbnail directions
+- [Packaging Studio](skills/vidiq-packaging-studio/SKILL.md): Write, score, compare, and improve titles, thumbnails, and scripts
 - [Video Metadata](skills/vidiq-video-metadata/SKILL.md): Apply an approved title, description, tags, schedule, or thumbnail change
 - [Shorts Inspiration](skills/vidiq-shorts-inspiration/SKILL.md): YouTube Shorts ideas from Instagram Reels and TikTok
 
 ## Hosted tools
 
-Keyword research, YouTube search, trending videos, outliers, similar videos and channels, channel and
-video stats, transcripts, comments, audience retention and channel analytics, title and thumbnail
-scoring and generation, script generation, competitor tracking, video metadata updates for owned
-videos, and Instagram and TikTok outlier search. See [Tools the workflows use](README.md#tools-the-workflows-use).
+Keyword research, YouTube search, trending videos, outliers, similar videos and channels, channel
+stats and growth, video stats and title or thumbnail change history, transcripts, comments and
+niche-wide comment insights, earnings estimates, audience retention and channel analytics, own-video
+listing, title and thumbnail scoring and generation, scripts, chapters, comment reply drafts,
+competitor tracking, bookmarks, approved updates to owned videos, media
+production (clips, uploads, b-roll, compose, music, voiceover, video), and Instagram and TikTok
+research and publishing. See [Tools the workflows use](README.md#tools-the-workflows-use).

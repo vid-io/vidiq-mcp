@@ -37,6 +37,8 @@ Call `vidiq_generate_thumbnail` once for each approved render and preserve its j
 completed `imageUrl`. Inspect actual pixels with host vision or explicit human review: small-size
 legibility, text, numbers, units, objects, labels, logos, likeness, and subject attribution.
 An unseen image remains an unverified draft. Factual and visual review outrank scores.
+Publishing a finished thumbnail to the video is a separate approved write: hand the approved image
+URL to `vidiq-video-metadata`, which uses `vidiq_update_video_thumbnail`.
 
 ## Separate thumbnail scoring
 

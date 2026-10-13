@@ -15,8 +15,8 @@ Load only the selected skill and the references relevant to the task.
 
 For an end-to-end idea-and-package request, use `vidiq-video-ideas` then
 `vidiq-packaging-studio`. Take an existing idea, script, or published video directly to the
-studio. A focused title edit needs only that stage; use `vidiq-packaging-comparison` for an
-explicit comparison of distinct directions. Use `vidiq-next-video-planner` for choosing an upload
+studio. A focused title edit needs only that stage; the studio's compare section handles distinct
+directions. Use `vidiq-next-video-planner` for choosing an upload
 from channel performance and demand evidence, `vidiq-youtube-seo` for keywords, tags, and
 descriptions, `vidiq-video-breakdown` for any public video by URL, and `vidiq-video-metadata` to
 apply an approved change to an owned video. The agent guide's routing table maps creator wording to
@@ -25,7 +25,9 @@ each skill.
 ## Handle calls without a dedicated skill
 
 Read [Discovery evidence](../references/discovery-evidence.md) when evaluating recurring discovery
-patterns, and [Job lifecycle](../references/job-lifecycle.md) before asynchronous work.
+patterns, and [Job lifecycle](../references/job-lifecycle.md) before asynchronous work. The agent
+guide lists the rules for tools without a workflow: earnings, clips and uploads, Instagram
+publishing, media generation, bookmarks, and deprecated aliases.
 
 For media generation, confirm the relevant source, likeness, and speaker rights; preserve
 attribution. Reuse rights already established for the supplied assets. Voice cloning requires

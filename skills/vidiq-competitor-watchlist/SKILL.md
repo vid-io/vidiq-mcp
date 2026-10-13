@@ -1,6 +1,6 @@
 ---
 name: vidiq-competitor-watchlist
-description: Find and manage the competitor channels tracked in vidIQ for an authorized YouTube channel. Audit the watchlist, identify direct competitors, format references, and emerging breakout channels, and add or remove channels after explicit approval. Use when asked 'who are my competitors', 'youtube competitor analysis', 'find channels like mine', 'channels similar to [channel]', 'track or unfollow these channels', or 'clean up my competitor list'. Only this skill changes the saved watchlist, and only with approval.
+description: Find and manage the competitor channels tracked in vidIQ for an authorized YouTube channel, adding or removing channels only after explicit approval. Use when asked 'who are my competitors', 'youtube competitor analysis', 'find channels like mine', 'channels similar to [channel]', or 'clean up my competitor list'.
 ---
 
 # vidIQ Competitor Watchlist
@@ -8,7 +8,7 @@ description: Find and manage the competitor channels tracked in vidIQ for an aut
 Read [Live surface notes](references/live-surface-notes.md) first, even when using only supplied evidence.
 
 Audit or update a watchlist for the intended authorized channel. Research only what the request
-needs; a recommendation never authorizes a mutation.
+needs; a recommendation never authorizes a mutation. Only this skill changes the saved watchlist.
 
 ## Establish the list and candidate fit
 
@@ -24,7 +24,7 @@ needs; a recommendation never authorizes a mutation.
    matching the returned canonical ID. Country/format can influence ranking rather than strict
    eligibility, so check actual fit.
 4. Use generic niche `vidiq_channel_search` for broader discovery and `breakoutChannel: true`
-   for emerging challengers. Set `subscriberCountMin` only for a requested or justified cohort
+   for emerging challengers (`vidiq_breakout_channels` is a deprecated alias of that search). Set `subscriberCountMin` only for a requested or justified cohort
    boundary. Disclose it; tiny or nonpositive baselines make growth ratios unreliable.
 5. Read [Discovery evidence](references/discovery-evidence.md) for candidate discovery or
    audience/mechanism pattern claims; individual candidate fit can
@@ -34,6 +34,8 @@ needs; a recommendation never authorizes a mutation.
    `lastVideoPublished`. Channel `publishedAt` is creation time. Alternatively, a scoped
    `vidiq_channel_videos` read needs `popular: false` and `videoFormat: long`, `short`, or
    `live`; that format sample cannot prove channel-wide inactivity. Missing dates mean unknown.
+   `vidiq_channel_stats` with the `channelId` and a `from`/`to` window verifies a growth claim
+   before a candidate is added.
 
 Classify useful candidates as direct competitors, format references, or emerging challengers.
 Raw fame or size is insufficient; do not invent audience-overlap or private competitor analytics.

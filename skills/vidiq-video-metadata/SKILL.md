@@ -1,6 +1,6 @@
 ---
 name: vidiq-video-metadata
-description: Apply approved changes to a YouTube video you own through vidIQ (title, description, tags, privacy, scheduled publish time, or thumbnail), with a snapshot and readback. Use when asked 'update my video title', 'change the description', 'add these tags', 'schedule this video', 'make it public or unlisted', or 'apply the new title and thumbnail'. Requires owner authorization and explicit approval of the exact change. For drafting titles or thumbnails first use vidiq-packaging-studio; for keywords use vidiq-youtube-seo.
+description: Apply approved changes to a YouTube video you own through vidIQ (title, description, tags, chapters, privacy, scheduled publish time, or thumbnail), with a snapshot and readback. Use when asked 'update my video title', 'change the description', 'add these tags', 'add chapters', 'schedule this video', or 'swap the thumbnail'. Requires owner authorization and explicit approval of the exact change.
 ---
 
 # vidIQ Video Metadata
@@ -13,14 +13,18 @@ to other skills; this workflow applies one exact change safely.
 ## Confirm scope and ownership
 
 1. Confirm the live tool list includes `vidiq_update_video` (title, description, tags, privacy,
-   scheduled publish time) or `vidiq_update_video_thumbnail`. If absent, stop: the client may be using
-   a directory connector without write tools, or the account may be connected with an API key instead
-   of browser sign-in. Route to `vidiq-get-started`; do not improvise with another tool.
-2. Resolve the owner with `vidiq_user_channels` and the target video with `vidiq_user_videos` or a
-   supplied ID. Require the video's `channelId` to match an authorized ID; a public video on another
+   scheduled publish time) or `vidiq_update_video_thumbnail`. If absent, stop: the Claude.ai directory
+   connector and API-key connections expose no write tools, so the creator needs the custom connector
+   URL with browser sign-in. Route to `vidiq-get-started`; do not improvise with another tool.
+2. Resolve the owner with `vidiq_user_channels` and the target video with `vidiq_user_videos` (the
+   owning `channelId`, with `privacyStatus`, `videoType`, `search`, `order: "newest"` or
+   `"oldest"`, `limit`, and `pageToken` filters; it lists public, unlisted, and private videos) or
+   a supplied ID. Require the video's `channelId` to match an authorized ID; a public video on another
    channel cannot be edited.
 3. Capture a snapshot of the current title, description, tags, privacy, and publish time with
-   `vidiq_get_videos_by_ids`, and read `vidiq_video_change_history` when available.
+   `vidiq_get_videos_by_ids`, and read `vidiq_video_change_history` (the `videoId`; it returns
+   observed title and thumbnail `changes` and thumbnail `abTests`). Say so before changing a title
+   or thumbnail while an A/B test is running.
 
 ## Prepare the exact change
 
@@ -34,9 +38,15 @@ to other skills; this workflow applies one exact change safely.
    Convert the creator's stated time and timezone, show both, and include `privacyStatus: "private"`
    in the diff. A public or unlisted video cannot be scheduled as it stands; making it private first
    hides it and needs its own explicit approval.
-4. Call out consequences: a new title or thumbnail resets viewer expectations, a privacy change is
+4. For a thumbnail, pass exactly one of `thumbnail` (an HTTPS URL served without redirects, or a
+   PNG or JPEG data URI) or `thumbnailFile`; PNG or JPEG up to 2 MiB. For "add chapters", start
+   `vidiq_generate_video_chapters` with the `videoId` and optional `chapterCount`, `language`, and
+   `startBufferSeconds`; it is asynchronous, so read [Job lifecycle](references/job-lifecycle.md),
+   poll `vidiq_job_poll`, let the creator pick one of the three titles per chapter, and place the
+   block in the description diff. It needs an accessible transcript and changes nothing by itself.
+5. Call out consequences: a new title or thumbnail resets viewer expectations, a privacy change is
    visible immediately, and a schedule change can move a launch.
-5. Obtain approval of the exact diff and the credit cost. Approval of a draft is not approval to
+6. Obtain approval of the exact diff and the credit cost. Approval of a draft is not approval to
    publish; ask once, precisely.
 
 ## Apply once and verify
