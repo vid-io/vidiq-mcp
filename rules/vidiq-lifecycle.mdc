@@ -9,8 +9,8 @@ Apply this rule only to vidIQ requests and calls. Do not start vidIQ onboarding,
 research, or approvals for unrelated work.
 
 For a vidIQ workflow, read [Live surface notes](../references/live-surface-notes.md), including
-when analyzing supplied evidence. Select the relevant available vidIQ skill and load only
-its needed references.
+when analyzing supplied evidence. Select the relevant available vidIQ skill from the creator's
+wording using the routing table in the agent guide, and load only its needed references.
 
 For connection help, ambiguous routing, or a tool without a dedicated skill, follow the
 [agent guide](../AGENTS.md). Before asynchronous work, read

@@ -1,7 +1,7 @@
 interface:
   display_name: "vidIQ Trend Radar"
-  short_description: "Sort trends by urgency and durability"
-  default_prompt: "Use $vidiq-trend-radar to separate trends I should act on now from durable opportunities."
+  short_description: "Judge YouTube trends by urgency and durability"
+  default_prompt: "Use $vidiq-trend-radar to find what's trending in [niche] and tell me what to jump on now, what can wait, and what to skip."
 
 dependencies:
   tools:

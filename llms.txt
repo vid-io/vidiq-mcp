@@ -1,7 +1,9 @@
 # vidIQ MCP
 
-> Official vidIQ MCP plugin. Bring live YouTube, Instagram, and available TikTok intelligence,
-> channel analytics, and ready-to-use creator workflows into your AI assistant.
+> Official vidIQ MCP plugin for YouTube creators. Bring live YouTube analytics, keyword research,
+> outlier and trending videos, competitor channels, comments, transcripts, title and thumbnail scoring,
+> and Instagram and TikTok short-form research into ChatGPT, Claude, Codex, Cursor, Gemini CLI, GitHub
+> Copilot, Grok Build, Hermes Agent, and OpenClaw, with 14 guided creator workflows.
 
 The service endpoint is https://mcp.vidiq.com/mcp and uses browser-based vidIQ authorization in
 compatible clients. This repository contains public plugin manifests, connection metadata, and
@@ -11,17 +13,18 @@ workflow guidance for the hosted service.
 
 - [Product](https://vidiq.com/mcp/): Official vidIQ MCP product page
 - [Setup and usage guide](https://support.vidiq.com/en/articles/15082430-vidiq-mcp): Connection, credits, and troubleshooting
-- [ChatGPT app](https://chatgpt.com/plugins/plugin_asdk_app_69dd11f3e50c8191b1ca48d03cf7e2ad): Official vidIQ app listing
+- [ChatGPT plugin](https://chatgpt.com/plugins/plugin_asdk_app_69dd11f3e50c8191b1ca48d03cf7e2ad): Official vidIQ listing
+- [Claude connector](https://claude.com/connectors/vidiq): Official vidIQ listing in the Claude directory
 - [Claude.ai connection](README.md#claudeai): Custom connector setup
 - [Support](https://support.vidiq.com/): Account and hosted-service support
 
 ## Distribution files
 
-- [README](README.md): Product overview, connection, installation surfaces, workflows, and support
+- [README](README.md): Product overview, connection, installation surfaces, workflows, tools, and support
 - [MCP configuration](.mcp.json): Canonical remote connection
 - [Claude manifest](.claude-plugin/plugin.json): Claude Code plugin
 - [Claude marketplace](.claude-plugin/marketplace.json): Claude Code marketplace entry
-- [Codex manifest](.codex-plugin/plugin.json): Codex plugin
+- [Codex manifest](.codex-plugin/plugin.json): Codex and ChatGPT plugin
 - [Cursor manifest](.cursor-plugin/plugin.json): Cursor plugin
 - [Copilot manifest](.github/plugin/plugin.json): GitHub Copilot plugin
 - [Copilot marketplace](.github/plugin/marketplace.json): Local and repository marketplace entry
@@ -31,8 +34,9 @@ workflow guidance for the hosted service.
 - [OpenClaw setup](README.md#openclaw): Build the workflow bundle and connect vidIQ with browser OAuth
 - [MCP Registry metadata](server.json): Official Registry descriptor
 - [Specialist agent](agents/vidiq-mcp.agent.md): Workflow routing and safety lifecycle
+- [Agent guide](AGENTS.md): Routing table from creator wording to workflow
 - [Cursor lifecycle rule](rules/vidiq-lifecycle.mdc): Persistent tool-use guidance
-- [Contributing](CONTRIBUTING.md): Public contribution scope and safeguards
+- [Contributing](CONTRIBUTING.md): Public contribution scope and description rules
 - [Security policy](SECURITY.md): Security reporting route and scope
 - [Code of Conduct](CODE_OF_CONDUCT.md): Community participation standards
 - [Licensing](README.md#license): Apache 2.0, with the Contributor Covenant adaptation under CC BY 4.0
@@ -40,15 +44,27 @@ workflow guidance for the hosted service.
 
 ## Workflow skills
 
-- [Get Started](skills/vidiq-get-started/SKILL.md)
-- [Next Video Planner](skills/vidiq-next-video-planner/SKILL.md)
-- [Video Ideas](skills/vidiq-video-ideas/SKILL.md)
-- [Channel Audit](skills/vidiq-channel-audit/SKILL.md)
-- [New Upload Review](skills/vidiq-new-upload-review/SKILL.md)
-- [Retention Analysis](skills/vidiq-retention-analysis/SKILL.md)
-- [Comment Insights](skills/vidiq-comment-insights/SKILL.md)
-- [Packaging Comparison](skills/vidiq-packaging-comparison/SKILL.md)
-- [Packaging Studio](skills/vidiq-packaging-studio/SKILL.md)
-- [Trend Radar](skills/vidiq-trend-radar/SKILL.md)
-- [Competitor Watchlist](skills/vidiq-competitor-watchlist/SKILL.md)
-- [Shorts Inspiration](skills/vidiq-shorts-inspiration/SKILL.md)
+- [Get Started](skills/vidiq-get-started/SKILL.md): Connect vidIQ, check channels and credits, troubleshoot, recover jobs
+- [Next Video Planner](skills/vidiq-next-video-planner/SKILL.md): Decide what to publish next from channel data and demand
+- [Video Ideas](skills/vidiq-video-ideas/SKILL.md): Video ideas from outlier videos in the niche and adjacent niches
+- [YouTube SEO](skills/vidiq-youtube-seo/SKILL.md): Keyword research, search demand, tags, descriptions, title angles
+- [Trend Radar](skills/vidiq-trend-radar/SKILL.md): Which trends are urgent, durable, mature, or misleading
+- [Competitor Watchlist](skills/vidiq-competitor-watchlist/SKILL.md): Find competitors and manage the tracked list
+- [Channel Audit](skills/vidiq-channel-audit/SKILL.md): 30-, 60-, or 90-day channel analytics review
+- [New Upload Review](skills/vidiq-new-upload-review/SKILL.md): Triage a fresh upload against the channel's curve
+- [Retention Analysis](skills/vidiq-retention-analysis/SKILL.md): Where and why viewers drop off
+- [Comment Insights](skills/vidiq-comment-insights/SKILL.md): What viewers ask and want, with identities removed
+- [Video Breakdown](skills/vidiq-video-breakdown/SKILL.md): Analyze any public video's performance, packaging, and hooks
+- [Packaging Studio](skills/vidiq-packaging-studio/SKILL.md): Write, score, compare, and improve titles, thumbnails, and scripts
+- [Video Metadata](skills/vidiq-video-metadata/SKILL.md): Apply an approved title, description, tags, schedule, or thumbnail change
+- [Shorts Inspiration](skills/vidiq-shorts-inspiration/SKILL.md): YouTube Shorts ideas from Instagram Reels and TikTok
+
+## Hosted tools
+
+Keyword research, YouTube search, trending videos, outliers, similar videos and channels, channel
+stats and growth, video stats and title or thumbnail change history, transcripts, comments and
+niche-wide comment insights, earnings estimates, audience retention and channel analytics, own-video
+listing, title and thumbnail scoring and generation, scripts, chapters, comment reply drafts,
+competitor tracking, bookmarks, approved updates to owned videos, media
+production (clips, uploads, b-roll, compose, music, voiceover, video), and Instagram and TikTok
+research and publishing. See [Tools the workflows use](README.md#tools-the-workflows-use).

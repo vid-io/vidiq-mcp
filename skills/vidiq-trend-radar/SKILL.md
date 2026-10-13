@@ -1,6 +1,6 @@
 ---
 name: vidiq-trend-radar
-description: Assess YouTube trends by urgency, durable demand, maturity, misleading signals, and accessibility to smaller channels. Use to prioritize timely content and distinguish current velocity from sustained search demand.
+description: Judge YouTube trends by urgency, durability, saturation, and accessibility to smaller channels using live vidIQ data. Use when asked 'what's trending on YouTube today', 'trending topics in [niche] this week', 'is this trend worth a video', or 'should I jump on this now or is it too late'. Classifies topics as urgent, durable, mature, or misleading.
 ---
 
 # vidIQ Trend Radar
@@ -8,7 +8,8 @@ description: Assess YouTube trends by urgency, durable demand, maturity, mislead
 Read [Live surface notes](references/live-surface-notes.md) first, even when using only supplied evidence.
 
 Separate current velocity, channel-relative breakout, durable demand, and creator accessibility.
-Recommend timing from evidence and production lead time.
+Recommend timing from evidence and production lead time. Switch to `vidiq-youtube-seo` for keyword
+volume and tags, and to `vidiq-next-video-planner` for a ranked next-video choice.
 
 ## Gather a bounded evidence set
 
@@ -30,7 +31,8 @@ including supplied results.
    viewer motivation for cross-niche searches. Use semantic `requireAllTitleTerms: false` where
    declared, with strict matching as supporting evidence.
 5. Use `vidiq_keyword_research` for search durability. Seed `research` gives demand context;
-   `rising` accepts supported trend windows/categories, not an arbitrary keyword filter.
+   `rising` accepts supported trend windows/categories and ignores `keyword`; narrow it to a phrase
+   only with `includeKeyword` where declared (whole words or adjacent phrases).
    Search demand alone does not prove format fit.
 6. Use `vidiq_video_stats` on finalists with required age-appropriate `granularity`; prefer
    `hourly` for recent trends and explicit ISO `from`/`to` bounds. Analyze historical `vph`,

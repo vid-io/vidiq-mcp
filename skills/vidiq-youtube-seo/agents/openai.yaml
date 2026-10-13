@@ -1,0 +1,12 @@
+interface:
+  display_name: "vidIQ YouTube SEO"
+  short_description: "Keyword research, tags, and descriptions for YouTube"
+  default_prompt: "Use $vidiq-youtube-seo to find keywords and write tags and a description for my video about [topic]."
+
+dependencies:
+  tools:
+    - type: "mcp"
+      value: "vidiq"
+      description: "Keyword research and YouTube search data from vidIQ"
+      transport: "streamable_http"
+      url: "https://mcp.vidiq.com/mcp"

@@ -1,7 +1,7 @@
 {
   "name": "vidiq",
-  "version": "0.1.6",
-  "description": "Use live vidIQ creator intelligence to research YouTube and short-form video, analyze performance, and make stronger content decisions.",
+  "version": "0.2.1",
+  "description": "Official vidIQ plugin for YouTube creators. Find video ideas, trending topics, and keywords; research competitors and outlier videos; audit channel analytics, new uploads, retention, and comments; write and score titles, thumbnails, and scripts; study Instagram Reels and TikTok for YouTube Shorts. 14 guided workflows on vidIQ's hosted MCP server (OAuth, vidIQ account required).",
   "author": {
     "name": "vidIQ",
     "url": "https://vidiq.com/"
@@ -13,20 +13,28 @@
     "vidiq",
     "mcp",
     "youtube",
-    "instagram",
-    "tiktok",
-    "creator",
-    "analytics",
-    "content-strategy",
+    "youtube-analytics",
+    "youtube-seo",
+    "keyword-research",
+    "video-ideas",
+    "titles",
     "thumbnails",
-    "shorts"
+    "channel-audit",
+    "retention",
+    "comments",
+    "competitors",
+    "shorts",
+    "tiktok",
+    "instagram",
+    "creator-analytics",
+    "content-strategy"
   ],
   "skills": "./skills/",
   "mcpServers": "./.mcp.json",
   "interface": {
     "displayName": "vidIQ",
-    "shortDescription": "Creator intelligence for better video decisions",
-    "longDescription": "vidIQ MCP connects your assistant to live creator intelligence for YouTube and short-form video. Research topics and competitors, inspect authorized channel analytics, evaluate titles and thumbnails, and use guided workflows for planning, channel health, launches, retention, trends, and packaging. Available tools can also update an owned YouTube video's title, description, tags, visibility, or scheduled publish time with directly authorized owner access and current YouTube verification.",
+    "shortDescription": "Grow on YouTube, IG & TikTok",
+    "longDescription": "vidIQ brings live YouTube, Instagram, and TikTok creator intelligence into ChatGPT and Codex, with 14 guided workflows for the decisions creators make every week.\n\nWhat vidIQ can do:\nFind ideas and trends: discover outlier videos beating their channel's average, rank next-video opportunities for your channel, and separate rising trends from fading ones.\nResearch keywords and competitors: check YouTube search demand and competition, draft tags and descriptions, find channels like yours, and manage your competitor watchlist.\nUnderstand performance: audit 30 to 90 days of channel analytics, triage a new upload against your normal curve, map audience retention to the transcript, and mine comments for what viewers want.\nPackage and publish: write and score titles, generate and refine thumbnails, compare packaging directions, draft scripts, and apply approved metadata changes to videos you own.\nLearn from any video: break down a public video's performance, packaging history, hooks, and comments, and adapt Instagram Reels and TikTok patterns into YouTube Shorts.\n\nSkills: Get Started, Next Video Planner, Video Ideas, YouTube SEO, Trend Radar, Competitor Watchlist, Channel Audit, New Upload Review, Retention Analysis, Comment Insights, Video Breakdown, Packaging Studio, Video Metadata, Shorts Inspiration.\n\nTry prompts like:\n- What should my next YouTube video be?\n- Why is my latest upload underperforming?\n- Find keywords and write tags for my video about sourdough starters.\n- Analyze this YouTube video and tell me why it went viral.\n- Which of these three titles should I use?\n\nRequirements: connect your vidIQ account in the browser. Private analytics and video edits need a YouTube channel authorized in that vidIQ account. Hosted tools use vidIQ credits; the connected service reports the available capabilities and prices.",
     "developerName": "vidIQ",
     "category": "Creativity",
     "capabilities": [
@@ -36,13 +44,20 @@
     "websiteURL": "https://vidiq.com/mcp/",
     "privacyPolicyURL": "https://vidiq.com/privacy/",
     "termsOfServiceURL": "https://vidiq.com/terms/",
+    "supportURL": "https://support.vidiq.com/",
     "defaultPrompt": [
-      "Help me get started with vidIQ and choose a useful first workflow.",
-      "Find the strongest content opportunities for my channel this week.",
-      "Check whether my latest upload needs action or more time."
+      "What should my next YouTube video be?",
+      "Why is my latest upload underperforming?",
+      "Find keywords and write tags for my video about sourdough starters."
     ],
     "brandColor": "#2574F5",
     "composerIcon": "./assets/vidiq-icon-mark.svg",
-    "logo": "./assets/vidiq-icon-mark.svg"
+    "logo": "./assets/vidiq-icon-mark.svg",
+    "logoDark": "./assets/vidiq-icon-mark.svg"
+  },
+  "extensions": {
+    "com.openai": {
+      "onboardingSkill": "./skills/vidiq-get-started/SKILL.md"
+    }
   }
 }

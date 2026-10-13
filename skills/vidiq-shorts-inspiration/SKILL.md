@@ -1,6 +1,6 @@
 ---
 name: vidiq-shorts-inspiration
-description: Study Instagram Reels or TikTok to develop original YouTube Shorts concepts. Use for cross-platform hook, pacing, format, and payoff research.
+description: Find original YouTube Shorts ideas by studying what is breaking out on Instagram Reels and TikTok, then adapting the hook, pacing, format, and payoff. Use when asked for 'Shorts ideas', 'how to go viral on Shorts', 'viral TikTok or Reels formats I can use', 'what's working on TikTok in [niche]', or 'how are my Reels doing'.
 ---
 
 # vidIQ Shorts Inspiration
@@ -8,7 +8,8 @@ description: Study Instagram Reels or TikTok to develop original YouTube Shorts 
 Read [Live surface notes](references/live-surface-notes.md) first, even when using only supplied evidence.
 
 Study Instagram Reels or TikTok examples and adapt their abstract mechanisms into original
-YouTube Shorts concepts. Transfer hypotheses need evidence from the target platform.
+YouTube Shorts concepts. Transfer hypotheses need evidence from the target platform. For
+long-form YouTube ideas switch to `vidiq-video-ideas`.
 
 ## Research a bounded sample
 
@@ -31,6 +32,12 @@ YouTube Shorts concepts. Transfer hypotheses need evidence from the target platf
 6. For needed Instagram creator context or shortcode verification, selectively use
    `vidiq_ig_accounts_from_outliers`, `vidiq_ig_profile`, or `vidiq_ig_profile_reels`.
    Match the target shortcode in returned reels; never assume the first result is the target.
+7. For the creator's own Instagram results, call `vidiq_instagram_connected_accounts` first. For an
+   account with `accessLevel: "owner"`, `vidiq_instagram_owner_insights` with that
+   `platformAccountId` adds shares, saves, watch time, and skip rate; a `public_fallback` account
+   gets only public Reel data through `vidiq_ig_profile_reels`, labeled as such. Publishing a Reel
+   with `vidiq_instagram_publish_reel` is a separate write that needs an explicit request, a
+   vidIQ-hosted video URL, and approval of the exact account, caption, and settings.
 
 ## Verify transfer to Shorts
 

@@ -1,0 +1,12 @@
+interface:
+  display_name: "vidIQ Video Metadata"
+  short_description: "Update a video's title, tags, or schedule safely"
+  default_prompt: "Use $vidiq-video-metadata to change the title of my video [YouTube URL] to [new title], showing the exact edit for my approval first."
+
+dependencies:
+  tools:
+    - type: "mcp"
+      value: "vidiq"
+      description: "YouTube video update tools from vidIQ"
+      transport: "streamable_http"
+      url: "https://mcp.vidiq.com/mcp"

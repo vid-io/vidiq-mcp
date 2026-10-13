@@ -2,10 +2,12 @@
 
 **Live creator intelligence, in your AI assistant.**
 
-[vidIQ MCP](https://vidiq.com/mcp/) connects MCP-compatible AI assistants to live vidIQ data.
-Research YouTube channels, videos, trends, and comments; study public Instagram
-and TikTok short-form content when those tools are exposed by the connected account; and analyze
-private YouTube performance for channels connected to your vidIQ account.
+[vidIQ MCP](https://vidiq.com/mcp/) connects ChatGPT, Claude, Codex, Cursor, Gemini CLI, GitHub
+Copilot, and other MCP-compatible AI assistants to live vidIQ data: YouTube channel analytics, keyword
+research, outlier and trending videos, comments, transcripts, competitor channels, and title and
+thumbnail scoring. Study public Instagram and TikTok short-form content when those tools are exposed
+by the connected account, and analyze private YouTube performance for channels connected to your
+vidIQ account.
 
 The workflow plugin turns that data into better content decisions with guided creator playbooks.
 
@@ -28,10 +30,15 @@ are returned to the AI client you choose, whose privacy practices also apply. Se
 Use live vidIQ data to decide what to make next and understand how your content performs:
 
 - Discover video ideas, emerging trends, and opportunities in your niche.
+- Research keywords and search demand, then draft tags and descriptions (YouTube SEO).
 - Research competitors, successful videos, and the questions viewers ask in comments.
+- Analyze any public video to learn why it performed.
 - Review your channel's performance, new uploads, and audience retention.
-- Improve titles and thumbnails with research, scoring, and creative workflows.
+- Improve titles and thumbnails with research, scoring, and creative workflows, then apply approved
+  changes to videos you own.
 - Study public Instagram and TikTok content for patterns to adapt to YouTube Shorts.
+- Draft comment replies, generate chapters, estimate earnings, and save research to
+  bookmarks.
 
 YouTube research covers public channels and videos; private analytics require a channel
 authorized in your vidIQ account. Instagram and TikTok research depends on the tools available
@@ -57,9 +64,10 @@ Try asking:
 
 > What topics are trending in my niche that I have not covered yet?
 
-The ChatGPT app connects the hosted vidIQ tools. It does not install the workflow skills from this
-repository; use the workflow plugin below in a compatible plugin client when you want those
-guided playbooks.
+The ChatGPT plugin connects the hosted vidIQ tools, and current releases also bundle the creator
+workflows from this repository as skills; new workflows arrive with the next plugin release. Type
+`@vidIQ` at the start of a prompt to use it explicitly, or describe the outcome you want and ChatGPT
+picks the matching skill.
 
 ### Claude.ai
 
@@ -105,7 +113,12 @@ scopes and updates.
 Invoke workflows as `/vidiq:vidiq-get-started` or `/vidiq:vidiq-packaging-studio`.
 Version 0.1.3 restores the `vidiq-` skill prefix. Version 0.1.4 renames Channel Review to
 Channel Audit; invoke it as `/vidiq:vidiq-channel-audit`. Connection diagnostics and job
-recovery are part of Get Started.
+recovery are part of Get Started. Version 0.2.0 adds `/vidiq:vidiq-youtube-seo`,
+`/vidiq:vidiq-video-breakdown`, and `/vidiq:vidiq-video-metadata`. Version 0.2.1 wires the newer
+hosted tools: niche-wide comment insights and reply drafts, chapters, title and thumbnail change
+history, own-video listing, earnings estimates, bookmarks, and YouTube channel connection. It also
+folds Packaging Comparison into Packaging Studio as a compare mode and shortens every skill
+description so the full list fits in Codex and ChatGPT.
 
 #### Grok Build
 
@@ -137,7 +150,7 @@ openclaw skills list
 ```
 
 Review the requested capabilities before accepting. Confirm that inspection lists `skills` and
-`mcpServers`, and that the skill list includes the 12 `vidiq-` workflows.
+`mcpServers`, and that the skill list includes the 14 `vidiq-` workflows.
 Register the server for OpenClaw's login command, then authorize your vidIQ account:
 
 ```bash
@@ -181,7 +194,7 @@ hermes mcp add vidiq --url https://mcp.vidiq.com/mcp --auth oauth
 ```
 
 Complete vidIQ authorization in your browser, then start a new session and ask Hermes to use
-vidIQ Get Started. The plugin installs all 12 workflows; the separate MCP connection provides
+vidIQ Get Started. The plugin installs all 14 workflows; the separate MCP connection provides
 the live tools. A vidIQ account is required, and hosted tools may consume credits.
 
 Check the connection with `hermes mcp test vidiq`. If already configured, sign in again or switch
@@ -355,6 +368,15 @@ Use natural language. Replace the bracketed details, or give the assistant a cha
   and content briefs. Omit usernames and personal details from your answer.”
 - **Judge a trend window:** “Find high-velocity topics in `[niche]` and separate short-lived spikes
   from durable search demand.”
+- **Rank for search:** “Research keywords for a video about `[topic]`, tell me whether people search
+  for it, and draft the tags and description.”
+- **Learn from any video:** “Analyze `[video URL]` and explain why it performed, what the hook does,
+  and what I can adapt without copying it.”
+- **Apply a change:** “Update my video `[video ID]` with this approved title and these tags, show me
+  the before and after, and confirm what changed.”
+- **Answer your viewers:** “Draft three replies to this comment in my channel's voice.”
+- **Estimate earnings:** “Estimate what this video earned, and what 500,000 monthly views would earn
+  in my niche.”
 
 ## Creator workflows
 
@@ -363,30 +385,53 @@ request.
 
 ### Connect and choose a direction
 
-| Workflow | Best for |
-| --- | --- |
-| [Get Started](skills/vidiq-get-started/SKILL.md) | Connect vidIQ, check channels and credits, troubleshoot errors, recover jobs, and choose a workflow. |
-| [Next Video Planner](skills/vidiq-next-video-planner/SKILL.md) | Build an evidence-backed next-video brief from channel fit, search demand, trends, outliers, and competitor patterns. |
-| [Video Ideas](skills/vidiq-video-ideas/SKILL.md) | Scan outliers across the creator's channel, niche, and adjacent-audience niches for adaptable concept candidates. |
+| Workflow | Best for | Say |
+| --- | --- | --- |
+| [Get Started](skills/vidiq-get-started/SKILL.md) | Connect vidIQ, check channels and credits, troubleshoot errors, recover jobs, and choose a workflow. | “Is vidIQ connected, and which channel is linked?” |
+| [Next Video Planner](skills/vidiq-next-video-planner/SKILL.md) | Build an evidence-backed next-video brief from channel fit, search demand, trends, outliers, and competitor patterns. | “What should my next video be?” |
+| [Video Ideas](skills/vidiq-video-ideas/SKILL.md) | Scan outliers across the creator's channel, niche, and adjacent-audience niches for adaptable concept candidates. | “Give me 10 video ideas based on what's breaking out in my niche.” |
+| [YouTube SEO](skills/vidiq-youtube-seo/SKILL.md) | Research keywords and search demand, then draft tags, a description, and title angles. | “Which keywords should I target for a video about `[topic]`?” |
+| [Trend Radar](skills/vidiq-trend-radar/SKILL.md) | Separate urgent breakouts and short-lived spikes from durable search demand. | “What's trending in `[niche]` this week, and is it too late?” |
+| [Competitor Watchlist](skills/vidiq-competitor-watchlist/SKILL.md) | Propose precise additions and removals before changing the competitors tracked in vidIQ. | “Who are my competitors, and should I track any emerging channels?” |
 
 ### Understand performance and opportunity
 
-| Workflow | Best for |
-| --- | --- |
-| [Channel Audit](skills/vidiq-channel-audit/SKILL.md) | Audit 30–90 days of channel performance and prioritize the next actions. |
-| [New Upload Review](skills/vidiq-new-upload-review/SKILL.md) | Compare a new upload with the channel's normal curve before deciding whether to wait or intervene. |
-| [Retention Analysis](skills/vidiq-retention-analysis/SKILL.md) | Align retention changes with transcript, scenes, and comments to find moments worth improving. |
-| [Comment Insights](skills/vidiq-comment-insights/SKILL.md) | Turn recurring, de-identified viewer language into hooks, briefs, titles, and audience insight. |
-| [Trend Radar](skills/vidiq-trend-radar/SKILL.md) | Separate urgent breakouts and short-lived spikes from durable search demand. |
-| [Competitor Watchlist](skills/vidiq-competitor-watchlist/SKILL.md) | Propose precise additions and removals before changing the competitors tracked in vidIQ. |
+| Workflow | Best for | Say |
+| --- | --- | --- |
+| [Channel Audit](skills/vidiq-channel-audit/SKILL.md) | Audit 30–90 days of channel performance and prioritize the next actions. | “Why did my views drop this month?” |
+| [New Upload Review](skills/vidiq-new-upload-review/SKILL.md) | Compare a new upload with the channel's normal curve before deciding whether to wait or intervene. | “I uploaded yesterday and it's underperforming. Change the thumbnail or wait?” |
+| [Retention Analysis](skills/vidiq-retention-analysis/SKILL.md) | Align retention changes with transcript, scenes, and comments to find moments worth improving. | “Where do viewers drop off in this video?” |
+| [Comment Insights](skills/vidiq-comment-insights/SKILL.md) | Turn recurring, de-identified viewer language into hooks, briefs, titles, and audience insight. | “What questions keep coming up in my comments?” |
+| [Video Breakdown](skills/vidiq-video-breakdown/SKILL.md) | Analyze any public video's performance history, packaging changes, hooks, and comment themes. | “Analyze this video and tell me why it went viral.” |
 
 ### Package and produce
 
-| Workflow | Best for |
-| --- | --- |
-| [Packaging Comparison](skills/vidiq-packaging-comparison/SKILL.md) | Compare distinct title and thumbnail concepts for the same video using creator evidence. |
-| [Packaging Studio](skills/vidiq-packaging-studio/SKILL.md) | Turn a source video, concept card, script draft, rough idea pitch, or underperforming published video into scored titles, a thumbnail, and an optional script for the creator's channel. |
-| [Shorts Inspiration](skills/vidiq-shorts-inspiration/SKILL.md) | Study short-form content patterns and develop original YouTube Shorts ideas. |
+| Workflow | Best for | Say |
+| --- | --- | --- |
+| [Packaging Studio](skills/vidiq-packaging-studio/SKILL.md) | Turn a source video, concept card, script draft, rough idea pitch, or underperforming published video into scored titles, a thumbnail, and an optional script, or compare distinct title and thumbnail directions for the same video. | “Write five titles and a thumbnail idea for this video.” |
+| [Video Metadata](skills/vidiq-video-metadata/SKILL.md) | Apply an approved title, description, tags, schedule, or thumbnail change to a video you own, with a snapshot and readback. | “Update my video with this title and these tags.” |
+| [Shorts Inspiration](skills/vidiq-shorts-inspiration/SKILL.md) | Study short-form content patterns and develop original YouTube Shorts ideas. | “What's working on TikTok in my niche that I could adapt for Shorts?” |
+
+## Tools the workflows use
+
+The hosted server exposes these tools; the workflows call them by name and check the live list
+first because availability varies by account and client. The Claude.ai directory connector omits
+the tools in the last column; adding `https://mcp.vidiq.com/mcp` as a custom connector with
+browser sign-in exposes the full set. Changes to your channel need owner access, YouTube
+verification, and your approval of the exact change.
+
+| Job | Tools (free tools in italics; async tools return a job to poll) | Claude.ai directory connector |
+| --- | --- | --- |
+| Account, jobs, and bookmarks | *`vidiq_user_channels`*, *`vidiq_balance`*, *`vidiq_connect_youtube_channel`*, *`vidiq_authorize_with_youtube`*, *`vidiq_jobs_list`*, *`vidiq_job_poll`*, *`vidiq_bookmarks_list`*, *`vidiq_bookmarks_save`*, *`vidiq_bookmarks_remove`*, *`vidiq_submit_feedback`* | all except `vidiq_connect_youtube_channel`, `vidiq_authorize_with_youtube` |
+| Keyword and topic research | `vidiq_keyword_research`, `vidiq_trending_videos`, *`vidiq_trend_categories`*, `vidiq_youtube_search` | all |
+| Ideas and outliers | `vidiq_outliers`, `vidiq_similar_videos`, `vidiq_similar_thumbnails`, `vidiq_instagram_tiktok_outlier_search` | all |
+| Channels and competitors | `vidiq_channel_search`, `vidiq_channel_stats`, `vidiq_get_channels_by_ids`, `vidiq_similar_channels`, `vidiq_channel_videos`, *`vidiq_list_competitors`*, *`vidiq_update_competitors`* | all |
+| Video evidence | `vidiq_get_videos_by_ids`, `vidiq_video_stats`, `vidiq_video_change_history`, `vidiq_video_transcript`, `vidiq_video_comments`, `vidiq_comment_insights` (async), `vidiq_video_watch` (async), `vidiq_watch_shortform_content` (async), `vidiq_video_earnings_estimate`, `vidiq_earnings_calculate` | all except `vidiq_comment_insights` |
+| Private analytics (authorized channel) | `vidiq_channel_analytics`, `vidiq_channel_performance_trends`, `vidiq_subscriber_insights`, `vidiq_user_videos` | all |
+| Titles, thumbnails, scripts, and chapters | `vidiq_generate_titles`, `vidiq_score_title`, `vidiq_generate_thumbnail` (async), `vidiq_refine_thumbnail` (async), `vidiq_score_thumbnail`, `vidiq_generate_script` (async), `vidiq_generate_video_chapters` (async), `vidiq_generate_comment_replies` | all except `vidiq_generate_thumbnail`, `vidiq_refine_thumbnail`, `vidiq_generate_video_chapters`, `vidiq_generate_comment_replies` |
+| Changes to your channel (owner access, approval required) | `vidiq_update_video`, `vidiq_update_video_thumbnail` | none |
+| Media production | *`vidiq_video_upload`*, `vidiq_generate_clips` (async), `vidiq_generate_broll`, `vidiq_compose` (async), `vidiq_edit_media` (async), `vidiq_motion_graphics` (async), `vidiq_generate_music` (async), *`vidiq_voiceover_list_voices`*, `vidiq_voiceover_generate` (async), `vidiq_generate_video` (async) | all except `vidiq_video_upload`, `vidiq_generate_music`, `vidiq_voiceover_list_voices`, `vidiq_voiceover_generate`, `vidiq_generate_video` |
+| Instagram | `vidiq_ig_profile`, `vidiq_ig_profile_reels`, `vidiq_ig_accounts_from_outliers`, `vidiq_instagram_connected_accounts`, `vidiq_instagram_owner_insights`, `vidiq_instagram_publish_reel` | all except `vidiq_instagram_connected_accounts`, `vidiq_instagram_owner_insights`, `vidiq_instagram_publish_reel` |
 
 ## You stay in control
 
@@ -403,6 +448,26 @@ request.
   work instead of accidentally starting a duplicate.
 
 Availability varies by account and client.
+
+## Common questions
+
+**Does vidIQ work with ChatGPT and Claude?** Yes. Install the vidIQ plugin in ChatGPT, add the vidIQ
+connector in Claude.ai, or install this plugin in Claude Code, Codex, Cursor, Gemini CLI, GitHub
+Copilot, Grok Build, Hermes Agent, or OpenClaw. See [Connect vidIQ](#connect-vidiq).
+
+**Can the assistant see my YouTube analytics?** Private analytics are available only for channels
+authorized in your vidIQ account. Public research works for any channel or video.
+
+**Can it change my videos?** Only through the Video Metadata workflow (video details, chapters,
+thumbnail), only for channels you own with
+browser sign-in and YouTube verification, and only after you approve the exact change. Competitor
+list changes and Instagram publishing also wait for your approval.
+
+**Does it use credits?** Hosted tools may consume vidIQ credits. Ask for your balance and the current
+cost before a workflow; the connected service reports the applicable prices.
+
+**Which workflow should I ask for?** Describe the outcome in plain language. The assistant picks the
+matching workflow from the [Creator workflows](#creator-workflows) tables, or name one directly.
 
 ## Help and support
 

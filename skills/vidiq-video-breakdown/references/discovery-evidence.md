@@ -11,3 +11,8 @@ Match the requested audience and mechanism, including transferable viewer motiva
 niches. Exclude one-off news, drama, and launch spikes from reusable-pattern evidence.
 If changed inputs return identical lists, check the live schema and use the bounded correction
 as a control before claiming filters worked. Do not expand a supplied-evidence-only request.
+
+When the creator asks to keep shortlisted videos, channels, or keywords, save them once with
+`vidiq_bookmarks_save` (one `bookmarkType` per call, 1 to 50 `payloads`); repeated saves create
+duplicates. `vidiq_bookmarks_list` returns saved items with stored payloads rather than live
+metrics. Remove items only on an explicit request with `vidiq_bookmarks_remove`.

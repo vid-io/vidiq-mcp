@@ -1,6 +1,6 @@
 ---
 name: vidiq-retention-analysis
-description: Analyze an authorized YouTube video's retention to investigate drop-offs, pacing, expectations, or structure. Align findings with timestamped scenes only when visual analysis is within scope and available.
+description: Find where and why viewers leave an authorized YouTube video using vidIQ audience-retention analytics, the transcript, watched scenes when available, and comments. Use when asked about 'audience retention', 'watch time', 'where people drop off', 'my intro or hook loses viewers', or 'average view duration is low', or for pacing and structure advice on one video.
 ---
 
 # vidIQ Retention Analysis
@@ -15,9 +15,10 @@ Treat explanations as hypotheses, not proof of why every viewer left.
 1. Identify video, format, and review dates; keep analysis and optional watch/poll work within scope.
 2. Resolve authorized IDs with `vidiq_user_channels`. If no video is supplied, discover candidates
    with `vidiq_channel_videos`, `popular: false`, and confirmed `videoFormat: long`, `short`,
-   or `live`; confirm the candidate. Use `vidiq_get_videos_by_ids` and require its `channelId`
+   or `live`, or with `vidiq_user_videos` and the owning `channelId` when the video is unlisted
+   or private; confirm the candidate. Use `vidiq_get_videos_by_ids` and require its `channelId`
    to match an authorized ID before private analytics. Otherwise offer a public-content critique
-   with retention evidence unavailable.
+   with retention evidence unavailable, or hand the video to `vidiq-video-breakdown`.
 3. Request `vidiq_channel_analytics` with explicit dates, `report: "audience_retention"`,
    `filters: "video==VIDEO_ID"`, `metrics: ["audienceWatchRatio", "relativeRetentionPerformance"]`,
    and `maxResults: 100`. The equivalent `dimensions: ["elapsedVideoTimeRatio"]` still requires

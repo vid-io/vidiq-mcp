@@ -1,7 +1,7 @@
 interface:
   display_name: "vidIQ Channel Audit"
-  short_description: "Audit 30–90 days of channel performance"
-  default_prompt: "Use $vidiq-channel-audit to assess my channel’s last 90 days and prioritize the next improvements."
+  short_description: "Audit 30–90 days of YouTube channel performance"
+  default_prompt: "Use $vidiq-channel-audit to review my channel's last 30 days, show what's working, and prioritize three improvements."
 
 dependencies:
   tools:

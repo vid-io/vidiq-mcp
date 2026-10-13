@@ -1,7 +1,7 @@
 {
   "name": "vidiq",
-  "version": "0.1.6",
-  "description": "Connect Gemini CLI to vidIQ's hosted MCP server with guided creator workflows and a specialist creator agent.",
+  "version": "0.2.1",
+  "description": "Official vidIQ plugin for YouTube creators. Find video ideas, trending topics, and keywords; research competitors and outlier videos; audit channel analytics, new uploads, retention, and comments; write and score titles, thumbnails, and scripts; study Instagram Reels and TikTok for YouTube Shorts. 14 guided workflows on vidIQ's hosted MCP server (OAuth, vidIQ account required).",
   "contextFileName": "AGENTS.md",
   "mcpServers": {
     "vidiq": {
