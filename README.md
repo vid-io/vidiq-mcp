@@ -1,13 +1,16 @@
-# vidIQ MCP Plugin
+# vidIQ YouTube MCP Server
 
-**Live creator intelligence, in your AI assistant.**
+**vidIQ's YouTube MCP server for ChatGPT, Claude, Cursor, and other MCP clients, with a creator
+workflow plugin.**
 
-[vidIQ MCP](https://vidiq.com/mcp/) connects ChatGPT, Claude, Codex, Cursor, Gemini CLI, GitHub
-Copilot, and other MCP-compatible AI assistants to live vidIQ data: YouTube channel analytics, keyword
-research, outlier and trending videos, comments, transcripts, competitor channels, and title and
-thumbnail scoring. Study public Instagram and TikTok short-form content when those tools are exposed
-by the connected account, and analyze private YouTube performance for channels connected to your
-vidIQ account.
+[vidIQ MCP](https://vidiq.com/mcp/) is a hosted YouTube MCP server. It connects ChatGPT, Claude,
+Codex, Cursor, Gemini CLI, GitHub Copilot, and other MCP-compatible AI assistants to live vidIQ data:
+YouTube channel analytics, keyword research, outlier and trending videos, comments, transcripts,
+competitor channels, and title and thumbnail scoring. Study public Instagram and TikTok short-form
+content when those tools are exposed by the connected account, and analyze private YouTube
+performance for channels connected to your vidIQ account. vidIQ runs the server at
+`https://mcp.vidiq.com/mcp`, so you don't host anything or set up a YouTube Data API key or Google
+Cloud project.
 
 The workflow plugin turns that data into better content decisions with guided creator playbooks.
 
@@ -29,16 +32,25 @@ are returned to the AI client you choose, whose privacy practices also apply. Se
 
 Use live vidIQ data to decide what to make next and understand how your content performs:
 
-- Discover video ideas, emerging trends, and opportunities in your niche.
-- Research keywords and search demand, then draft tags and descriptions (YouTube SEO).
-- Research competitors, successful videos, and the questions viewers ask in comments.
-- Analyze any public video to learn why it performed.
-- Review your channel's performance, new uploads, and audience retention.
+- Discover video ideas, emerging trends, and opportunities in your niche (`vidiq_outliers`,
+  `vidiq_trending_videos`, `vidiq_similar_videos`).
+- Research keywords and search demand, then draft tags and descriptions (YouTube SEO)
+  (`vidiq_keyword_research`).
+- Research competitors, successful videos, and the questions viewers ask in comments
+  (`vidiq_channel_search`, `vidiq_similar_channels`, `vidiq_comment_insights`).
+- Analyze any public video to learn why it performed (`vidiq_video_stats`,
+  `vidiq_video_transcript`, `vidiq_video_watch`).
+- Review your channel's performance, new uploads, and audience retention
+  (`vidiq_channel_analytics`, `vidiq_channel_performance_trends`).
 - Improve titles and thumbnails with research, scoring, and creative workflows, then apply approved
-  changes to videos you own.
-- Study public Instagram and TikTok content for patterns to adapt to YouTube Shorts.
+  changes to videos you own (`vidiq_score_title`, `vidiq_generate_thumbnail`, `vidiq_update_video`).
+- Study public Instagram and TikTok content for patterns to adapt to YouTube Shorts
+  (`vidiq_instagram_tiktok_outlier_search`).
 - Draft comment replies, generate chapters, estimate earnings, and save research to
-  bookmarks.
+  bookmarks (`vidiq_generate_comment_replies`, `vidiq_generate_video_chapters`,
+  `vidiq_video_earnings_estimate`, `vidiq_bookmarks_save`).
+
+See [Tools the workflows use](#tools-the-workflows-use) for the full tool list.
 
 YouTube research covers public channels and videos; private analytics require a channel
 authorized in your vidIQ account. Instagram and TikTok research depends on the tools available
@@ -46,6 +58,13 @@ to your connected account. Coverage varies by tool, format, language, and market
 assistant to check availability before starting research.
 
 ## Connect vidIQ
+
+Step-by-step guides for each client are on vidiq.com:
+[ChatGPT](https://vidiq.com/how-to-use-vidiq-in-chatgpt/),
+[Claude](https://vidiq.com/how-to-use-vidiq-in-claude/), [Cursor](https://vidiq.com/cursor/),
+[Codex](https://vidiq.com/codex/), [Gemini CLI](https://vidiq.com/gemini-cli/),
+[Perplexity](https://vidiq.com/perplexity/), [Grok](https://vidiq.com/grok/), and
+[OpenClaw](https://vidiq.com/openclaw/).
 
 ### ChatGPT
 
