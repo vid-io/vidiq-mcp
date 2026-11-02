@@ -286,7 +286,7 @@ Create a local marketplace root, place a copy of this checkout at
         "installation": "AVAILABLE",
         "authentication": "ON_INSTALL"
       },
-      "category": "Creativity"
+      "category": "Business & Operations"
     }
   ]
 }
