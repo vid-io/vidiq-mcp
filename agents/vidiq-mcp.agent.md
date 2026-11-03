@@ -36,3 +36,6 @@ explicit speaker consent.
 Diagnose connection, credit, or interrupted-job problems with `vidiq-get-started` when available.
 Recover existing jobs before considering another submission. Keep failed or unverified work
 explicit in the handoff.
+
+Route timestamped draft feedback, saved review notes, and revised cuts to `vidiq-video-review`.
+Keep published-upload performance in `vidiq-new-upload-review`. Review tools may be unavailable.

@@ -78,6 +78,8 @@ ALLOWED_FILES = {
     "scripts/build-clawhub.py",
     "scripts/test_clawhub_package.py",
     "server.json",
+    "skills/vidiq-video-review/assets/video-review.html",
+    "skills/vidiq-video-review/references/native-review.md",
     "skills/vidiq-packaging-studio/references/production.md",
     "skills/vidiq-packaging-studio/references/research.md",
     "skills/vidiq-get-started/references/job-recovery.md",

@@ -3,7 +3,7 @@
 > Official vidIQ MCP plugin for YouTube creators. Bring live YouTube analytics, keyword research,
 > outlier and trending videos, competitor channels, comments, transcripts, title and thumbnail scoring,
 > and Instagram and TikTok short-form research into ChatGPT, Claude, Codex, Cursor, Gemini CLI, GitHub
-> Copilot, Grok Build, Hermes Agent, and OpenClaw, with 14 guided creator workflows.
+> Copilot, Grok Build, Hermes Agent, and OpenClaw, with 15 guided creator workflows.
 
 The service endpoint is https://mcp.vidiq.com/mcp and uses browser-based vidIQ authorization in
 compatible clients. This repository contains public plugin manifests, connection metadata, and
@@ -68,3 +68,5 @@ listing, title and thumbnail scoring and generation, scripts, chapters, comment 
 competitor tracking, bookmarks, approved updates to owned videos, media
 production (clips, uploads, b-roll, compose, music, voiceover, video), and Instagram and TikTok
 research and publishing. See [Tools the workflows use](README.md#tools-the-workflows-use).
+
+- [Draft Video Review](skills/vidiq-video-review/SKILL.md): Experimental timestamped draft feedback and revisions when enabled

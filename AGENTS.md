@@ -29,6 +29,7 @@ vidIQ account.
 | What's trending, is this trend worth it, timing | `vidiq-trend-radar` |
 | Who are my competitors, similar channels, watchlist changes | `vidiq-competitor-watchlist` |
 | How is my channel doing, views dropped, 30-, 60-, or 90-day review | `vidiq-channel-audit` |
+| Leave timestamped feedback on a draft cut; read notes or add a revision | `vidiq-video-review` |
 | I just uploaded and it is underperforming | `vidiq-new-upload-review` |
 | Where viewers drop off, retention, watch time | `vidiq-retention-analysis` |
 | What viewers say or want in the comments, niche-wide audience requests, draft a comment reply | `vidiq-comment-insights` |

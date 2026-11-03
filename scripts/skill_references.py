@@ -14,7 +14,7 @@ SKILLS = frozenset(
         "channel-audit", "comment-insights", "competitor-watchlist", "get-started",
         "new-upload-review", "next-video-planner", "packaging-studio",
         "retention-analysis", "shorts-inspiration", "trend-radar", "video-breakdown",
-        "video-ideas", "video-metadata", "youtube-seo",
+        "video-ideas", "video-metadata", "video-review", "youtube-seo",
     )
 )
 SHARED_REFERENCES = {

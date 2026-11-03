@@ -169,7 +169,7 @@ openclaw skills list
 ```
 
 Review the requested capabilities before accepting. Confirm that inspection lists `skills` and
-`mcpServers`, and that the skill list includes the 14 `vidiq-` workflows.
+`mcpServers`, and that the skill list includes the 15 `vidiq-` workflows.
 Register the server for OpenClaw's login command, then authorize your vidIQ account:
 
 ```bash
@@ -213,7 +213,7 @@ hermes mcp add vidiq --url https://mcp.vidiq.com/mcp --auth oauth
 ```
 
 Complete vidIQ authorization in your browser, then start a new session and ask Hermes to use
-vidIQ Get Started. The plugin installs all 14 workflows; the separate MCP connection provides
+vidIQ Get Started. The plugin installs all 15 workflows; the separate MCP connection provides
 the live tools. A vidIQ account is required, and hosted tools may consume credits.
 
 Check the connection with `hermes mcp test vidiq`. If already configured, sign in again or switch
@@ -418,6 +418,7 @@ request.
 | Workflow | Best for | Say |
 | --- | --- | --- |
 | [Channel Audit](skills/vidiq-channel-audit/SKILL.md) | Audit 30–90 days of channel performance and prioritize the next actions. | “Why did my views drop this month?” |
+| [Draft Video Review](skills/vidiq-video-review/SKILL.md) | Experimental draft feedback with point/range notes and revisions, when review tools are enabled. | “Open this cut so I can mark what needs changing.” |
 | [New Upload Review](skills/vidiq-new-upload-review/SKILL.md) | Compare a new upload with the channel's normal curve before deciding whether to wait or intervene. | “I uploaded yesterday and it's underperforming. Change the thumbnail or wait?” |
 | [Retention Analysis](skills/vidiq-retention-analysis/SKILL.md) | Align retention changes with transcript, scenes, and comments to find moments worth improving. | “Where do viewers drop off in this video?” |
 | [Comment Insights](skills/vidiq-comment-insights/SKILL.md) | Turn recurring, de-identified viewer language into hooks, briefs, titles, and audience insight. | “What questions keep coming up in my comments?” |
@@ -516,3 +517,8 @@ endorsement.
 
 All third-party product names and trademarks are the property of their respective owners.
 References indicate compatibility only and do not imply affiliation, sponsorship, or endorsement.
+
+Draft Video Review is experimental and requires enabled review tools. Connector-only users receive
+server capabilities, not this skill bundle. Updating a plugin requires the host’s supported update
+flow; a repository change alone does not update installed customers. Native Claude artifacts require
+separate native capabilities and are not ChatGPT widgets.

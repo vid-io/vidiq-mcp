@@ -1,0 +1,12 @@
+interface:
+  display_name: "vidIQ Draft Video Review"
+  short_description: "Leave timestamped feedback on draft cuts and revisions"
+  default_prompt: "Use $vidiq-video-review to open my draft for timestamped feedback and preserve notes when I add a revised cut."
+
+dependencies:
+  tools:
+    - type: "mcp"
+      value: "vidiq"
+      description: "Video review when enabled on the connected vidIQ server"
+      transport: "streamable_http"
+      url: "https://mcp.vidiq.com/mcp"

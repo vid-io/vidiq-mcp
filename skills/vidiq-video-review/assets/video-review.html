@@ -1,0 +1,402 @@
+<title>vidIQ Video Review — Draft feedback</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<style>
+/* Layout: one working column — player, transport readout, note entry, then notes and diagnostics side by side (stacked on phones). */
+:root {
+  --bg: #f3f4f6; --panel: #ffffff; --fg: #16191f; --muted: #5b6270; --line: #d9dce3;
+  --accent: #1b63d9; --accent-ink: #ffffff; --ok: #1f7a4d; --warn: #a3470b; --screen: #0c0e12;
+  --f-display: "IBM Plex Sans Condensed", "Arial Narrow", sans-serif;
+  --f-body: "IBM Plex Sans", system-ui, -apple-system, sans-serif;
+  --f-mono: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+  --bg: #111318; --panel: #181b22; --fg: #e6e8ee; --muted: #9aa1b0; --line: #2a2f3a;
+  --accent: #8ab9ff; --accent-ink: #101722; --ok: #4fc48a; --warn: #f08a4b; --screen: #000000; color-scheme: dark } }
+:root[data-theme="dark"] {
+  --bg: #111318; --panel: #181b22; --fg: #e6e8ee; --muted: #9aa1b0; --line: #2a2f3a;
+  --accent: #8ab9ff; --accent-ink: #101722; --ok: #4fc48a; --warn: #f08a4b; --screen: #000000; color-scheme: dark }
+
+body { background: var(--bg); color: var(--fg); font-family: var(--f-body); font-size: 14px; line-height: 1.45; }
+.wrap { max-width: 1100px; margin: 0 auto; padding-block: 16px 40px;
+  padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px));
+  display: grid; gap: 14px; }
+header { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 8px 16px; }
+h1 { font-family: var(--f-display); font-weight: 600; font-size: 22px; margin: 0; letter-spacing: .01em; text-wrap: balance; }
+h2 { font-family: var(--f-display); font-weight: 600; font-size: 13px; text-transform: uppercase; letter-spacing: .08em; color: var(--muted); margin: 0 0 8px; }
+.src { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; color: var(--muted); font-size: 13px; }
+select, input, button { font: inherit; color: var(--fg); }
+select, input[type=text], input[type=number] { background: var(--panel); border: 1px solid var(--line); border-radius: 4px; padding: 5px 8px; min-width: 0; }
+button { background: var(--panel); border: 1px solid var(--line); border-radius: 4px; padding: 5px 10px; cursor: pointer; }
+button.primary { background: var(--accent); color: var(--accent-ink); border-color: var(--accent); font-weight: 500; }
+button:focus-visible, select:focus-visible, input:focus-visible, li:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.mono { font-family: var(--f-mono); font-variant-numeric: tabular-nums; }
+
+.stage { background: var(--screen); border-radius: 6px; display: grid; place-items: center; min-height: 200px; overflow: hidden; }
+video { display: block; width: 100%; max-width: 100%; max-height: 62vh; background: var(--screen); }
+.empty { color: #c9ced8; padding: 48px 16px; text-align: center; max-width: 46ch; }
+
+.transport { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 18px; background: var(--panel); border: 1px solid var(--line); border-radius: 6px; padding: 10px 12px; }
+.tc { font-size: 22px; letter-spacing: .02em; }
+.frame { font-size: 15px; }
+.frame b { color: var(--accent); font-weight: 500; }
+.keys { color: var(--muted); font-size: 12px; display: flex; flex-wrap: wrap; gap: 6px 12px; margin-left: auto; }
+kbd { font-family: var(--f-mono); font-size: 11px; border: 1px solid var(--line); border-bottom-width: 2px; border-radius: 3px; padding: 0 5px; background: var(--bg); }
+input[type=range] { width: 100%; accent-color: var(--accent); }
+
+form.entry { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 8px 10px; background: var(--panel); border: 1px solid var(--accent); border-radius: 6px; padding: 10px 12px; }
+form.entry .meta { grid-column: 1 / -1; display: flex; flex-wrap: wrap; gap: 8px 14px; align-items: center; color: var(--muted); font-size: 13px; }
+form.entry .meta input { width: 7em; }
+#noteText { width: 100%; }
+.actions { display: flex; gap: 8px; }
+
+.cols { display: grid; grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr); gap: 14px; }
+@media (max-width: 720px) { .cols { grid-template-columns: minmax(0, 1fr); } .keys { margin-left: 0; } }
+section.box { background: var(--panel); border: 1px solid var(--line); border-radius: 6px; padding: 12px; min-width: 0; }
+ul.notes { list-style: none; margin: 0; padding: 0; display: grid; }
+ul.notes li { display: grid; grid-template-columns: 8.5em minmax(0, 1fr); gap: 10px; padding: 7px 4px; border-top: 1px solid var(--line); cursor: pointer; }
+ul.notes li:first-child { border-top: 0; }
+ul.notes li:hover { background: var(--bg); }
+ul.notes .at { color: var(--accent); font-size: 12px; }
+ul.notes .txt { overflow-wrap: anywhere; }
+ul.notes .by { color: var(--muted); font-size: 11px; }
+.hint { color: var(--muted); font-size: 13px; }
+dl.diag { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 3px 12px; margin: 0; font-size: 12px; }
+dl.diag dt { color: var(--muted); }
+dl.diag dd { margin: 0; font-family: var(--f-mono); font-variant-numeric: tabular-nums; overflow-wrap: anywhere; }
+.ok { color: var(--ok); } .warn { color: var(--warn); }
+.caveat { font-size: 12px; color: var(--muted); margin: 10px 0 0; max-width: 65ch; }
+.status { font-size: 12px; color: var(--muted); }
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+</style>
+
+<div class="wrap">
+  <header>
+    <h1>vidIQ · Video review</h1>
+    <div class="src">
+      <label for="version">Video version</label>
+      <select id="version" disabled><option>Loading…</option></select>
+      <span id="srcInfo" class="mono"></span>
+    </div>
+  </header>
+
+  <div class="stage" id="stage">
+    <div class="empty" id="emptyStage">Connecting to the shared store. The video appears here once a version is registered.</div>
+    <video id="video" playsinline preload="auto" hidden></video>
+  </div>
+
+  <div class="transport">
+    <span class="tc mono" id="tc">--:--:--:--</span>
+    <span class="frame mono">frame <b id="frameNo">–</b> / <span id="frameTotal">–</span> @ <span id="fps">–</span> fps</span>
+    <button type="button" id="playBtn">Play</button>
+    <span class="keys"><span><kbd>Space</kbd> play/pause</span><span><kbd>,</kbd> <kbd>.</kbd> step frame</span><span>type to add a note</span><span><kbd>Enter</kbd> save</span><span><kbd>Esc</kbd> cancel</span></span>
+    <input type="range" id="scrub" min="0" max="0" value="0" step="1" aria-label="Frame position">
+  </div>
+
+  <form class="entry" id="entry" hidden autocomplete="off">
+    <input type="text" id="noteText" placeholder="Note at this frame" maxlength="2000" aria-label="Note text">
+    <div class="actions"><button type="submit" class="primary">Save</button><button type="button" id="cancelBtn">Cancel</button></div>
+    <div class="meta">
+      <span>Start <span class="mono" id="entryStart">–</span></span>
+      <label for="endFrame">End frame, exclusive (optional)</label>
+      <input type="number" id="endFrame" min="0" step="1" placeholder="none">
+      <button type="button" id="endNow">Use current frame</button>
+      <span id="entryMsg" class="status"></span>
+    </div>
+  </form>
+
+  <div class="cols">
+    <section class="box">
+      <h2>Notes for this version</h2>
+      <p class="hint" id="notesHint">Notes saved here stay with the video version they were written against.</p>
+      <ul class="notes" id="notes"></ul>
+      <div id="anchorsBox" hidden>
+        <h2 style="margin-top:16px">v1 source anchors</h2>
+        <p class="hint" id="anchorsHint"></p>
+        <ul class="notes" id="anchors"></ul>
+      </div>
+    </section>
+    <section class="box">
+      <h2>Playback diagnostics</h2>
+      <dl class="diag">
+        <dt>rVFC</dt><dd id="dRvfc">–</dd>
+        <dt>loadedmetadata</dt><dd id="dMeta">–</dd>
+        <dt>loadeddata</dt><dd id="dData">–</dd>
+        <dt>first frame (rVFC)</dt><dd id="dFirst">–</dd>
+        <dt>last seek → seeked</dt><dd id="dSeeked">–</dd>
+        <dt>last seek → presented</dt><dd id="dSeekPres">–</dd>
+        <dt>presented mediaTime</dt><dd id="dMedia">–</dd>
+        <dt>presented frame</dt><dd id="dPresFrame">–</dd>
+        <dt>currentTime</dt><dd id="dCur">–</dd>
+        <dt>presentedFrames</dt><dd id="dCount">–</dd>
+        <dt>store</dt><dd id="dStore">–</dd>
+        <dt>version list from</dt><dd id="dSource">–</dd>
+        <dt>video load</dt><dd id="dLoad">–</dd>
+      </dl>
+      <p class="caveat">Frame numbers are derived from time × probed fps. HTML <span class="mono">currentTime</span> does not prove which frame is on screen; the presented frame comes from <span class="mono">requestVideoFrameCallback</span> mediaTime where the browser supports it, and is still an estimate for variable-frame-rate or edited sources.</p>
+    </section>
+  </div>
+  <p class="status mono" id="build"></p>
+</div>
+
+<script>
+(() => {
+  // Guard against the script being evaluated twice in one document (doubles every listener).
+  if (window.__vrLabStarted) return;
+  window.__vrLabStarted = true;
+  const BUILD = "vidiq-review-dev-1";
+  // Public playback fallback for views without db (e.g. signed-out link visitors): media only, never notes.
+  const PUBLIC_MANIFEST = []; // Populate only with media explicitly approved for public playback.
+  const $ = (id) => document.getElementById(id);
+  const video = $("video");
+  const hasRvfc = "requestVideoFrameCallback" in HTMLVideoElement.prototype;
+  const state = { db: null, user: null, uid: null, versions: [], cur: null, unsubNotes: null,
+    presentedTime: null, presentedFrames: null, entryFrame: null, srcAt: 0, firstFrameSeen: false,
+    seekAt: 0, seekPending: false, notes: [], anchors: [], unsubAnchors: null,
+    entryId: null, saving: false, pendingFrame: null, frameCallback: null };
+  $("build").textContent = "page build " + BUILD;
+  $("dRvfc").textContent = hasRvfc ? "supported" : "not supported, falling back to currentTime";
+  $("dRvfc").className = hasRvfc ? "ok" : "warn";
+
+  const fps = () => state.cur ? state.cur.fps : 1;
+  const total = () => (state.cur && state.cur.frames) || Math.max(1, Math.round((video.duration || 0) * fps()));
+  const frameOf = (t) => Math.max(0, Math.min(total() - 1, Math.floor(t * fps() + 1e-3)));
+  const ms = (v) => v.toFixed(1) + " ms";
+  const pad = (n) => String(n).padStart(2, "0");
+  function timecode(frame, rate = fps()) {
+    const f = rate, whole = Math.round(f);
+    const secs = Math.floor(frame / whole);
+    return pad(Math.floor(secs / 3600)) + ":" + pad(Math.floor(secs / 60) % 60) + ":" + pad(secs % 60) + ":" + pad(frame % whole);
+  }
+  // Prefer the presented frame while paused; while playing currentTime is the only continuous clock.
+  function currentFrame() {
+    const t = (state.presentedTime != null && video.paused && !video.seeking) ? state.presentedTime : video.currentTime;
+    return frameOf(t);
+  }
+  function renderClock() {
+    if (!state.cur) return;
+    const fr = currentFrame();
+    $("tc").textContent = timecode(fr);
+    $("frameNo").textContent = fr;
+    $("scrub").value = fr;
+    $("dCur").textContent = video.currentTime.toFixed(4) + " s → frame " + frameOf(video.currentTime);
+  }
+
+  function onFrame(now, meta) {
+    state.presentedTime = meta.mediaTime;
+    state.presentedFrames = meta.presentedFrames;
+    if (!state.firstFrameSeen) {
+      state.firstFrameSeen = true;
+      $("dFirst").textContent = ms(now - state.srcAt) + " callback, " + ms(meta.presentationTime - state.srcAt) + " presented";
+    }
+    if (state.seekPending && !video.seeking) {
+      state.seekPending = false;
+      $("dSeekPres").textContent = ms(now - state.seekAt);
+    }
+    $("dMedia").textContent = meta.mediaTime.toFixed(4) + " s";
+    $("dPresFrame").textContent = frameOf(meta.mediaTime) + (frameOf(meta.mediaTime) === frameOf(video.currentTime) ? "" : " (currentTime says " + frameOf(video.currentTime) + ")");
+    $("dCount").textContent = meta.presentedFrames;
+    renderClock();
+    state.frameCallback = video.requestVideoFrameCallback(onFrame);
+  }
+
+  function seekToFrame(n) {
+    n = Math.max(0, Math.min(total() - 1, n));
+    state.seekAt = performance.now();
+    state.seekPending = true;
+    state.presentedTime = null;
+    video.currentTime = (n + 0.5) / fps(); // middle of the frame's interval
+    $("tc").textContent = timecode(n); $("frameNo").textContent = n; $("scrub").value = n;
+  }
+  function step(d) { video.pause(); seekToFrame(currentFrame() + d); }
+  function togglePlay() { if (video.paused) video.play().catch(() => {}); else video.pause(); }
+
+  video.addEventListener("loadedmetadata", () => { $("dMeta").textContent = ms(performance.now() - state.srcAt); });
+  video.addEventListener("loadeddata", () => {
+    $("dData").textContent = ms(performance.now() - state.srcAt); renderClock();
+    $("dLoad").textContent = "ok /_blob/" + state.cur.assetId; $("dLoad").className = "ok";
+    if (state.pendingFrame != null) { const f = state.pendingFrame; state.pendingFrame = null; seekToFrame(f); }
+  });
+  video.addEventListener("seeked", () => { $("dSeeked").textContent = ms(performance.now() - state.seekAt); renderClock(); });
+  video.addEventListener("play", () => { $("playBtn").textContent = "Pause"; });
+  video.addEventListener("pause", () => { $("playBtn").textContent = "Play"; renderClock(); });
+  video.addEventListener("timeupdate", () => { if (!hasRvfc) renderClock(); });
+  video.addEventListener("error", () => {
+    $("dLoad").textContent = "error code " + (video.error ? video.error.code : "?") + " for /_blob/" + (state.cur && state.cur.assetId); $("dLoad").className = "warn";
+    $("emptyStage").textContent = "This video could not be loaded. Its stored file may be missing.";
+    $("emptyStage").hidden = false; video.hidden = true;
+  });
+  $("playBtn").addEventListener("click", togglePlay);
+  $("scrub").addEventListener("input", (e) => { video.pause(); seekToFrame(+e.target.value); });
+
+  // Note entry
+  function openEntry() {
+    video.pause();
+    if (!state.cur) return;
+    const form = $("entry");
+    if (form.hidden) {
+      state.entryFrame = currentFrame();
+      // One id per entry: a repeated submit rewrites the same note instead of adding a copy.
+      state.entryId = "n" + Date.now().toString(36) + Math.random().toString(36).slice(2, 8);
+      $("entryStart").textContent = state.entryFrame + " · " + timecode(state.entryFrame);
+      $("endFrame").value = ""; $("noteText").value = ""; $("entryMsg").textContent = "";
+      form.hidden = false;
+    }
+    const t = $("noteText");
+    t.focus();
+    t.setSelectionRange(t.value.length, t.value.length);
+  }
+  function closeEntry() { $("entry").hidden = true; state.entryFrame = null; video.focus({ preventScroll: true }); }
+  $("cancelBtn").addEventListener("click", closeEntry);
+  $("endNow").addEventListener("click", () => { $("endFrame").value = currentFrame() + 1; $("noteText").focus(); });
+  $("entry").addEventListener("submit", async (e) => {
+    e.preventDefault();
+    if (state.saving || state.entryId == null) return;
+    const text = $("noteText").value.trim();
+    if (!text) { $("entryMsg").textContent = "Type a note before saving."; return; }
+    const endRaw = $("endFrame").value.trim();
+    let end = null;
+    if (endRaw !== "") {
+      end = Math.floor(+endRaw);
+      if (!Number.isFinite(end) || end <= state.entryFrame || end > total()) {
+        $("entryMsg").textContent = "Exclusive end must be after " + state.entryFrame + " and at most " + total() + "."; return;
+      }
+    }
+    if (!state.db) { $("entryMsg").textContent = "The shared store is not available in this view, so notes cannot be saved."; return; }
+    const v = state.cur;
+    const doc = { text, startFrame: state.entryFrame, endFrame: end, fps: v.fps,
+      startSec: state.entryFrame / v.fps, endSec: end == null ? null : end / v.fps,
+      versionId: v.id, assetId: v.assetId, authorId: state.uid, createdAt: new Date().toISOString(), pageBuild: BUILD };
+    $("entryMsg").textContent = "Saving…";
+    state.saving = true;
+    try {
+      await state.db.collection("videos/" + v.id + "/notes").doc(state.entryId).set(doc);
+      state.entryId = null;
+      closeEntry();
+    } catch (err) {
+      $("entryMsg").textContent = err && err.code === "invalid_argument"
+        ? "You can view these notes but your access level cannot add them."
+        : "Could not save (" + ((err && err.code) || "error") + "). Try again.";
+    } finally { state.saving = false; }
+  });
+
+  document.addEventListener("keydown", (e) => {
+    // Check focus as well as the event target: a keydown echoed to the document while the
+    // note field has focus would otherwise append each character a second time.
+    const isField = (el) => !!el && /^(INPUT|TEXTAREA|SELECT|BUTTON)$/.test(el.tagName || "");
+    const inField = isField(e.target) || isField(document.activeElement);
+    if (e.key === "Escape" && !$("entry").hidden) { e.preventDefault(); closeEntry(); return; }
+    if (inField || e.isComposing || e.metaKey || e.ctrlKey || e.altKey || !state.cur) return;
+    if (e.key === " ") { e.preventDefault(); togglePlay(); }
+    else if (e.key === ",") { e.preventDefault(); step(-1); }
+    else if (e.key === ".") { e.preventDefault(); step(1); }
+    // Move focus without preventDefault: the browser then types this key into the note field
+    // itself, so a duplicated keydown cannot add the character twice.
+    else if (e.key.length === 1 && !e.repeat) openEntry();
+  });
+
+  // Notes list
+  function renderNotes() {
+    $("notesHint").textContent = state.notes.length ? "Select a note to jump to its frame." : "No notes on this version yet. Pause on a frame and start typing.";
+    renderList($("notes"), state.notes, (n) => { video.pause(); seekToFrame(n.startFrame); });
+  }
+  // Notes written against the parent version keep their parent frame numbers; selecting one opens the parent.
+  function renderAnchors() {
+    const v = state.cur, parent = v && state.versions.find((x) => x.id === v.parentVersionId);
+    $("anchorsBox").hidden = !parent;
+    if (!parent) return;
+    $("anchorsHint").textContent = state.anchors.length
+      ? "Written against " + (parent.label || parent.id) + ". Frames are v1 source frames, not retimed to this version. Select one to open v1 at that frame."
+      : "No notes on " + (parent.label || parent.id) + ".";
+    renderList($("anchors"), state.anchors, (n) => { state.pendingFrame = n.startFrame; $("version").value = parent.id; selectVersion(parent.id); }, "v1 ");
+  }
+  function renderList(ul, notes, go, prefix = "") {
+    ul.textContent = "";
+    for (const n of notes) {
+      const li = document.createElement("li"); li.tabIndex = 0;
+      const at = document.createElement("span"); at.className = "at mono";
+      at.textContent = prefix + timecode(n.startFrame, n.fps) + (n.endFrame != null ? " → " + timecode(n.endFrame, n.fps) : "");
+      const body = document.createElement("span");
+      const txt = document.createElement("div"); txt.className = "txt"; txt.textContent = n.text;
+      const by = document.createElement("div"); by.className = "by mono";
+      by.textContent = prefix + "f" + n.startFrame + (n.endFrame != null ? "–" + n.endFrame : "") + " · " + (n.authorId && n.authorId === state.uid ? "you" : "reviewer") + " · " + (n.pageBuild || "");
+      body.append(txt, by); li.append(at, body);
+      li.addEventListener("click", () => go(n));
+      li.addEventListener("keydown", (e) => { if (e.key === "Enter") { e.preventDefault(); go(n); } });
+      ul.append(li);
+    }
+  }
+
+  function selectVersion(id) {
+    const v = state.versions.find((x) => x.id === id);
+    if (!v || (state.cur && state.cur.id === v.id)) return;
+    if (state.saving) { $("version").value = state.cur.id; return; }
+    closeEntry();
+    if (state.frameCallback != null) video.cancelVideoFrameCallback(state.frameCallback);
+    state.cur = v;
+    $("fps").textContent = v.fps; $("frameTotal").textContent = v.frames;
+    $("scrub").max = v.frames - 1;
+    $("srcInfo").textContent = [v.width && v.height ? v.width + "×" + v.height : "", v.bytes ? (v.bytes / 1048576).toFixed(2) + " MiB" : "", v.codec || ""].filter(Boolean).join(" · ");
+    state.firstFrameSeen = false; state.presentedTime = null;
+    ["dMeta", "dData", "dFirst", "dSeeked", "dSeekPres", "dMedia", "dPresFrame", "dCount"].forEach((k) => $(k).textContent = "–");
+    $("emptyStage").hidden = true; video.hidden = false;
+    state.srcAt = performance.now();
+    video.src = "/_blob/" + v.assetId;
+    if (hasRvfc) state.frameCallback = video.requestVideoFrameCallback(onFrame);
+    if (state.unsubNotes) state.unsubNotes();
+    state.notes = []; renderNotes();
+    if (!state.db) {
+      $("notesHint").textContent = "Notes are only available to signed-in people with access to this artifact.";
+      $("anchorsBox").hidden = true;
+      return;
+    }
+    state.unsubNotes = state.db.collection("videos/" + v.id + "/notes").orderBy("startFrame").onSnapshot(
+      (snap) => { state.notes = snap.docs.map((d) => d.data()); renderNotes(); },
+      (err) => { $("notesHint").textContent = "Notes stopped updating (" + err.code + "). Reload to reconnect."; });
+    if (state.unsubAnchors) { state.unsubAnchors(); state.unsubAnchors = null; }
+    state.anchors = []; renderAnchors();
+    if (v.parentVersionId) {
+      state.unsubAnchors = state.db.collection("videos/" + v.parentVersionId + "/notes").orderBy("startFrame").onSnapshot(
+        (snap) => { state.anchors = snap.docs.map((d) => d.data()); renderAnchors(); },
+        (err) => { $("anchorsHint").textContent = "v1 notes stopped updating (" + err.code + "). Reload to reconnect."; });
+    }
+  }
+
+  function renderVersions() {
+    const sel = $("version"); sel.textContent = "";
+    for (const v of state.versions) {
+      const o = document.createElement("option"); o.value = v.id; o.textContent = v.label || v.id; sel.append(o);
+    }
+    sel.disabled = state.versions.length === 0;
+    if (!state.versions.length) {
+      const o = document.createElement("option"); o.textContent = "No versions yet"; sel.append(o);
+      $("emptyStage").textContent = "No video version is registered yet. Claude adds one after uploading a file to this artifact.";
+      return;
+    }
+    // Keep the version being watched; otherwise open the newest (highest order).
+    let want = state.cur && state.cur.id;
+    if (!state.versions.some((v) => v.id === want)) want = state.versions[state.versions.length - 1].id;
+    sel.value = want; selectVersion(want);
+  }
+  $("version").addEventListener("change", (e) => selectVersion(e.target.value));
+
+  (async () => {
+    const [db, user] = await Promise.all([claude.use("db"), claude.use("user")]);
+    if (!db) {
+      $("dStore").textContent = "unavailable"; $("dStore").className = "warn";
+      $("dSource").textContent = "public manifest in page source";
+      state.versions = PUBLIC_MANIFEST.slice();
+      renderVersions();
+      return;
+    }
+    $("dSource").textContent = "db videos collection";
+    state.db = db; state.user = user;
+    try { state.uid = user ? await user.id() : null; } catch (_) { state.uid = null; }
+    const timer = setTimeout(() => { $("dStore").textContent = "no answer after 10 s"; $("dStore").className = "warn"; }, 10000);
+    db.collection("videos").orderBy("order").onSnapshot((snap) => {
+      if (!snap.metadata.fromCache) { clearTimeout(timer); $("dStore").textContent = "connected"; $("dStore").className = "ok"; }
+      state.versions = snap.docs.map((d) => Object.assign({ id: d.id }, d.data())).filter((v) => v.assetId && v.fps);
+      renderVersions();
+    }, (err) => { clearTimeout(timer); $("dStore").textContent = "error " + err.code; $("dStore").className = "warn"; });
+  })();
+})();
+</script>
