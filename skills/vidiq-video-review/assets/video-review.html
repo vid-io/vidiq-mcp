@@ -230,6 +230,7 @@ dl.diag dd { margin: 0; font-family: var(--f-mono); font-variant-numeric: tabula
 
   // Note entry
   function openEntry() {
+    if (state.saving) return;
     video.pause();
     if (!state.cur) return;
     const form = $("entry");
@@ -246,7 +247,7 @@ dl.diag dd { margin: 0; font-family: var(--f-mono); font-variant-numeric: tabula
     t.setSelectionRange(t.value.length, t.value.length);
   }
   function closeEntry() { $("entry").hidden = true; state.entryFrame = null; video.focus({ preventScroll: true }); }
-  $("cancelBtn").addEventListener("click", closeEntry);
+  $("cancelBtn").addEventListener("click", () => { if (!state.saving) closeEntry(); });
   $("endNow").addEventListener("click", () => { $("endFrame").value = currentFrame() + 1; $("noteText").focus(); });
   $("entry").addEventListener("submit", async (e) => {
     e.preventDefault();
@@ -284,7 +285,7 @@ dl.diag dd { margin: 0; font-family: var(--f-mono); font-variant-numeric: tabula
     // note field has focus would otherwise append each character a second time.
     const isField = (el) => !!el && /^(INPUT|TEXTAREA|SELECT|BUTTON)$/.test(el.tagName || "");
     const inField = isField(e.target) || isField(document.activeElement);
-    if (e.key === "Escape" && !$("entry").hidden) { e.preventDefault(); closeEntry(); return; }
+    if (e.key === "Escape" && !state.saving && !$("entry").hidden) { e.preventDefault(); closeEntry(); return; }
     if (inField || e.isComposing || e.metaKey || e.ctrlKey || e.altKey || !state.cur) return;
     if (e.key === " ") { e.preventDefault(); togglePlay(); }
     else if (e.key === ",") { e.preventDefault(); step(-1); }

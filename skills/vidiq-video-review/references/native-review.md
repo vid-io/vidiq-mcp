@@ -28,5 +28,6 @@ mapping separately. Page publication versions and media versions are different c
 
 Verify playback, five notes (two ranges), reload/readback, keyboard single-save behavior, and a
 v2 upload before claiming a working loop. requestVideoFrameCallback samples can check presentation,
-but currentTime or a counter alone cannot prove decoded-frame accuracy. Native public viewing and
+but currentTime, a counter, known constant fps, or ffprobe frame count alone cannot prove
+decoded-frame accuracy. Do not describe the player as frame-exact on metadata evidence alone. Native public viewing and
 saved-data permissions differ; do not promise outside-organization writes or signed-out notes.
