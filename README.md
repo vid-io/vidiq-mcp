@@ -16,6 +16,7 @@ The workflow plugin turns that data into better content decisions with guided cr
 
 **[Connect in ChatGPT](#chatgpt)** ·
 **[Connect in Claude.ai](#claudeai)** ·
+**[Connect in Muse](#muse)** ·
 **[Install the workflow plugin](#workflow-plugin)** ·
 [Setup guide](https://support.vidiq.com/en/articles/15082430-vidiq-mcp)
 
@@ -61,7 +62,8 @@ assistant to check availability before starting research.
 
 Step-by-step guides for each client are on vidiq.com:
 [ChatGPT](https://vidiq.com/how-to-use-vidiq-in-chatgpt/),
-[Claude](https://vidiq.com/how-to-use-vidiq-in-claude/), [Cursor](https://vidiq.com/cursor/),
+[Claude](https://vidiq.com/how-to-use-vidiq-in-claude/), [Muse](https://vidiq.com/muse/),
+[Cursor](https://vidiq.com/cursor/),
 [Codex](https://vidiq.com/codex/), [Gemini CLI](https://vidiq.com/gemini-cli/),
 [Perplexity](https://vidiq.com/perplexity/), [Grok](https://vidiq.com/grok/), and
 [OpenClaw](https://vidiq.com/openclaw/).
@@ -105,6 +107,20 @@ members can use it.
 The Claude.ai connector makes the hosted vidIQ tools available in conversations. It does not
 install the workflow skills from this repository; those require a compatible plugin client such
 as Claude Code.
+
+### Muse
+
+Add vidIQ from the Muse connector directory, when it is available in your Muse connectors:
+
+1. Open the [vidIQ connector in Muse](https://agent.meta.ai/connectors/connect/vidiq_mcp), or in
+   Muse open **Settings → Connectors** and search for vidIQ.
+2. Select **Connect**, review the information, then select **Continue**.
+3. Sign in with the vidIQ account you want to use and authorize the connection.
+4. In a chat, start your prompt with "Use vidIQ to…" so Muse uses live data.
+
+The Muse connector makes the hosted vidIQ tools available in conversations. It does not install
+the workflow skills from this repository. See the [Muse guide](https://vidiq.com/muse/) for
+prompts to try.
 
 ### Workflow plugin
 
@@ -356,8 +372,9 @@ credentials in chat, issues, or shared configuration.
 ### Disconnect or switch accounts
 
 To stop a client from using vidIQ, disable or remove the app, connector, plugin, or MCP server in
-that client's settings. Manage the ChatGPT app under **Settings → Apps** and the Claude.ai
-connector under **Customize → Connectors**.
+that client's settings. Manage the ChatGPT app under **Settings → Apps**, the Claude.ai
+connector under **Customize → Connectors**, and the Muse connector under
+**Settings → Connectors**.
 
 To switch vidIQ accounts, disconnect the current connection in the client, sign in to the intended
 account in the authorization browser, and connect again. For personal-data access or deletion
@@ -470,9 +487,9 @@ Availability varies by account and client.
 
 ## Common questions
 
-**Does vidIQ work with ChatGPT and Claude?** Yes. Install the vidIQ plugin in ChatGPT, add the vidIQ
-connector in Claude.ai, or install this plugin in Claude Code, Codex, Cursor, Gemini CLI, GitHub
-Copilot, Grok Build, Hermes Agent, or OpenClaw. See [Connect vidIQ](#connect-vidiq).
+**Does vidIQ work with ChatGPT, Claude, and Muse?** Yes. Install the vidIQ plugin in ChatGPT, add
+the vidIQ connector in Claude.ai or Muse, or install this plugin in Claude Code, Codex, Cursor,
+Gemini CLI, GitHub Copilot, Grok Build, Hermes Agent, or OpenClaw. See [Connect vidIQ](#connect-vidiq).
 
 **Can the assistant see my YouTube analytics?** Private analytics are available only for channels
 authorized in your vidIQ account. Public research works for any channel or video.
