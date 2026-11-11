@@ -467,7 +467,8 @@ verification, and your approval of the exact change.
 | Titles, thumbnails, scripts, and chapters | `vidiq_generate_titles`, `vidiq_score_title`, `vidiq_generate_thumbnail` (async), `vidiq_refine_thumbnail` (async), `vidiq_score_thumbnail`, `vidiq_generate_script` (async), `vidiq_generate_video_chapters` (async), `vidiq_generate_comment_replies` | all except `vidiq_generate_thumbnail`, `vidiq_refine_thumbnail`, `vidiq_generate_video_chapters`, `vidiq_generate_comment_replies` |
 | Changes to your channel (owner access, approval required) | `vidiq_update_video`, `vidiq_update_video_thumbnail` | none |
 | Media production | *`vidiq_video_upload`*, `vidiq_generate_clips` (async), `vidiq_generate_broll`, `vidiq_compose` (async), `vidiq_edit_media` (async), `vidiq_motion_graphics` (async), `vidiq_generate_music` (async), *`vidiq_voiceover_list_voices`*, `vidiq_voiceover_generate` (async), `vidiq_generate_video` (async) | all except `vidiq_video_upload`, `vidiq_generate_music`, `vidiq_voiceover_list_voices`, `vidiq_voiceover_generate`, `vidiq_generate_video` |
-| Instagram | `vidiq_ig_profile`, `vidiq_ig_profile_reels`, `vidiq_ig_accounts_from_outliers`, `vidiq_instagram_connected_accounts`, `vidiq_instagram_owner_insights`, `vidiq_instagram_publish_reel` | all except `vidiq_instagram_connected_accounts`, `vidiq_instagram_owner_insights`, `vidiq_instagram_publish_reel` |
+| Instagram | `vidiq_ig_profile`, `vidiq_ig_profile_reels`, `vidiq_instagram_account_discovery`, `vidiq_instagram_connected_accounts`, `vidiq_instagram_owner_insights`, `vidiq_instagram_publish_reel` | all except `vidiq_instagram_connected_accounts`, `vidiq_instagram_owner_insights`, `vidiq_instagram_publish_reel` |
+| TikTok | `vidiq_tiktok_profile`, `vidiq_tiktok_profile_videos`, `vidiq_tiktok_video_comments`, `vidiq_tiktok_account_discovery` | all |
 
 ## You stay in control
 
