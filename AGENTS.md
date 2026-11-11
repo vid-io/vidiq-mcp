@@ -67,10 +67,10 @@ Tools with no workflow of their own, and the rule for each:
   `vidiq_generate_video` are asynchronous jobs; confirm the cost before starting.
 - **Bookmarks:** `vidiq_bookmarks_save`, `vidiq_bookmarks_list`, and `vidiq_bookmarks_remove` keep
   the creator's saved research; save or remove only on an explicit request.
-- **Deprecated aliases:** `vidiq_breakout_channels`, `vidiq_ig_reel_watch`, and
-  `vidiq_ig_outlier_reels_search` are replaced by `vidiq_channel_search` with
-  `breakoutChannel: true`, `vidiq_watch_shortform_content`, and
-  `vidiq_instagram_tiktok_outlier_search`.
+- **Deprecated aliases:** `vidiq_breakout_channels`, `vidiq_ig_reel_watch`,
+  `vidiq_ig_outlier_reels_search`, and `vidiq_ig_accounts_from_outliers` are replaced by
+  `vidiq_channel_search` with `breakoutChannel: true`, `vidiq_watch_shortform_content`,
+  `vidiq_instagram_tiktok_outlier_search`, and `vidiq_instagram_account_discovery`.
 
 For media generation, confirm only the source, likeness, and speaker rights relevant to that
 medium; preserve required attribution. Reuse rights already established for the supplied assets.

@@ -29,12 +29,9 @@ long-form YouTube ideas switch to `vidiq-video-ideas`.
    from actually watched content or completed watch results. Covers, captions, URLs, and pending
    or failed watches cannot establish moving-image details. Mark missing visual evidence;
    use caption/title-only findings when that is all available.
-6. For needed creator context or shortcode verification, selectively use
-   `vidiq_ig_profile` or `vidiq_ig_profile_reels` for Instagram, and `vidiq_tiktok_profile`,
-   `vidiq_tiktok_profile_videos`, or `vidiq_tiktok_video_comments` for TikTok. To find more
-   creators in a niche, use `vidiq_instagram_account_discovery` or
-   `vidiq_tiktok_account_discovery`. Match the target shortcode or video ID in returned posts;
-   never assume the first result is the target.
+6. For needed Instagram creator context or shortcode verification, selectively use
+   `vidiq_instagram_account_discovery`, `vidiq_ig_profile`, or `vidiq_ig_profile_reels`.
+   Match the target shortcode in returned reels; never assume the first result is the target.
 7. For the creator's own Instagram results, call `vidiq_instagram_connected_accounts` first. For an
    account with `accessLevel: "owner"`, `vidiq_instagram_owner_insights` with that
    `platformAccountId` adds shares, saves, watch time, and skip rate; a `public_fallback` account
