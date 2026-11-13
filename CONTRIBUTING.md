@@ -82,7 +82,7 @@ After installing the development requirements above, run from the repository roo
 python3 -m unittest discover -s scripts -p 'test_clawhub_package.py'
 python3 scripts/build-clawhub.py
 npx --yes clawhub@0.23.3 package validate .context/clawhub/vidiq \
-  --openclaw-version 2026.9.6 --out "$PWD/.context/clawhub-reports"
+  --openclaw-version 2026.9.6 --out "$(git rev-parse --show-toplevel)/.context/clawhub-reports"
 npx --yes clawhub@0.23.3 package publish .context/clawhub/vidiq \
   --family bundle-plugin --owner vidiq \
   --source-repo https://github.com/vid-io/vidiq-mcp \
