@@ -14,9 +14,10 @@ as a new destination.
   is readable by the server. When an attachment cannot be passed directly and `vidiq_file_upload`
   is available, show its picker and wait for the returned upload IDs. Reuse an image ID directly;
   check a video's upload with `vidiq_video_upload` as directed by the result.
-- A YouTube source import can return `mcpJobId`. Read [Job lifecycle](job-lifecycle.md) and poll
-  that job; keep its resulting `uploadId`. For waiting or processing uploads, check the existing
-  `uploadId` rather than transferring again. Never publish a known unready asset.
+- A YouTube source import can return `mcpJobId`. Poll it with `vidiq_job_poll`, following
+  [Job lifecycle](job-lifecycle.md), and keep the resulting `uploadId`. For waiting or processing
+  uploads, call `vidiq_video_upload` with the existing `uploadId` rather than transferring again.
+  Never publish a known unready asset.
 - Use a one-time transfer link only when the tool offers it and the local environment can send
   the file. Keep signed links private and unchanged. Preserve transfer IDs on interruptions;
   an uncertain import is not permission to create another copy.
