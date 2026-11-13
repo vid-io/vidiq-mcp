@@ -22,7 +22,7 @@ vidIQ account.
 
 | Creator asks | Skill |
 | --- | --- |
-| Connect vidIQ or a YouTube channel, check channels or credits, fix errors, recover a job | `vidiq-get-started` |
+| Connect vidIQ, a YouTube channel, or a social account, check channels or credits, fix errors, recover a job | `vidiq-get-started` |
 | What should I post next for my channel | `vidiq-next-video-planner` |
 | Video ideas, what's working in my niche, outliers | `vidiq-video-ideas` |
 | Keywords, search volume, tags, description, YouTube SEO | `vidiq-youtube-seo` |
@@ -36,13 +36,16 @@ vidIQ account.
 | Titles, thumbnails, scripts, repackage a video, compare packaging directions | `vidiq-packaging-studio` |
 | Update a video's title, description, tags, chapters, schedule, or thumbnail | `vidiq-video-metadata` |
 | Shorts ideas from Reels and TikTok | `vidiq-shorts-inspiration` |
+| Post, cross-post, tweet, save or edit a social draft, schedule posts, check delivery | `vidiq-social-publishing` |
 
 For end-to-end "find an idea and package it" requests, run `vidiq-video-ideas` first and feed its
 concept cards into `vidiq-packaging-studio`. When the creator already has a script draft, a rough idea
 pitch, or a published video that needs repackaging, go straight to `vidiq-packaging-studio`; it handles
 diagnosis and reference discovery itself. For a focused title or thumbnail edit, use only the relevant
 studio stage; its compare section handles distinct creative directions. Apply approved changes to an
-owned video only through `vidiq-video-metadata`.
+owned video only through `vidiq-video-metadata`. New posts across connected accounts use
+`vidiq-social-publishing`, including regular Instagram Reels; its platform reference covers
+Trial Reels and AI labels. A status request enters that workflow at delivery, without drafting.
 
 ## Calls without a dedicated workflow
 
@@ -58,10 +61,6 @@ Tools with no workflow of their own, and the rule for each:
   asynchronous job and charges per minute of the selected range, so confirm the range and cost
   first. `vidiq_video_upload` imports an MP4 or public URL and returns a hosted `videoUrl` at no
   charge.
-- **Instagram publishing:** `vidiq_instagram_publish_reel` publishes a vidIQ-hosted video to a
-  connected account with `publishingAvailable: true` after approval of the exact video, account,
-  caption, and settings. Keep `containerId` and `platformAccountId` across calls and stop on any
-  error.
 - **Media generation:** `vidiq_generate_broll`, `vidiq_compose`, `vidiq_edit_media`,
   `vidiq_motion_graphics`, `vidiq_generate_music`, the `vidiq_voiceover_*` tools, and
   `vidiq_generate_video` are asynchronous jobs; confirm the cost before starting.

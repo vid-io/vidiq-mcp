@@ -47,6 +47,8 @@ Use live vidIQ data to decide what to make next and understand how your content 
   changes to videos you own (`vidiq_score_title`, `vidiq_generate_thumbnail`, `vidiq_update_video`).
 - Study public Instagram and TikTok content for patterns to adapt to YouTube Shorts
   (`vidiq_instagram_tiktok_outlier_search`).
+- Prepare content for YouTube, Instagram, TikTok, X, and Facebook Pages, then publish or schedule
+  the exact versions you approve (`vidiq_social_post_draft_create`, `vidiq_social_post_publish`).
 - Draft comment replies, generate chapters, estimate earnings, and save research to
   bookmarks (`vidiq_generate_comment_replies`, `vidiq_generate_video_chapters`,
   `vidiq_video_earnings_estimate`, `vidiq_bookmarks_save`).
@@ -185,7 +187,7 @@ openclaw skills list
 ```
 
 Review the requested capabilities before accepting. Confirm that inspection lists `skills` and
-`mcpServers`, and that the skill list includes the 14 `vidiq-` workflows.
+`mcpServers`, and that the skill list includes the 15 `vidiq-` workflows.
 Register the server for OpenClaw's login command, then authorize your vidIQ account:
 
 ```bash
@@ -229,7 +231,7 @@ hermes mcp add vidiq --url https://mcp.vidiq.com/mcp --auth oauth
 ```
 
 Complete vidIQ authorization in your browser, then start a new session and ask Hermes to use
-vidIQ Get Started. The plugin installs all 14 workflows; the separate MCP connection provides
+vidIQ Get Started. The plugin installs all 15 workflows; the separate MCP connection provides
 the live tools. A vidIQ account is required, and hosted tools may consume credits.
 
 Check the connection with `hermes mcp test vidiq`. If already configured, sign in again or switch
@@ -447,6 +449,7 @@ request.
 | [Packaging Studio](skills/vidiq-packaging-studio/SKILL.md) | Turn a source video, concept card, script draft, rough idea pitch, or underperforming published video into scored titles, a thumbnail, and an optional script, or compare distinct title and thumbnail directions for the same video. | “Write five titles and a thumbnail idea for this video.” |
 | [Video Metadata](skills/vidiq-video-metadata/SKILL.md) | Apply an approved title, description, tags, schedule, or thumbnail change to a video you own, with a snapshot and readback. | “Update my video with this title and these tags.” |
 | [Shorts Inspiration](skills/vidiq-shorts-inspiration/SKILL.md) | Study short-form content patterns and develop original YouTube Shorts ideas. | “What's working on TikTok in my niche that I could adapt for Shorts?” |
+| [Social Publishing](skills/vidiq-social-publishing/SKILL.md) | Adapt supplied content for connected social accounts, review drafts, publish or schedule approved versions, and track delivery. | “Prepare this clip for Reels, TikTok, and Shorts tomorrow, and show me the drafts.” |
 
 ## Tools the workflows use
 
@@ -469,6 +472,7 @@ verification, and your approval of the exact change.
 | Media production | *`vidiq_video_upload`*, `vidiq_generate_clips` (async), `vidiq_generate_broll`, `vidiq_compose` (async), `vidiq_edit_media` (async), `vidiq_motion_graphics` (async), `vidiq_generate_music` (async), *`vidiq_voiceover_list_voices`*, `vidiq_voiceover_generate` (async), `vidiq_generate_video` (async) | all except `vidiq_video_upload`, `vidiq_generate_music`, `vidiq_voiceover_list_voices`, `vidiq_voiceover_generate`, `vidiq_generate_video` |
 | Instagram | `vidiq_ig_profile`, `vidiq_ig_profile_reels`, `vidiq_instagram_account_discovery`, `vidiq_instagram_connected_accounts`, `vidiq_instagram_owner_insights`, `vidiq_instagram_publish_reel` | all except `vidiq_instagram_connected_accounts`, `vidiq_instagram_owner_insights`, `vidiq_instagram_publish_reel` |
 | TikTok | `vidiq_tiktok_profile`, `vidiq_tiktok_profile_videos`, `vidiq_tiktok_video_comments`, `vidiq_tiktok_account_discovery` | all |
+| Social publishing | *`vidiq_social_account_list`*, *`vidiq_social_account_connect`*, *`vidiq_upload_image`*, *`vidiq_social_post_draft_create`*, *`vidiq_social_post_draft_get`*, *`vidiq_social_post_draft_update`*, `vidiq_social_post_publish`, *`vidiq_social_post_list`*, *`vidiq_social_post_status`* | all |
 
 ## You stay in control
 
@@ -479,8 +483,10 @@ verification, and your approval of the exact change.
 - Tool results are sent to your AI client, whose privacy practices also apply. Never put
   passwords, API keys, or authorization tokens in chat or shared configuration.
 - Some tools can create media, update tracked competitors, or edit your YouTube videos.
-  Changes to your account or published videos require your approval. YouTube updates also
-  require authorized owner access and YouTube verification.
+  Social posts require review and approval of the exact draft, accounts, settings, times, and
+  quoted cost. A dated draft is not scheduled until published; scheduled social posts currently
+  cannot be cancelled or changed. Changes to your account or published videos require your
+  approval. YouTube updates also require authorized owner access and YouTube verification.
 - The bundled guidance tells the assistant to preserve long-running job IDs and resume existing
   work instead of accidentally starting a duplicate.
 
@@ -498,7 +504,8 @@ authorized in your vidIQ account. Public research works for any channel or video
 **Can it change my videos?** Only through the Video Metadata workflow (video details, chapters,
 thumbnail), only for channels you own with
 browser sign-in and YouTube verification, and only after you approve the exact change. Competitor
-list changes and Instagram publishing also wait for your approval.
+list changes and social publishing also wait for your approval. New uploads and posts across
+platforms use the [Social Publishing workflow](skills/vidiq-social-publishing/SKILL.md).
 
 **Does it use credits?** Hosted tools may consume vidIQ credits. Ask for your balance and the current
 cost before a workflow; the connected service reports the applicable prices.

@@ -82,6 +82,8 @@ ALLOWED_FILES = {
     "skills/vidiq-packaging-studio/references/research.md",
     "skills/vidiq-get-started/references/job-recovery.md",
     "skills/vidiq-get-started/references/troubleshooting.md",
+    "skills/vidiq-social-publishing/references/platforms-and-media.md",
+    "skills/vidiq-social-publishing/references/delivery-and-recovery.md",
 } | {
     relative
     for skill in EXPECTED_SKILLS

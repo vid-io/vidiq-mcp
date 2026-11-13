@@ -35,9 +35,9 @@ long-form YouTube ideas switch to `vidiq-video-ideas`.
 7. For the creator's own Instagram results, call `vidiq_instagram_connected_accounts` first. For an
    account with `accessLevel: "owner"`, `vidiq_instagram_owner_insights` with that
    `platformAccountId` adds shares, saves, watch time, and skip rate; a `public_fallback` account
-   gets only public Reel data through `vidiq_ig_profile_reels`, labeled as such. Publishing a Reel
-   with `vidiq_instagram_publish_reel` is a separate write that needs an explicit request, a
-   vidIQ-hosted video URL, and approval of the exact account, caption, and settings.
+   gets only public Reel data through `vidiq_ig_profile_reels`, labeled as such. For a request
+   to publish the resulting content, switch to `vidiq-social-publishing` when available; it
+   prepares regular Reels as drafts and handles the separate Trial Reel and AI-label path.
 
 ## Verify transfer to Shorts
 
