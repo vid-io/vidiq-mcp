@@ -1,4 +1,25 @@
-# Delivery and recovery
+# Draft edits, delivery, and recovery
+
+Read the section needed for the current stage.
+
+## Edit or resume a draft
+
+Read the current draft with `vidiq_social_post_draft_get` and preserve its `postId`. Recover the
+working brief before editing: source and library asset IDs, complete content and settings per
+account, intended times, publication IDs, revision, exclusions, and approval. Readback omits some
+platform options and media identity; resolve missing details before presenting a complete review.
+
+- A destination supplied to `vidiq_social_post_draft_update` **replaces** that account's draft.
+  Send its complete intended settings, including unchanged fields. Omitted destinations stay intact.
+- Changing shared text or media requires resending every unpublished destination for validation,
+  including one the creator intends to exclude. A destination-specific correction stays on the same post.
+- A draft cannot lose a destination. Retain exclusions across edits and retries, and publish only
+  the selected publication IDs. Discarding a draft leaves it unpublished; do not claim it was deleted.
+- Already scheduled or published destinations cannot be edited through draft update.
+- A refused replacement may have removed the prior draft; inspect the returned state rather
+  than assuming the previous version remains publishable.
+
+## Check delivery
 
 Use existing post and destination IDs. Social publishing uses `vidiq_social_post_status` with
 `postId`, not `vidiq_job_poll`; media imports and the separate Reel tool can have their own jobs.
@@ -40,8 +61,6 @@ has happened. Preserve the intended release time from the brief.
   content and cost still apply. Reconnection or platform-limit failures require that condition
   to be resolved first. For content or media rejection, update the same post's failed destination,
   show the correction and quote, and obtain approval of the changed version before publishing.
-- A refused replacement may have removed the prior draft; inspect the returned state rather
-  than assuming the previous version remains publishable.
 - When create or import has an unknown outcome, inspect available history and saved IDs before
   repeating. Undated drafts are absent from post history, so an empty list cannot prove creation
   failed. If identity cannot be recovered, disclose that uncertainty and seek a decision before
