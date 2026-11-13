@@ -32,11 +32,13 @@ long-form YouTube ideas switch to `vidiq-video-ideas`.
 6. For needed Instagram creator context or shortcode verification, selectively use
    `vidiq_instagram_account_discovery`, `vidiq_ig_profile`, or `vidiq_ig_profile_reels`.
    Match the target shortcode in returned reels; never assume the first result is the target.
-7. For the creator's own Instagram results, call `vidiq_instagram_connected_accounts` first. For an
-   account with `accessLevel: "owner"`, `vidiq_instagram_owner_insights` with that
-   `platformAccountId` adds shares, saves, watch time, and skip rate; a `public_fallback` account
-   gets only public Reel data through `vidiq_ig_profile_reels`, labeled as such. For a request
-   to publish the resulting content, switch to `vidiq-publishing` when available; it
+7. For the creator's own Instagram results, call `vidiq_social_account_list` with
+   `platform: "INSTAGRAM"`; a platform in `partial` has unknown connection state. Use the chosen
+   account's exact `platformAccountId` with `vidiq_instagram_owner_insights` for shares, saves,
+   watch time, and skip rate. Publishing eligibility does not establish insights access.
+   If insights are unavailable, report the returned reason; public Reel data from
+   `vidiq_ig_profile_reels` can supplement the review when labeled as public.
+   To publish the resulting content, switch to `vidiq-publishing` when available; it
    prepares regular Reels as drafts and handles the separate Trial Reel and AI-label path.
 
 ## Verify transfer to Shorts

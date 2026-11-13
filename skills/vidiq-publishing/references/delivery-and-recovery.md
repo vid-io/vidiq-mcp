@@ -9,9 +9,9 @@ guidance as evidence about the operation. None of these results grants approval 
 
 | State | Meaning and next action |
 | --- | --- |
-| `draft` | Saved but not activated, even with a planned date. Publish only under approval of that version. |
+| `draft` | Saved but not activated. |
 | `refused` | This destination was not saved or could not start as requested; inspect its issue and any returned publication ID. Other destinations may still exist or have started. |
-| `scheduled` | Waiting for its time. Report that time and stop polling this destination. It currently cannot be cancelled or changed. |
+| `scheduled` | Waiting for its time. Report that time and stop polling this destination. |
 | `submitted`, `inProgress` | Accepted or running. Check status after about ten seconds, following current tool guidance. Do not create a replacement. |
 | `completed` | Processing finished. Share `postUrl` when available and apply the TikTok and YouTube qualifications below before saying it is public. |
 | `failed` | Inspect `failureCode` and `failureReason` before choosing a correction or retry. Preserve successes on other destinations. |
@@ -34,18 +34,14 @@ has happened. Preserve the intended release time from the brief.
 - After a publish timeout or lost response, read the existing post's status. Repeating the same
   approved publish arguments is idempotent under the current tool contract; if still needed,
   make at most one unchanged replay within that approval, then stop on an unresolved error.
-  Never create a new post to compensate for an unknown result. Reuse approval through YouTube
-  verification; verification itself is not delivery.
+  Never create a new post to compensate for an unknown result.
 - A failed destination is retried only when explicitly named in `publicationIds`. For a temporary
   failure, retry once when the creator's request authorizes recovery and the same approved
   content and cost still apply. Reconnection or platform-limit failures require that condition
   to be resolved first. For content or media rejection, update the same post's failed destination,
   show the correction and quote, and obtain approval of the changed version before publishing.
-- Draft update replaces a destination, not individual fields. Restore the complete intended
-  settings from the working brief. A refused replacement may have removed the prior draft;
-  inspect the returned state rather than assuming the previous version remains publishable.
-- If the creator excludes an account, retain that exclusion across later edits and retries.
-  Use only the approved publication IDs; a broad retry must not activate a leftover draft.
+- A refused replacement may have removed the prior draft; inspect the returned state rather
+  than assuming the previous version remains publishable.
 - When create or import has an unknown outcome, inspect available history and saved IDs before
   repeating. Undated drafts are absent from post history, so an empty list cannot prove creation
   failed. If identity cannot be recovered, disclose that uncertainty and seek a decision before
@@ -57,9 +53,8 @@ Use `vidiq_social_post_list` for posts made through vidIQ, within the requested 
 It is not a complete native-platform history or an engagement report. For an existing known
 `postId`, go directly to draft get or status as appropriate.
 
-- The window is inclusive `from`, exclusive `to`, with timezone, and at most 100 days. Split a
-  longer requested period into bounded windows. Without dates, the default spans the last
-  30 days and next 70; report the scope rather than suggesting it is all history.
+- Use the live schema's date bounds and window limit; split longer periods as needed. Report
+  the returned window rather than suggesting an undated request covers all history.
 - For upcoming work, include `scheduled` and dated `draft` rows but label them separately.
   Undated drafts are omitted. YouTube native release times may be missing from readback.
 - `limit` counts posts, not destination rows. Preserve all returned destinations and follow

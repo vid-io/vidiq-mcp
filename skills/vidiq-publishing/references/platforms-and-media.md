@@ -51,7 +51,9 @@ that any uploaded clip will appear as a Short.
 ## Instagram Trial Reels and AI labels
 
 `vidiq_instagram_publish_reel` is the separate path when the request requires a Trial Reel or its
-AI-generated label. Inspect its current contract and publishing eligibility. Prepare and show the
+AI-generated label. Select the Instagram account through `vidiq_social_account_list`; this tool
+uses `videoUrl`, such as the hosted URL from `vidiq_video_upload`, rather than a library ID.
+Inspect its current contract and publishing eligibility. Prepare and show the
 exact account, video, caption, regular/Trial setting, and label choice before approval: this tool
 publishes directly, not through the social draft review.
 
@@ -62,10 +64,8 @@ finishing alone does not publish. Stop on an error and inspect the outcome befor
 
 ## Scheduling and cost boundaries
 
-A saved draft's time is only a plan; `vidiq_social_post_publish` activates it. Scheduled social
-posts currently cannot be cancelled or changed. Do not promise a workaround in the vidIQ app,
-the destination platform, or support. An already uploaded YouTube video using YouTube's native
-schedule is different: its metadata may be changed through `vidiq-video-metadata` when available,
+An already uploaded YouTube video using YouTube's native schedule is the exception to the
+skill's scheduling restrictions: its metadata may be changed through `vidiq-video-metadata` when available,
 with the exact video and change approved. Confirm that it is an existing upload first.
 
 Use returned draft quotes for the proposed destinations. Currently only X publishing costs

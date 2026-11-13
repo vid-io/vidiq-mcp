@@ -70,6 +70,8 @@ Tools with no workflow of their own, and the rule for each:
   `vidiq_ig_outlier_reels_search`, and `vidiq_ig_accounts_from_outliers` are replaced by
   `vidiq_channel_search` with `breakoutChannel: true`, `vidiq_watch_shortform_content`,
   `vidiq_instagram_tiktok_outlier_search`, and `vidiq_instagram_account_discovery`.
+  `vidiq_instagram_connected_accounts` is unadvertised; use `vidiq_social_account_list` with
+  `platform: "INSTAGRAM"`. Insights access is determined by `vidiq_instagram_owner_insights`.
 
 For media generation, confirm only the source, likeness, and speaker rights relevant to that
 medium; preserve required attribution. Reuse rights already established for the supplied assets.

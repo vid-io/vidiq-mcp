@@ -71,8 +71,8 @@ unseen footage. Explain material editorial changes briefly.
    send its complete intended settings from the brief, including fields the user did not change.
    Omitted destinations stay intact. Changing shared text or media requires resending every
    unpublished destination for validation, including one the creator intends to exclude.
-5. A draft cannot lose a destination. Record exclusions and publish only the selected
-   `publicationIds`. Discarding an unpublished draft means leaving it unpublished; do not claim
+5. A draft cannot lose a destination. Retain exclusions across edits and retries, and publish only
+   the selected `publicationIds`. Discarding an unpublished draft means leaving it unpublished; do not claim
    it was deleted. Already scheduled or published destinations cannot be edited through draft update.
 
 ## Show the exact version for approval
