@@ -1,6 +1,6 @@
 ---
 name: vidiq-get-started
-description: Set up, verify, or troubleshoot vidIQ MCP and pick a first workflow. Use when asked to connect vidIQ or a YouTube channel, 'is vidIQ connected', 'which channel is linked', 'check my credits', or when vidIQ tools are missing, a call returns 401, 403, or verification errors, credits run out, or a thumbnail, watch, or script job is stuck. Not for creator research.
+description: Set up, verify, or troubleshoot vidIQ MCP and pick a first workflow. Use when asked to connect vidIQ, a YouTube channel, or a social account, 'is vidIQ connected', 'which channel is linked', 'which account is linked', 'check my credits', or when vidIQ tools are missing, a call returns 401, 403, or verification errors, credits run out, or a thumbnail, watch, or script job is stuck. Not for creator research.
 ---
 
 # vidIQ Get Started
@@ -10,6 +10,10 @@ Read [Live surface notes](references/live-surface-notes.md) first, even when usi
 Help the creator connect, diagnose a problem, or choose a workflow. Run only the relevant branch:
 
 - Connection, channel, or balance checks: use the relevant steps below.
+- Social account listing or connection: start with `vidiq_social_account_list`. For a requested
+  connection, use `vidiq_social_account_connect`, show its authorization link or widget, wait for
+  completion, then re-list accounts. A platform in `partial` has unknown connection state.
+  Complete only the requested connection work; connecting does not publish anything.
 - Errors or charge questions: read [Troubleshooting](references/troubleshooting.md).
 - Existing or interrupted jobs: read [Job recovery](references/job-recovery.md). To list active
   jobs, use `vidiq_jobs_list` with `status: "inprogress"`.
@@ -52,6 +56,7 @@ After setup, use the creator's stated decision. If it is unclear, ask one compac
   end-to-end request.
 - **Review performance:** `vidiq-channel-audit`, or `vidiq-new-upload-review` for a recent upload.
 - **Change something on YouTube:** `vidiq-video-metadata` for a video's details or thumbnail.
+- **Prepare or publish social posts:** `vidiq-publishing`, also for saved drafts and delivery.
 
 Honor a more specific request with its matching skill; ask what vidIQ can do and the answer is
 the routing table in the agent guide. Supplied-context analysis or text drafting

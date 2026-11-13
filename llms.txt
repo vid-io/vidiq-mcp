@@ -3,7 +3,7 @@
 > Official vidIQ MCP plugin for YouTube creators. Bring live YouTube analytics, keyword research,
 > outlier and trending videos, competitor channels, comments, transcripts, title and thumbnail scoring,
 > and Instagram and TikTok short-form research into ChatGPT, Claude, Codex, Cursor, Gemini CLI, GitHub
-> Copilot, Grok Build, Hermes Agent, and OpenClaw, with 14 guided creator workflows.
+> Copilot, Grok Build, Hermes Agent, and OpenClaw, with 15 guided creator workflows.
 
 The service endpoint is https://mcp.vidiq.com/mcp and uses browser-based vidIQ authorization in
 compatible clients. This repository contains public plugin manifests, connection metadata, and
@@ -58,6 +58,7 @@ workflow guidance for the hosted service.
 - [Packaging Studio](skills/vidiq-packaging-studio/SKILL.md): Write, score, compare, and improve titles, thumbnails, and scripts
 - [Video Metadata](skills/vidiq-video-metadata/SKILL.md): Apply an approved title, description, tags, schedule, or thumbnail change
 - [Shorts Inspiration](skills/vidiq-shorts-inspiration/SKILL.md): YouTube Shorts ideas from Instagram Reels and TikTok
+- [Publishing](skills/vidiq-publishing/SKILL.md): Adapt content, review drafts, publish or schedule approved posts, and track each destination
 
 ## Hosted tools
 
@@ -66,5 +67,6 @@ stats and growth, video stats and title or thumbnail change history, transcripts
 niche-wide comment insights, earnings estimates, audience retention and channel analytics, own-video
 listing, title and thumbnail scoring and generation, scripts, chapters, comment reply drafts,
 competitor tracking, bookmarks, approved updates to owned videos, media
-production (clips, uploads, b-roll, compose, music, voiceover, video), and Instagram and TikTok
-research and publishing. See [Tools the workflows use](README.md#tools-the-workflows-use).
+production (clips, uploads, b-roll, compose, music, voiceover, video), Instagram and TikTok
+research, and approved social publishing to YouTube, Instagram, TikTok, X, and Facebook Pages.
+See [Tools the workflows use](README.md#tools-the-workflows-use).
