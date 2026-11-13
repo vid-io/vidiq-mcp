@@ -12,8 +12,8 @@ SKILLS = frozenset(
     f"vidiq-{name}"
     for name in (
         "channel-audit", "comment-insights", "competitor-watchlist", "get-started",
-        "new-upload-review", "next-video-planner", "packaging-studio",
-        "retention-analysis", "shorts-inspiration", "social-publishing", "trend-radar",
+        "new-upload-review", "next-video-planner", "packaging-studio", "publishing",
+        "retention-analysis", "shorts-inspiration", "trend-radar",
         "video-breakdown", "video-ideas", "video-metadata", "youtube-seo",
     )
 )
@@ -30,8 +30,8 @@ SHARED_REFERENCES = {
     "job-lifecycle.md": frozenset(
         f"vidiq-{name}"
         for name in (
-            "comment-insights", "next-video-planner", "packaging-studio",
-            "retention-analysis", "shorts-inspiration", "social-publishing",
+            "comment-insights", "next-video-planner", "packaging-studio", "publishing",
+            "retention-analysis", "shorts-inspiration",
             "video-breakdown", "video-metadata",
         )
     ),

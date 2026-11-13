@@ -1,9 +1,9 @@
 ---
-name: vidiq-social-publishing
+name: vidiq-publishing
 description: Prepare and adapt supplied content for YouTube, Instagram, TikTok, X, and Facebook Pages; save drafts, publish or schedule approved versions, and track each destination. Use when asked 'post this everywhere', 'publish a Reel', 'upload to YouTube', 'tweet this', 'schedule these posts', 'change my draft', 'what is scheduled', or 'did my post go out'. For changes to a video already on YouTube, use vidiq-video-metadata.
 ---
 
-# vidIQ Social Publishing
+# vidIQ Publishing
 
 Read [Live surface notes](references/live-surface-notes.md) first, even when using only supplied evidence.
 

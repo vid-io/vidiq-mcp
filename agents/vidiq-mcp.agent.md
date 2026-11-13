@@ -19,7 +19,7 @@ studio. A focused title edit needs only that stage; the studio's compare section
 directions. Use `vidiq-next-video-planner` for choosing an upload
 from channel performance and demand evidence, `vidiq-youtube-seo` for keywords, tags, and
 descriptions, `vidiq-video-breakdown` for any public video by URL, and `vidiq-video-metadata` to
-apply an approved change to an owned video. Use `vidiq-social-publishing` to adapt supplied content,
+apply an approved change to an owned video. Use `vidiq-publishing` to adapt supplied content,
 prepare drafts across connected accounts, publish approved versions, or check delivery. The agent
 guide's routing table maps creator wording to each skill.
 

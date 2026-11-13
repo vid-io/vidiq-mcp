@@ -11,7 +11,7 @@ Help the creator connect, diagnose a problem, or choose a workflow. Run only the
 
 - Connection, channel, or balance checks: use the relevant steps below.
 - Social account listing or connection: use the account-resolution stage of
-  `vidiq-social-publishing` when available. Start with `vidiq_social_account_list`; social
+  `vidiq-publishing` when available. Start with `vidiq_social_account_list`; social
   connection uses `vidiq_social_account_connect`. Complete only the requested connection work.
 - Errors or charge questions: read [Troubleshooting](references/troubleshooting.md).
 - Existing or interrupted jobs: read [Job recovery](references/job-recovery.md). To list active
@@ -55,7 +55,7 @@ After setup, use the creator's stated decision. If it is unclear, ask one compac
   end-to-end request.
 - **Review performance:** `vidiq-channel-audit`, or `vidiq-new-upload-review` for a recent upload.
 - **Change something on YouTube:** `vidiq-video-metadata` for a video's details or thumbnail.
-- **Prepare or publish social posts:** `vidiq-social-publishing`, also for saved drafts and delivery.
+- **Prepare or publish social posts:** `vidiq-publishing`, also for saved drafts and delivery.
 
 Honor a more specific request with its matching skill; ask what vidIQ can do and the answer is
 the routing table in the agent guide. Supplied-context analysis or text drafting

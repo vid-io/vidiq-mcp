@@ -36,7 +36,7 @@ vidIQ account.
 | Titles, thumbnails, scripts, repackage a video, compare packaging directions | `vidiq-packaging-studio` |
 | Update a video's title, description, tags, chapters, schedule, or thumbnail | `vidiq-video-metadata` |
 | Shorts ideas from Reels and TikTok | `vidiq-shorts-inspiration` |
-| Post, cross-post, tweet, save or edit a social draft, schedule posts, check delivery | `vidiq-social-publishing` |
+| Post, cross-post, tweet, save or edit a social draft, schedule posts, check delivery | `vidiq-publishing` |
 
 For end-to-end "find an idea and package it" requests, run `vidiq-video-ideas` first and feed its
 concept cards into `vidiq-packaging-studio`. When the creator already has a script draft, a rough idea
@@ -44,7 +44,7 @@ pitch, or a published video that needs repackaging, go straight to `vidiq-packag
 diagnosis and reference discovery itself. For a focused title or thumbnail edit, use only the relevant
 studio stage; its compare section handles distinct creative directions. Apply approved changes to an
 owned video only through `vidiq-video-metadata`. New posts across connected accounts use
-`vidiq-social-publishing`, including regular Instagram Reels; its platform reference covers
+`vidiq-publishing`, including regular Instagram Reels; its platform reference covers
 Trial Reels and AI labels. A status request enters that workflow at delivery, without drafting.
 
 ## Calls without a dedicated workflow

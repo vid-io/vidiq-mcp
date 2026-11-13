@@ -58,7 +58,7 @@ workflow guidance for the hosted service.
 - [Packaging Studio](skills/vidiq-packaging-studio/SKILL.md): Write, score, compare, and improve titles, thumbnails, and scripts
 - [Video Metadata](skills/vidiq-video-metadata/SKILL.md): Apply an approved title, description, tags, schedule, or thumbnail change
 - [Shorts Inspiration](skills/vidiq-shorts-inspiration/SKILL.md): YouTube Shorts ideas from Instagram Reels and TikTok
-- [Social Publishing](skills/vidiq-social-publishing/SKILL.md): Adapt content, review drafts, publish or schedule approved posts, and track each destination
+- [Publishing](skills/vidiq-publishing/SKILL.md): Adapt content, review drafts, publish or schedule approved posts, and track each destination
 
 ## Hosted tools
 

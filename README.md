@@ -449,7 +449,7 @@ request.
 | [Packaging Studio](skills/vidiq-packaging-studio/SKILL.md) | Turn a source video, concept card, script draft, rough idea pitch, or underperforming published video into scored titles, a thumbnail, and an optional script, or compare distinct title and thumbnail directions for the same video. | “Write five titles and a thumbnail idea for this video.” |
 | [Video Metadata](skills/vidiq-video-metadata/SKILL.md) | Apply an approved title, description, tags, schedule, or thumbnail change to a video you own, with a snapshot and readback. | “Update my video with this title and these tags.” |
 | [Shorts Inspiration](skills/vidiq-shorts-inspiration/SKILL.md) | Study short-form content patterns and develop original YouTube Shorts ideas. | “What's working on TikTok in my niche that I could adapt for Shorts?” |
-| [Social Publishing](skills/vidiq-social-publishing/SKILL.md) | Adapt supplied content for connected social accounts, review drafts, publish or schedule approved versions, and track delivery. | “Prepare this clip for Reels, TikTok, and Shorts tomorrow, and show me the drafts.” |
+| [Publishing](skills/vidiq-publishing/SKILL.md) | Adapt supplied content for connected social accounts, review drafts, publish or schedule approved versions, and track delivery. | “Prepare this clip for Reels, TikTok, and Shorts tomorrow, and show me the drafts.” |
 
 ## Tools the workflows use
 
@@ -505,7 +505,7 @@ authorized in your vidIQ account. Public research works for any channel or video
 thumbnail), only for channels you own with
 browser sign-in and YouTube verification, and only after you approve the exact change. Competitor
 list changes and social publishing also wait for your approval. New uploads and posts across
-platforms use the [Social Publishing workflow](skills/vidiq-social-publishing/SKILL.md).
+platforms use the [Publishing workflow](skills/vidiq-publishing/SKILL.md).
 
 **Does it use credits?** Hosted tools may consume vidIQ credits. Ask for your balance and the current
 cost before a workflow; the connected service reports the applicable prices.
