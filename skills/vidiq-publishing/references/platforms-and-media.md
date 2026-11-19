@@ -33,14 +33,15 @@ as a new destination.
 
 | Destination | Decisions that affect preparation |
 | --- | --- |
-| YouTube | Requires a title and a video. The creator chooses privacy. Put `thumbnailImageId` on the YouTube destination only, so the thumbnail is not posted elsewhere. A publish time uses YouTube's native schedule: the upload happens now and stays private until release. Do not combine an unlisted choice with a schedule. |
+| YouTube | Requires a title and a video. The creator chooses privacy. Put `thumbnailImageId` on the YouTube destination only, so the thumbnail is not posted elsewhere. A publish time uses YouTube's native schedule: the upload happens now and stays private until release, so it counts toward today's upload limit (see [Pacing and platform limits](platform-limits.md)). Do not combine an unlisted choice with a schedule. |
 | Instagram | Regular posts, carousels, and Reels use the social draft workflow. Supply media and preserve its order. Use a compatible image variant when needed; do not silently turn a requested carousel into separate posts. |
 | TikTok | The creator chooses privacy, comments, and applicable music settings. Ask for any missing choices or music confirmation; never assert their consent. Preserve disclosure choices for branded or AI-generated content and resolve applicable missing facts. Account-specific allowed privacy values may only become clear from a refusal. |
 | X | Review the actual destination text and quoted credits, especially after adding a link. Link posts cost more; even a bare domain can affect pricing. Preserve supplied reply and disclosure settings. |
-| Facebook Pages | Select the actual Page, not a personal Facebook profile. Connection covers Pages the user manages through their own profile; an expected Page reached only through a business portfolio may be absent. |
+| Facebook Pages | Select the actual Page, not a personal Facebook profile. Connection covers Pages the user manages through their own profile; an expected Page reached only through a business portfolio may be absent, and Facebook can return fewer Pages than the user selected. |
+| Bluesky | Only the shared text and media apply; there are no platform options. Posts are short plain text with a few images or one short video: check the live schema's limits and give Bluesky its own shorter text when the shared text is too long. |
 
-TikTok photo posts currently use JPEGs of at most 1080p, with 1–20 images; video posts use one
-video. Check known dimensions before submission: a draft can pass and later fail for image size.
+TikTok photo posts currently use JPEGs of at most 1080p and 20 MB, with 1–35 images; video posts use
+one video. Check known dimensions before submission: a draft can pass and later fail for image size.
 Use the destination's validation issue to resolve other limits rather than maintaining a second
 copy of every platform's rules. Keep the original asset for platforms that accept it.
 
@@ -64,9 +65,11 @@ finishing alone does not publish. Stop on an error and inspect the outcome befor
 
 ## Scheduling and cost boundaries
 
-An already uploaded YouTube video using YouTube's native schedule is the exception to the
-skill's scheduling restrictions: its metadata may be changed through `vidiq-video-metadata` when available,
-with the exact video and change approved. Confirm that it is an existing upload first.
+A scheduled destination is changed or cancelled by replacing it, as described in
+[Edit or resume a draft](delivery-and-recovery.md#edit-or-resume-a-draft). For a YouTube video
+already uploaded and waiting for its native release, a change to its metadata alone can instead go
+through `vidiq-video-metadata` when available, with the exact video and change approved. Confirm that
+it is an existing upload first.
 
 Use returned draft quotes for the proposed destinations. Currently only X publishing costs
 credits; edits and replacements can change the amount. An X failure after submission does not

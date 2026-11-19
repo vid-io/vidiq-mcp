@@ -47,8 +47,9 @@ Use live vidIQ data to decide what to make next and understand how your content 
   changes to videos you own (`vidiq_score_title`, `vidiq_generate_thumbnail`, `vidiq_update_video`).
 - Study public Instagram and TikTok content for patterns to adapt to YouTube Shorts
   (`vidiq_instagram_tiktok_outlier_search`).
-- Prepare content for YouTube, Instagram, TikTok, X, and Facebook Pages, then publish or schedule
-  the exact versions you approve (`vidiq_social_post_draft_create`, `vidiq_social_post_publish`).
+- Prepare content for YouTube, Instagram, TikTok, X, Facebook Pages, and Bluesky, then publish or
+  schedule the exact versions you approve (`vidiq_social_post_draft_create`,
+  `vidiq_social_post_publish`).
 - Draft comment replies, generate chapters, estimate earnings, and save research to
   bookmarks (`vidiq_generate_comment_replies`, `vidiq_generate_video_chapters`,
   `vidiq_video_earnings_estimate`, `vidiq_bookmarks_save`).
