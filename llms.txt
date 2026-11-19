@@ -68,5 +68,5 @@ niche-wide comment insights, earnings estimates, audience retention and channel 
 listing, title and thumbnail scoring and generation, scripts, chapters, comment reply drafts,
 competitor tracking, bookmarks, approved updates to owned videos, media
 production (clips, uploads, b-roll, compose, music, voiceover, video), Instagram and TikTok
-research, and approved social publishing to YouTube, Instagram, TikTok, X, and Facebook Pages.
+research, and approved social publishing to YouTube, Instagram, TikTok, X, Facebook Pages, and Bluesky.
 See [Tools the workflows use](README.md#tools-the-workflows-use).

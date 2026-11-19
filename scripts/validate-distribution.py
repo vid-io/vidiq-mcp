@@ -84,6 +84,7 @@ ALLOWED_FILES = {
     "skills/vidiq-get-started/references/troubleshooting.md",
     "skills/vidiq-publishing/references/platforms-and-media.md",
     "skills/vidiq-publishing/references/delivery-and-recovery.md",
+    "skills/vidiq-publishing/references/platform-limits.md",
 } | {
     relative
     for skill in EXPECTED_SKILLS

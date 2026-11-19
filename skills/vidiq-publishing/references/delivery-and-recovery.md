@@ -9,15 +9,26 @@ working brief before editing: source and library asset IDs, complete content and
 account, intended times, publication IDs, revision, exclusions, and approval. Readback omits some
 platform options and media identity; resolve missing details before presenting a complete review.
 
-- A destination supplied to `vidiq_social_post_draft_update` **replaces** that account's draft.
-  Send its complete intended settings, including unchanged fields. Omitted destinations stay intact.
-- Changing shared text or media requires resending every unpublished destination for validation,
-  including one the creator intends to exclude. A destination-specific correction stays on the same post.
+- `vidiq_social_post_draft_update` sends only what changes. For an account already drafted, a
+  field left out keeps its saved value and `null` resets it; accounts left out stay as they are.
+  An account new to the post, or one whose publishing failed, needs its complete settings.
+- To move the time of a post with one unpublished destination, send `postId` and `publishAt`
+  alone. With several, name each destination to move, and ask the creator which when unclear.
+- A change to shared text or media is checked against every unpublished destination by the tool.
+  Inspect each returned destination: one may now carry an issue, or an X text or YouTube media
+  copy of its own that still holds the old version.
 - A draft cannot lose a destination. Retain exclusions across edits and retries, and publish only
   the selected publication IDs. Discarding a draft leaves it unpublished; do not claim it was deleted.
-- Already scheduled or published destinations cannot be edited through draft update.
-- A refused replacement may have removed the prior draft; inspect the returned state rather
-  than assuming the previous version remains publishable.
+- A published destination cannot be changed. A scheduled one changes only when the creator asks:
+  send it with its complete settings and `replaceScheduled: true`. The scheduled post is cancelled
+  and a draft saved in its place, which goes out only after review, approval, and publishing. To
+  cancel without a replacement, leave that draft unpublished. A scheduled YouTube video is made
+  private without its publish time first; it stays on the channel as a private video, and the
+  replacement is refused if the video is already public. X credits already charged are not refunded,
+  but count toward the replacement's quote.
+- A refused change may have removed the prior draft, and a refused replacement can leave the
+  original no longer scheduled; inspect the returned state rather than assuming the previous version
+  remains publishable or scheduled.
 
 ## Check delivery
 
@@ -56,11 +67,18 @@ has happened. Preserve the intended release time from the brief.
   approved publish arguments is idempotent under the current tool contract; if still needed,
   make at most one unchanged replay within that approval, then stop on an unresolved error.
   Never create a new post to compensate for an unknown result.
-- A failed destination is retried only when explicitly named in `publicationIds`. For a temporary
-  failure, retry once when the creator's request authorizes recovery and the same approved
-  content and cost still apply. Reconnection or platform-limit failures require that condition
-  to be resolved first. For content or media rejection, update the same post's failed destination,
-  show the correction and quote, and obtain approval of the changed version before publishing.
+- A failed destination is retried only when explicitly named in `publicationIds`, on the same
+  post. Choose the path by `failureCode`, and by `failureReason` where the code is not enough:
+
+  | Failure | Restart |
+  | --- | --- |
+  | `retriesExhausted` | Temporary trouble outlasted automatic retries. Publish the same destination once more when the creator's request authorizes recovery and the approved content and cost still apply. |
+  | `reconnectRequired` | Offer reconnection through the tool `vidiq_social_account_list` names for that account, wait for it, then publish the same destination again. |
+  | `limitReached`, or a YouTube reason mentioning `uploadLimitExceeded` | Follow [Pacing and platform limits](platform-limits.md): explain the limit and its likely cause, and publish the same destination again only after it resets. |
+  | `rejected`, `unsupported` | The same content will be refused again. Update the failed destination on the same post, show the correction and quote, and get approval of the changed version before publishing it. |
+
+  Without a code, show the reason and let the creator decide. Never retry a destination whose
+  status is `reconciliationRequired`.
 - When create or import has an unknown outcome, inspect available history and saved IDs before
   repeating. Undated drafts are absent from post history, so an empty list cannot prove creation
   failed. If identity cannot be recovered, disclose that uncertainty and seek a decision before

@@ -1,6 +1,6 @@
 ---
 name: vidiq-publishing
-description: Prepare and adapt supplied content for YouTube, Instagram, TikTok, X, and Facebook Pages; save drafts, publish or schedule approved versions, and track each destination. Use when asked 'post this everywhere', 'publish a Reel', 'upload to YouTube', 'tweet this', 'schedule these posts', 'change my draft', 'what is scheduled', or 'did my post go out'. For changes to a video already on YouTube, use vidiq-video-metadata.
+description: Prepare and adapt supplied content for YouTube, Instagram, TikTok, X, Facebook Pages, and Bluesky; save drafts, publish or schedule approved versions, and track each destination. Use when asked 'post this everywhere', 'publish a Reel', 'upload to YouTube', 'tweet this', 'schedule these posts', 'change my draft', 'what is scheduled', or 'did my post go out'. For changes to a video already on YouTube, use vidiq-video-metadata.
 ---
 
 # vidIQ Publishing
@@ -35,6 +35,8 @@ Use `vidiq-video-metadata` for existing YouTube video changes, and `vidiq-video-
    ambiguity rather than inventing a time. A series needs explicit occurrences, not assumed recurrence.
 5. Read [Platforms and media](references/platforms-and-media.md) for the selected destinations and
    imports. Retain supplied privacy and platform settings; ask for missing choices.
+6. For several posts to one account in a day, especially several YouTube videos, read
+   [Pacing and platform limits](references/platform-limits.md) before preparing them.
 
 Keep a working brief with source/library IDs, content, settings and times per account, `postId`,
 `publicationId`s, current `revision`, exclusions, and approval. Update it after edits and results:
@@ -48,7 +50,8 @@ the actual asset when requested, using supplied or inspected evidence; explain m
 1. Import media once and reuse library IDs, not source URLs, in drafts.
 2. Use `vidiq_social_post_draft_create` for one creative post with all its regular destinations:
    common text, media, and timing with destination overrides. Distinct posts need distinct drafts.
-3. Inspect every destination's issue and saved state; `ready` is validation, not guaranteed delivery.
+3. Inspect every destination's issue, saved state, and `pacing`; `ready` is validation, not
+   guaranteed delivery, and `pacing` is advice covered in [Pacing and platform limits](references/platform-limits.md).
    Before any `vidiq_social_post_draft_update`, read [Edit or resume a draft](references/delivery-and-recovery.md#edit-or-resume-a-draft).
    Correct supported issues on the same post. Stop when resolution needs a creator choice or
    external change; explain remaining refusals before proposing fewer destinations.
@@ -59,8 +62,9 @@ Show each account's final text, identifiable media and order, settings, exact ti
 quoted cost, and the total. Include unresolved issues and excluded destinations. A quote is not a charge.
 
 Distinguish settings retained in the brief from server-confirmed fields; resolve discrepancies.
-A dated draft is only planned. Before scheduling, explain that scheduled social posts currently
-cannot be cancelled or changed; the platform reference covers YouTube's native-schedule exception.
+A dated draft is only planned. Before scheduling, explain that a scheduled destination can later be
+changed or cancelled only by replacing it, as described in [Edit or resume a draft](references/delivery-and-recovery.md#edit-or-resume-a-draft),
+and that a published one cannot be changed.
 
 Publish only the saved version the creator has seen and explicitly approved, including destinations,
 settings, times, and cost. An initial posting request or status question does not approve a later
@@ -74,6 +78,8 @@ Retain exclusions; publish sequentially for the same post. A stale revision requ
 reviewing the changed draft, not substituting a fresh token. On `verification_required`, show the
 returned step, wait for completion, and resume the same approved call without another content approval.
 
-Read [Delivery and recovery](references/delivery-and-recovery.md) before status checks or retries.
+Read [Delivery and recovery](references/delivery-and-recovery.md) before status checks or retries,
+and [Pacing and platform limits](references/platform-limits.md) for any limit failure, including a
+YouTube failure that mentions `uploadLimitExceeded`.
 Report each destination's actual state, link, and next action. Preserve successful destinations;
 distinguish saved drafts, accepted requests, scheduled posts, and confirmed live posts.
