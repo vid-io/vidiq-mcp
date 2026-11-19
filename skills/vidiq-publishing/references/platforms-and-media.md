@@ -40,8 +40,8 @@ as a new destination.
 | Facebook Pages | Select the actual Page, not a personal Facebook profile. Connection covers Pages the user manages through their own profile; an expected Page reached only through a business portfolio may be absent, and Facebook can return fewer Pages than the user selected. |
 | Bluesky | Only the shared text and media apply; there are no platform options. Posts are short plain text with a few images or one short video: check the live schema's limits and give Bluesky its own shorter text when the shared text is too long. |
 
-TikTok photo posts currently use JPEGs of at most 1080p, with 1–20 images; video posts use one
-video. Check known dimensions before submission: a draft can pass and later fail for image size.
+TikTok photo posts currently use JPEGs of at most 1080p and 20 MB, with 1–35 images; video posts use
+one video. Check known dimensions before submission: a draft can pass and later fail for image size.
 Use the destination's validation issue to resolve other limits rather than maintaining a second
 copy of every platform's rules. Keep the original asset for platforms that accept it.
 
