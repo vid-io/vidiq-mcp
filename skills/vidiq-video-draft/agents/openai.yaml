@@ -1,0 +1,12 @@
+interface:
+  display_name: "vidIQ Video Draft"
+  short_description: "Draft, judge, and fix a video before you film it"
+  default_prompt: "Use $vidiq-video-draft to build a draft of my video about [topic] before I film it, and tell me what each paid step costs first."
+
+dependencies:
+  tools:
+    - type: "mcp"
+      value: "vidiq"
+      description: "Script context, voiceover, stock footage, compose, and video watching from vidIQ"
+      transport: "streamable_http"
+      url: "https://mcp.vidiq.com/mcp"

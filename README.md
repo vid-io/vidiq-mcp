@@ -47,6 +47,8 @@ Use live vidIQ data to decide what to make next and understand how your content 
   changes to videos you own (`vidiq_score_title`, `vidiq_generate_thumbnail`, `vidiq_update_video`).
 - Study public Instagram and TikTok content for patterns to adapt to YouTube Shorts
   (`vidiq_instagram_tiktok_outlier_search`).
+- Build a draft of a video before you film it, compare it with what works in your niche, then put
+  your filmed take in (`vidiq_voiceover_generate`, `vidiq_find_broll`, `vidiq_compose`).
 - Prepare content for YouTube, Instagram, TikTok, X, Facebook Pages, and Bluesky, then publish or
   schedule the exact versions you approve (`vidiq_social_post_draft_create`,
   `vidiq_social_post_publish`).
@@ -188,7 +190,7 @@ openclaw skills list
 ```
 
 Review the requested capabilities before accepting. Confirm that inspection lists `skills` and
-`mcpServers`, and that the skill list includes the 15 `vidiq-` workflows.
+`mcpServers`, and that the skill list includes the 16 `vidiq-` workflows.
 Register the server for OpenClaw's login command, then authorize your vidIQ account:
 
 ```bash
@@ -232,7 +234,7 @@ hermes mcp add vidiq --url https://mcp.vidiq.com/mcp --auth oauth
 ```
 
 Complete vidIQ authorization in your browser, then start a new session and ask Hermes to use
-vidIQ Get Started. The plugin installs all 15 workflows; the separate MCP connection provides
+vidIQ Get Started. The plugin installs all 16 workflows; the separate MCP connection provides
 the live tools. A vidIQ account is required, and hosted tools may consume credits.
 
 Check the connection with `hermes mcp test vidiq`. If already configured, sign in again or switch
@@ -413,6 +415,8 @@ Use natural language. Replace the bracketed details, or give the assistant a cha
   and what I can adapt without copying it.”
 - **Apply a change:** “Update my video `[video ID]` with this approved title and these tags, show me
   the before and after, and confirm what changed.”
+- **Draft before you film:** “Build a draft of my video about `[topic]` with a voiceover, stock
+  footage, and captions before I film it. Tell me what each paid step costs first.”
 - **Answer your viewers:** “Draft three replies to this comment in my channel's voice.”
 - **Estimate earnings:** “Estimate what this video earned, and what 500,000 monthly views would earn
   in my niche.”
@@ -450,6 +454,7 @@ request.
 | [Packaging Studio](skills/vidiq-packaging-studio/SKILL.md) | Turn a source video, concept card, script draft, rough idea pitch, or underperforming published video into scored titles, a thumbnail, and an optional script, or compare distinct title and thumbnail directions for the same video. | “Write five titles and a thumbnail idea for this video.” |
 | [Video Metadata](skills/vidiq-video-metadata/SKILL.md) | Apply an approved title, description, tags, schedule, or thumbnail change to a video you own, with a snapshot and readback. | “Update my video with this title and these tags.” |
 | [Shorts Inspiration](skills/vidiq-shorts-inspiration/SKILL.md) | Study short-form content patterns and develop original YouTube Shorts ideas. | “What's working on TikTok in my niche that I could adapt for Shorts?” |
+| [Video Draft](skills/vidiq-video-draft/SKILL.md) | Build a full draft of a video before filming (script, voice, pictures, graphics, captions), compare it with outliers in the niche, fix it, then film to the timed script and put the take in. | “Make a draft of this script with a voiceover and stock footage so I can fix it before I film.” |
 | [Publishing](skills/vidiq-publishing/SKILL.md) | Adapt supplied content for connected social accounts, review drafts, publish or schedule approved versions, and track delivery. | “Prepare this clip for Reels, TikTok, and Shorts tomorrow, and show me the drafts.” |
 
 ## Tools the workflows use
@@ -471,6 +476,7 @@ verification, and your approval of the exact change.
 | Titles, thumbnails, scripts, and chapters | `vidiq_generate_titles`, `vidiq_score_title`, `vidiq_generate_thumbnail` (async), `vidiq_refine_thumbnail` (async), `vidiq_score_thumbnail`, `vidiq_generate_script` (async), `vidiq_generate_video_chapters` (async), `vidiq_generate_comment_replies` | all except `vidiq_generate_thumbnail`, `vidiq_refine_thumbnail`, `vidiq_generate_video_chapters`, `vidiq_generate_comment_replies` |
 | Changes to your channel (owner access, approval required) | `vidiq_update_video`, `vidiq_update_video_thumbnail` | none |
 | Media production | *`vidiq_file_upload`* (client-dependent), *`vidiq_video_upload`*, `vidiq_generate_clips` (async), `vidiq_generate_broll`, `vidiq_compose` (async), `vidiq_edit_media` (async), `vidiq_motion_graphics` (async), `vidiq_generate_music` (async), *`vidiq_voiceover_list_voices`*, `vidiq_voiceover_generate` (async), `vidiq_generate_video` (async) | all except `vidiq_file_upload`, `vidiq_video_upload`, `vidiq_generate_music`, `vidiq_voiceover_list_voices`, `vidiq_voiceover_generate`, `vidiq_generate_video` |
+| Video drafts | `vidiq_before_scripts_outlines_and_edits`, `vidiq_find_broll`, `vidiq_image_generate` (async), `vidiq_media_file_info`, *`vidiq_review_open`*, *`vidiq_review_notes`* | all except `vidiq_before_scripts_outlines_and_edits`, `vidiq_image_generate`, `vidiq_review_open`, `vidiq_review_notes` |
 | Instagram | `vidiq_ig_profile`, `vidiq_ig_profile_reels`, `vidiq_instagram_account_discovery`, `vidiq_instagram_owner_insights`, `vidiq_instagram_publish_reel` | all except `vidiq_instagram_owner_insights`, `vidiq_instagram_publish_reel` |
 | TikTok | `vidiq_tiktok_profile`, `vidiq_tiktok_profile_videos`, `vidiq_tiktok_video_comments`, `vidiq_tiktok_account_discovery` | all |
 | Social publishing | *`vidiq_social_account_list`*, *`vidiq_social_account_connect`*, *`vidiq_upload_image`*, *`vidiq_social_post_draft_create`*, *`vidiq_social_post_draft_get`*, *`vidiq_social_post_draft_update`*, `vidiq_social_post_publish`, *`vidiq_social_post_list`*, *`vidiq_social_post_status`* | all |

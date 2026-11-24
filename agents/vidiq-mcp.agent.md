@@ -20,8 +20,9 @@ directions. Use `vidiq-next-video-planner` for choosing an upload
 from channel performance and demand evidence, `vidiq-youtube-seo` for keywords, tags, and
 descriptions, `vidiq-video-breakdown` for any public video by URL, and `vidiq-video-metadata` to
 apply an approved change to an owned video. Use `vidiq-publishing` to adapt supplied content,
-prepare drafts across connected accounts, publish approved versions, or check delivery. The agent
-guide's routing table maps creator wording to each skill.
+prepare drafts across connected accounts, publish approved versions, or check delivery. Use
+`vidiq-video-draft` to build, judge, and fix a draft of a video before it is filmed, then put the
+filmed take in. The agent guide's routing table maps creator wording to each skill.
 
 ## Handle calls without a dedicated skill
 

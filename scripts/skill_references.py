@@ -14,7 +14,7 @@ SKILLS = frozenset(
         "channel-audit", "comment-insights", "competitor-watchlist", "get-started",
         "new-upload-review", "next-video-planner", "packaging-studio", "publishing",
         "retention-analysis", "shorts-inspiration", "trend-radar",
-        "video-breakdown", "video-ideas", "video-metadata", "youtube-seo",
+        "video-breakdown", "video-draft", "video-ideas", "video-metadata", "youtube-seo",
     )
 )
 SHARED_REFERENCES = {
@@ -24,7 +24,7 @@ SHARED_REFERENCES = {
         for name in (
             "comment-insights", "competitor-watchlist", "next-video-planner",
             "packaging-studio", "shorts-inspiration",
-            "trend-radar", "video-breakdown", "video-ideas", "youtube-seo",
+            "trend-radar", "video-breakdown", "video-draft", "video-ideas", "youtube-seo",
         )
     ),
     "job-lifecycle.md": frozenset(
@@ -32,7 +32,7 @@ SHARED_REFERENCES = {
         for name in (
             "comment-insights", "next-video-planner", "packaging-studio", "publishing",
             "retention-analysis", "shorts-inspiration",
-            "video-breakdown", "video-metadata",
+            "video-breakdown", "video-draft", "video-metadata",
         )
     ),
 }

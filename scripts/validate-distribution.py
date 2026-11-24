@@ -85,6 +85,8 @@ ALLOWED_FILES = {
     "skills/vidiq-publishing/references/platforms-and-media.md",
     "skills/vidiq-publishing/references/delivery-and-recovery.md",
     "skills/vidiq-publishing/references/platform-limits.md",
+    "skills/vidiq-video-draft/references/judge-the-draft.md",
+    "skills/vidiq-video-draft/references/film-and-swap.md",
 } | {
     relative
     for skill in EXPECTED_SKILLS

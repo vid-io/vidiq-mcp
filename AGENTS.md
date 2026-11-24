@@ -36,6 +36,7 @@ vidIQ account.
 | Titles, thumbnails, scripts, repackage a video, compare packaging directions | `vidiq-packaging-studio` |
 | Update a video's title, description, tags, chapters, schedule, or thumbnail | `vidiq-video-metadata` |
 | Shorts ideas from Reels and TikTok | `vidiq-shorts-inspiration` |
+| Draft or mock up a video before filming, judge a draft, swap filmed footage into it | `vidiq-video-draft` |
 | Post, cross-post, tweet, save or edit a social draft, schedule posts, check delivery | `vidiq-publishing` |
 
 For end-to-end "find an idea and package it" requests, run `vidiq-video-ideas` first and feed its
@@ -63,7 +64,8 @@ Tools with no workflow of their own, and the rule for each:
   charge.
 - **Media generation:** `vidiq_generate_broll`, `vidiq_compose`, `vidiq_edit_media`,
   `vidiq_motion_graphics`, `vidiq_generate_music`, the `vidiq_voiceover_*` tools, and
-  `vidiq_generate_video` are asynchronous jobs; confirm the cost before starting.
+  `vidiq_generate_video` are asynchronous jobs; confirm the cost before starting. To build a whole
+  draft video from them, use `vidiq-video-draft`.
 - **Bookmarks:** `vidiq_bookmarks_save`, `vidiq_bookmarks_list`, and `vidiq_bookmarks_remove` keep
   the creator's saved research; save or remove only on an explicit request.
 - **Deprecated aliases:** `vidiq_breakout_channels`, `vidiq_ig_reel_watch`,
