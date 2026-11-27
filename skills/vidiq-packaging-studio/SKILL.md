@@ -1,17 +1,20 @@
 ---
 name: vidiq-packaging-studio
-description: Write, score, compare, and improve YouTube titles and thumbnails for an idea, existing script, reference video, or underperforming video. Use whenever a creator asks for titles or thumbnails, even a quick list. Triggers include 'title ideas', 'rewrite my title', 'thumbnail ideas', 'make or refine a thumbnail', 'which title is better', 'A/B test these titles or thumbnails', or 'why didn't this video get clicks'.
+description: Write, score, and compare YouTube titles and thumbnails, or draft and edit scripts, Shorts, outlines, and hooks. Use for requests such as 'title ideas', 'make or refine a thumbnail', 'A/B test these titles or thumbnails', 'why didn't this video get clicks', 'write a script for this video', 'outline a Short', or 'cut this intro to 20 seconds'.
 ---
 
 # vidIQ Packaging Studio
 
 Read [Live surface notes](references/live-surface-notes.md) first, even when using only supplied evidence.
 
-Create an honest title-thumbnail package from a concept, script, reference, or published video.
-Use the creator's supplied audience, format, language, tone, and assets.
+Use the creator's concept, draft, reference, or published video to develop the requested
+title, thumbnail, or script. Preserve the supplied audience, format, language, tone, and assets.
 
 ## Match the request
 
+- For a script, Short script, outline, or hook, including edits and critiques, start with
+  [Scripts, outlines, and hooks](references/production.md#scripts-outlines-and-hooks).
+- When a script is supplied only as context for a title or thumbnail, use the packaging steps.
 - For a focused title or thumbnail edit, go directly to that edit. Resolve a channel or fetch
   evidence only when the action needs it.
 - For an idea or script, establish what the content can truthfully deliver.
@@ -63,7 +66,7 @@ claim a visual winner before inspecting renders.
 
 ## Deliver
 
-Return the requested titles, thumbnail directions, edited assets, or critique, with the rationale
+Return the requested script work, titles, thumbnail directions, edited assets, or critique, with the rationale
 and material limitations. Include source-to-adaptation reasoning when references informed the
 work. For executed tools, report generated URLs or pending job IDs, relevant scores and their
 context.
