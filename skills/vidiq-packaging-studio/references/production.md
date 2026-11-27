@@ -61,9 +61,18 @@ Save and poll the refinement job, inspect the image, and use returned critique b
 additional scoring. Missing score/feedback remains missing; separately score only when needed.
 Keep the best eligible result for the brief, not merely the highest score.
 
-## Optional script
+## Scripts, outlines, and hooks
 
-Use `vidiq_generate_script` only for a requested long-form script, with the selected topic, title,
-concept, length, tone, and verified research. For Shorts, offer a brief grounded conversation
-draft or an exposed tool that supports Shorts; do not pad it to the long-form tool's one-minute
-minimum. Preserve any asynchronous script job and flag facts the creator still needs to verify.
+Before writing or editing, call `vidiq_before_scripts_outlines_and_edits` with the creator's
+request verbatim, any supplied sources, and only the constraints they stated. Use the returned
+writing guidance and available channel voice to draft, revise, or critique the copy directly
+in the conversation. Read any source marked unfetched before relying on it.
+
+When the creator requests a length, or before quoting a word count or runtime, call
+`vidiq_before_stating_script_length` with the final spoken words in `spokenText`. Exclude
+stage directions and speaker labels. Pass the requested target and, for a percentage cut, the
+original spoken words. Revise if the result misses the target and measure the edited copy again.
+Report runtime as an estimate.
+
+If the client lacks a helper, continue with the creator's brief and identify any length
+constraint you could not verify.

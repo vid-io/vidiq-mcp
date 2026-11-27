@@ -33,7 +33,7 @@ vidIQ account.
 | Where viewers drop off, retention, watch time | `vidiq-retention-analysis` |
 | What viewers say or want in the comments, niche-wide audience requests, draft a comment reply | `vidiq-comment-insights` |
 | Analyze this video, why did it go viral | `vidiq-video-breakdown` |
-| Titles, thumbnails, scripts, repackage a video, compare packaging directions | `vidiq-packaging-studio` |
+| Titles, thumbnails, script drafts or edits, outlines, hooks, compare packaging directions, repackage a video | `vidiq-packaging-studio` |
 | Update a video's title, description, tags, chapters, schedule, or thumbnail | `vidiq-video-metadata` |
 | Shorts ideas from Reels and TikTok | `vidiq-shorts-inspiration` |
 | Post, cross-post, tweet, save or edit a social draft, schedule posts, check delivery | `vidiq-publishing` |
