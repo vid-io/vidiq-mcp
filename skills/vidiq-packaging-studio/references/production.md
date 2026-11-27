@@ -60,10 +60,3 @@ requested; keep them bounded. Change one variable for a controlled comparison.
 Save and poll the refinement job, inspect the image, and use returned critique before requesting
 additional scoring. Missing score/feedback remains missing; separately score only when needed.
 Keep the best eligible result for the brief, not merely the highest score.
-
-## Optional script
-
-Use `vidiq_generate_script` only for a requested long-form script, with the selected topic, title,
-concept, length, tone, and verified research. For Shorts, offer a brief grounded conversation
-draft or an exposed tool that supports Shorts; do not pad it to the long-form tool's one-minute
-minimum. Preserve any asynchronous script job and flag facts the creator still needs to verify.
